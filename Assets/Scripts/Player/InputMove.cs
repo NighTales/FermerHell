@@ -5,26 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class InputMove : MonoBehaviour
 {
-    [SerializeField, Range(1,10)] private float speed = 5f;
+    [SerializeField, Range(1, 10)] private float speed = 5f;
     [SerializeField, Range(1, 50)] private float jumpForce = 15.0f;
     [SerializeField, Range(-40, -1)] private float terminalVelocity = -10.0f;
     [SerializeField, Tooltip("Сила притяжения на земле"), Range(-2, 0)] private float minFall = -1.5f;
     [SerializeField, Range(0.1f, 20)] private float gravity = 9.8f;
     [SerializeField, Range(1, 5), Tooltip("Ускорение при рывке")] private float sprintMultiplicator = 3;
-    [SerializeField, Range(0.1f, 1), Tooltip("Время рывка")] private float sprintTime = 0.5f;
-    [SerializeField, Range(1,5), Tooltip("Время перезарядки рывка")] private float sprintReloadTime = 2;
+    [SerializeField, Range(0.1f, 1), Tooltip("Время рывка")] private float sprintTime = 0.3f;
+    [SerializeField, Range(0.1f, 5f), Tooltip("Время перезарядки рывка")] private float sprintReloadTime = 1;
 
     private CharacterController charController;
     private Vector3 moveVector;
     private Vector3 horSpeed;
-    private float sprintMultiplicatorBufer;
-    private float currentSprintReloadTime;
-    private float vertSpeed;
-    private int sprintCount;
-    private bool inMenu;
-    private bool startup;
-    private bool fall;
-    private float fallTimer;
+    [SerializeField] private float sprintMultiplicatorBufer;
+    [SerializeField] private float currentSprintReloadTime;
+    [SerializeField] private float vertSpeed;
+    [SerializeField] private int sprintCount;
+    [SerializeField] private int sprintCountBuffer;
+    [SerializeField] private bool inMenu;
+    [SerializeField] private bool startup;
+    [SerializeField] private bool fall;
+    [SerializeField] private float fallTimer;
 
     void Awake()
     {
@@ -32,14 +33,14 @@ public class InputMove : MonoBehaviour
         Messenger<bool>.AddListener(GameEvent.PAUSE, OnPause);
         Messenger<int>.AddListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
         Messenger<int>.AddListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusSpeed);
-    //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
+        //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
     void OnDestroy()
     {
         Messenger<bool>.RemoveListener(GameEvent.PAUSE, OnPause);
         Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
         Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusSpeed);
-     //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
+        //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 
     private void Start()
@@ -51,7 +52,7 @@ public class InputMove : MonoBehaviour
     }
     void Update()
     {
-        if(!inMenu)
+        if (!inMenu)
         {
             Jump();
             PlayerSprint();
@@ -88,7 +89,7 @@ public class InputMove : MonoBehaviour
                 vertSpeed = jumpForce;
             }
             else
-            { 
+            {
                 vertSpeed = minFall;
             }
         }
@@ -105,7 +106,7 @@ public class InputMove : MonoBehaviour
             else
             {
                 fallTimer -= Time.deltaTime;
-                if(fallTimer <= 0)
+                if (fallTimer <= 0)
                 {
                     fallTimer = 0;
                     fall = true;
@@ -116,12 +117,13 @@ public class InputMove : MonoBehaviour
     }
     private void PlayerMove()
     {
-        if(!startup)
+        if (!startup)
         {
-            float deltaX = Input.GetAxis("Horizontal") * speed;
-            float deltaZ = Input.GetAxis("Vertical") * speed;
-            moveVector = new Vector3(deltaX, 0, deltaZ);
-            moveVector = Vector3.ClampMagnitude(moveVector, speed) * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]; //Ограничим движение по диагонали той же скоростью, что и движение параллельно осям
+            float deltaX = Input.GetAxis("Horizontal");
+            float deltaZ = Input.GetAxis("Vertical");
+            moveVector = new Vector3(deltaX, 0, deltaZ).normalized;//Ограничим движение по диагонали той же скоростью, что и движение параллельно осям
+            moveVector = moveVector * speed * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed];
+            //moveVector = Vector3.ClampMagnitude(moveVector, speed) * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]; //Ограничим движение по диагонали той же скоростью, что и движение параллельно осям
             horSpeed = moveVector;
             moveVector.y = vertSpeed;
             moveVector *= (Time.deltaTime);
@@ -132,9 +134,14 @@ public class InputMove : MonoBehaviour
     }
     private void PlayerSprint()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift) && horSpeed.magnitude != 0 && sprintMultiplicatorBufer == 1)
+        if (charController.isGrounded && sprintCountBuffer > 0)
         {
-            if(sprintCount > 0)
+            sprintCount += sprintCountBuffer;
+            sprintCountBuffer = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && horSpeed.magnitude != 0 && sprintMultiplicatorBufer == 1)
+        {
+            if (sprintCount > 0)
             {
                 fall = false;
                 fallTimer += sprintTime + 0.1f;
@@ -142,19 +149,19 @@ public class InputMove : MonoBehaviour
                 Invoke("ReturnSprintOpportunity", sprintTime);
                 Invoke("StopSprint", sprintTime + 0.1f);
                 sprintCount--;
-                currentSprintReloadTime = sprintReloadTime;
+                currentSprintReloadTime = charController.isGrounded ? sprintReloadTime / 2f : sprintReloadTime;
                 Messenger<int>.Broadcast(GameEvent.CHANGE_SPRINT_COUNT, sprintCount);
                 Messenger.Broadcast(GameEvent.SPRINT_ACTION);
                 Messenger<Vector3>.Broadcast(GameEvent.START_SPRINT, horSpeed);
             }
         }
-        if(sprintCount < 3)
+        if (sprintCount < 3 || sprintCountBuffer < 3)
         {
             currentSprintReloadTime -= Time.deltaTime;
-            if(currentSprintReloadTime <= 0)
+            if (currentSprintReloadTime <= 0)
             {
-                sprintCount++;
-                currentSprintReloadTime = sprintCount == 3 ? 0 : sprintReloadTime;
+                sprintCountBuffer++;
+                currentSprintReloadTime = sprintCountBuffer == 3 ? 0 : sprintReloadTime;
                 sprintMultiplicatorBufer = 1;
                 Messenger<int>.Broadcast(GameEvent.CHANGE_SPRINT_COUNT, sprintCount);
             }
@@ -168,7 +175,7 @@ public class InputMove : MonoBehaviour
 
     #region Вызовы Invoke
     private void StopStartup() => startup = false;
-    private void ReturnSprintOpportunity()=> sprintMultiplicatorBufer = 1;
+    private void ReturnSprintOpportunity() => sprintMultiplicatorBufer = 1;
     private void StopSprint()
     {
         Messenger.Broadcast(GameEvent.STOP_SPRINT);
