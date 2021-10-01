@@ -13,7 +13,7 @@ public class Goose : Enemy //Гусь с ракетной установкой (
     [SerializeField, Tooltip("Расстояние, с которого гусь может остановиться и стрелять"), Range(1, 50)] private float attakDistance = 15;
     [SerializeField, Range(0.01f, 1), Tooltip("Время между выстрелами")] float recoilTime = 0.4f;
     [SerializeField, Range(1, 50), Tooltip("Скорость запуска снаряда")] float bulletSpeed = 10;
-    [SerializeField, Tooltip("Точки, в которых бдут по очереди появляться снаряды при выстреле")] List<Transform> shootPoints;
+    [SerializeField, Tooltip("Точки, в которых будут по очереди появляться снаряды при выстреле")] List<Transform> shootPoints;
     [SerializeField, Range(0, 3)] private float timeBetweenShootActions = 1f;
 
     private NavMeshAgent agent;

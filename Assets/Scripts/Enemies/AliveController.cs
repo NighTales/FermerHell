@@ -6,7 +6,7 @@ public abstract class AliveController : MonoBehaviour
 {
     [Range(1,500)] public int maxHealth = 50;
 
-    public int Health
+    public virtual int Health
     {
         get => _health;
         set
@@ -18,7 +18,8 @@ public abstract class AliveController : MonoBehaviour
                 _health = maxHealth;
         }
     }
-    private int _health;
+    
+    protected int _health;
 
 
     private void Start()
