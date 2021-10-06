@@ -19,7 +19,7 @@ public abstract class AliveController : MonoBehaviour
         }
     }
     
-    protected int _health;
+    [SerializeField]protected int _health;
 
 
     private void Start()

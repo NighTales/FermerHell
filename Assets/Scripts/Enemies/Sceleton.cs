@@ -9,11 +9,11 @@ using Random = UnityEngine.Random;
 public class Sceleton : Enemy
 {
     [SerializeField] private EnemyState state;
-
+    [Range(1,500)] public int suicideHealth = 50;
     [SerializeField, Tooltip("Целевой объект")] private GameObject target;
     [SerializeField, Tooltip("Дальность атаки"), Range(1, 10)] private float attackDistance = 5;
 
-    // private Animator anim;
+    [SerializeField] private Animator anim;
     private NavMeshAgent agent;
 
     //suicide parameters
@@ -80,28 +80,48 @@ public class Sceleton : Enemy
         }
         
     }
+    
+    public override void GetDamage(int damage)
+    {
+        if(Health > 0)
+        {
+            Health -= damage;
+            if (Health>suicideHealth)
+            {
+                
+                anim.SetInteger("Damage",damage);
+                anim.SetTrigger("GetDamage");
+            }
+            else
+            {
+                anim.SetBool("WithoutLegs",true);
+            }
+        }
+        
+    }
+    
 
     #region StateMethods
 
     private IEnumerator Born()
     {
+        anim.SetBool("WithoutLegs",false);
         yield return new WaitForSeconds(1);
-        state = EnemyState.MoveToTarget;
+        state = EnemyState.MoveToTarget; // idlle
     }
     private void Move()
     {
         if(target != null)
         {
-            agent.isStopped = false;
+            //agent.isStopped = false;
             if ((target.transform.position - transform.position).magnitude <attackDistance)
             {
                 state = EnemyState.Attack;
             }
             else
             {
-               // anim.SetBool("Move", true);
-                
-                agent.destination = target.transform.position;
+               anim.SetBool("Walk", true);
+               agent.destination = target.transform.position;
             }
         }
         else if(!agent.isStopped)
@@ -115,17 +135,25 @@ public class Sceleton : Enemy
          if ((target.transform.position - transform.position).magnitude > attackDistance)
         {
             state = EnemyState.MoveToTarget;
-        }
-         else if (suicideKey)
+        }else if (suicideKey)
          {
+             anim.SetTrigger("Attack");
              elapsedTimeAfterSuicideMode = 5;
              Death();//Health-=100;
          }
          else if (!suicideKey)
          {
+             anim.SetTrigger("Attack");
              //код для обычной атаки        
          }
-    } 
+    }
+    
+
+    public void Stun(bool stunned)
+    {
+        
+        agent.isStopped = stunned;
+    }
     #endregion
     public override int Health // скорее всего дополнять, либо же менять get damage
     {
@@ -137,16 +165,16 @@ public class Sceleton : Enemy
                 Death();
             else if (_health > maxHealth)
                 _health = maxHealth;
-            else if (_health < maxHealth / 4 && !suicideKey)
+            else
             {
-                suicideKey = true;
-                StartCoroutine(SpecialMove());
+                
+
             }
         }
     }
     public override void Death()
     {
-        Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
+       // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         int cycleCount = Random.Range(0, 3);
 
         if (cycleCount > lootPrefabs.Count)
@@ -161,7 +189,7 @@ public class Sceleton : Enemy
             cycleCount--;
         }
         Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
-        Messenger.Broadcast(GameEvent.ENEMY_DEAD);
+       // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode>=1)
         {
             Explosion(1*elapsedTimeAfterSuicideMode,damage*elapsedTimeAfterSuicideMode);
@@ -176,8 +204,10 @@ public class Sceleton : Enemy
     }
     public IEnumerator SpecialMove()
     {
+        suicideKey = true;
         agent.speed = suicidespeed;
         yield return new WaitForSeconds(suicideTimer);
+        Debug.Log("5 секунд прошло");
         Death();//Health-=100;
     }
     
