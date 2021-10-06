@@ -35,9 +35,9 @@ public class Sceleton : Enemy
         agent.isStopped = true;
     }
 
-    private void Start()
+    protected override void Start()
     {
-        Health = maxHealth;
+        base.Start();
         agent = GetComponent<NavMeshAgent>();
         if (target != null)
             Init(target);
@@ -47,7 +47,7 @@ public class Sceleton : Enemy
             if (target != null)
                 Init(target);
         }
-        state = EnemyState.Born;
+        Born();
         // anim = GetComponent<Animator>();
         
     }

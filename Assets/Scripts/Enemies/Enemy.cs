@@ -24,7 +24,7 @@ public abstract class Enemy : AliveController
     [SerializeField] protected GameObject afterFightLoot;
     private Rigidbody rb;
 
-    private void Start()
+    protected virtual void Start()
     {
         Health = maxHealth;
         rb = GetComponent<Rigidbody>();
