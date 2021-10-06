@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 4593703860545086}
   - component: {fileID: 195688767680061010}
   m_Layer: 10
-  m_Name: ElonePumPoint
+  m_Name: ElonePumAlone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
