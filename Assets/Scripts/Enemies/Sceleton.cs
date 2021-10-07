@@ -22,6 +22,7 @@ public class Sceleton : Enemy
     [SerializeField, Tooltip("Таймер для взрыва"), Range(1, 10)] private float suicideTimer = 5;
     private float elapsedTimeAfterSuicideMode = 0f;
 
+    private PhysicsPartController partController;
     
     
     
@@ -47,15 +48,17 @@ public class Sceleton : Enemy
             if (target != null)
                 Init(target);
         }
+
         Born();
         // anim = GetComponent<Animator>();
-        
+        partController = GetComponent<PhysicsPartController>();
     }
 
     #endregion
     
     private void Update()
     {
+        //Debug.Log(agent.isStopped);
         if (suicideKey)
         {
             elapsedTimeAfterSuicideMode += Time.deltaTime;
@@ -94,7 +97,20 @@ public class Sceleton : Enemy
             }
             else
             {
-                anim.SetBool("WithoutLegs",true);
+                
+
+                if (!anim.GetBool("WithoutLegs")) // затратно
+                {
+
+                    anim.SetBool("WithoutLegs",true);
+                    //suicideKey = true; //Могу ли я это использовать?
+
+
+                    if (target != null)
+                    {
+                        partController.FirstPartImpulse(target.transform.position + Vector3.up * 1.8f);
+                    }
+                }
             }
         }
         
@@ -179,7 +195,10 @@ public class Sceleton : Enemy
 
         if (cycleCount > lootPrefabs.Count)
             cycleCount = lootPrefabs.Count;
-
+        if (target != null)
+        {
+            partController.SecondPartImpulse(transform.position );
+        }
         while (cycleCount > 0)
         {
             int number = Random.Range(0, lootPrefabs.Count);
@@ -188,20 +207,22 @@ public class Sceleton : Enemy
             lootPrefabs.Remove(lootPrefabs[number]);
             cycleCount--;
         }
-        Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
+        
        // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode>=1)
         {
-            Explosion(1*elapsedTimeAfterSuicideMode,damage*elapsedTimeAfterSuicideMode);
+            
+            GameObject deadDecal = Instantiate(postDeadDecal, transform.position, Quaternion.identity);
+            deadDecal.GetComponent<Decal>().Init(1);
+            deadDecal.GetComponent<ExplosionZone>().ChangeRange(elapsedTimeAfterSuicideMode*attackDistance, damage*elapsedTimeAfterSuicideMode);
+
+
         }
         Destroy(gameObject);
     }
 
     #region Special
-    public void Explosion(float range, float damage)
-    {
-        
-    }
+
     public IEnumerator SpecialMove()
     {
         suicideKey = true;

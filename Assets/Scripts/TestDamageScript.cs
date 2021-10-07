@@ -11,7 +11,7 @@ public class TestDamageScript : MonoBehaviour
     [SerializeField] private UnityEvent _damageEvent;
     public int Damage;
 
-    [ContextMenu("Ебаш")]public void SetDamage()
+    [ContextMenu("Нанести урон")]public void SetDamage()
     {
         _enemy.GetDamage(Damage);
     }
