@@ -57,14 +57,8 @@ public class InputMove : MonoBehaviour
     }
     void Update()
     {
-
-        if (!inMenu)
-        {
-            Input();
-            Jump();
-            PlayerSprint();
-            PlayerMove();
-        }
+        Input();
+        
     }
 
     private void Input()
@@ -73,12 +67,17 @@ public class InputMove : MonoBehaviour
         deltaZ = UnityEngine.Input.GetAxis("Vertical");
         inputShift = UnityEngine.Input.GetKeyDown(KeyCode.LeftShift);
         inputSpace = UnityEngine.Input.GetKeyDown(KeyCode.Space);
-        timeDelta = Time.deltaTime;
+        timeDelta = Time.fixedDeltaTime;
     }
 
     private void FixedUpdate()
     {
-
+        if (!inMenu)
+        {
+            Jump();
+            PlayerSprint();
+            PlayerMove();
+        }
     }
     public void Setup(Transform targetPos)
     {
