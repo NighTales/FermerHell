@@ -187,28 +187,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6667949911549405910, guid: c7d6f4b6ac4656445b4ca1ac627de1ca, type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667949911549405910, guid: c7d6f4b6ac4656445b4ca1ac627de1ca, type: 3}
       propertyPath: inMenu
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6667949911549405910, guid: c7d6f4b6ac4656445b4ca1ac627de1ca, type: 3}
       propertyPath: minFall
       value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667949911549405910, guid: c7d6f4b6ac4656445b4ca1ac627de1ca, type: 3}
-      propertyPath: jumpForce
-      value: 22.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667949911549405910, guid: c7d6f4b6ac4656445b4ca1ac627de1ca, type: 3}
-      propertyPath: sprintReloadTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667949911549405910, guid: c7d6f4b6ac4656445b4ca1ac627de1ca, type: 3}
-      propertyPath: sprintMultiplicator
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7d6f4b6ac4656445b4ca1ac627de1ca, type: 3}
@@ -321,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5605945983769868298, guid: 85d2db99b06dfc34293da3cc37e06452, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.49999523
+      value: 0.4999962
       objectReference: {fileID: 0}
     - target: {fileID: 5605945983921717575, guid: 85d2db99b06dfc34293da3cc37e06452, type: 3}
       propertyPath: m_AnchorMax.y
@@ -337,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5605945984683330047, guid: 85d2db99b06dfc34293da3cc37e06452, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.49999523
+      value: 0.4999962
       objectReference: {fileID: 0}
     - target: {fileID: 5605945984740346017, guid: 85d2db99b06dfc34293da3cc37e06452, type: 3}
       propertyPath: m_Name
