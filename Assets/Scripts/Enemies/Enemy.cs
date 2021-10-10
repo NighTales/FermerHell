@@ -5,12 +5,10 @@ using UnityEngine;
 
 public enum EnemyState
 {
+    Iddle,
     MoveToTarget,
     Attack,
     Recoil,
-    Death,
-    Born,
-    Stun
 }
 
 

@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Witch : MonoBehaviour
+public class Witch : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<Debuff> debuffs;
+    private List<Ghost> ghosts;
+
+
+
+    #region Special
+
+    private void Spawn()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #endregion
+}
+
+
+public enum Debuff
+{
+    
 }
