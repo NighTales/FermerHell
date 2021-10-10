@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 4600514003884068}
   - component: {fileID: 195645768604319510}
   m_Layer: 10
-  m_Name: ScareCrowPoint
+  m_Name: ScareCrow_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
