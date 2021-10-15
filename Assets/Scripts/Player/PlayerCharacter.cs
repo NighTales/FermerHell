@@ -119,30 +119,30 @@ public class PlayerCharacter : AliveController
                 GetDamage(zone.damage);
             }
         }
-        else if (other.CompareTag("LizerSword"))
-        {
-            OnTakeDamageFromDirection(other.transform.position);
-            GetDamage(10);
-        }
+        //else if (other.CompareTag("LizerSword"))
+        //{
+        //    OnTakeDamageFromDirection(other.transform.position);
+        //    GetDamage(10);
+        //}
         else if(other.CompareTag("Finish"))
         {
             other.GetComponent<SceneController>().OnPlayerEntered();
         }
-        else if (other.CompareTag("ReplicPoint"))
-        {
-            other.GetComponent<ReplicPointScript>().PlayReplicas();
-        }
-        else if (other.CompareTag("Info"))
-        {
-            other.GetComponent<InfoPanel>().SetState(true);
-        }
+        //else if (other.CompareTag("ReplicPoint"))
+        //{
+        //    other.GetComponent<ReplicPointScript>().PlayReplicas();
+        //}
+        //else if (other.CompareTag("Info"))
+        //{
+        //    other.GetComponent<InfoPanel>().SetState(true);
+        //}
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Info"))
-        {
-            other.GetComponent<InfoPanel>().SetState(false);
-        }
+        //if (other.CompareTag("Info"))
+        //{
+        //    other.GetComponent<InfoPanel>().SetState(false);
+        //}
     }
 }

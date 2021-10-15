@@ -14,7 +14,7 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         Messenger.AddListener(GameEvent.WEAPON_ARE_HIDDEN, SetWeapon);
-        Messenger.AddListener(GameEvent.WEAPON_READY, ReturnOpportunityToChangeWeapon);
+       // Messenger.AddListener(GameEvent.WEAPON_READY, ReturnOpportunityToChangeWeapon);
         Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DAMAGE, OnTakeBonusDamage);
         Messenger.AddListener(GameEvent.RETURN_TO_DEFAULT, OnReturnToDefault);
         Messenger.AddListener(GameEvent.START_FINAL_LOADING, HideAllWeapon);

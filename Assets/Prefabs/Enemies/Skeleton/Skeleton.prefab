@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9219794751380834232}
   m_Layer: 0
   m_Name: Fin004-2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6041154695929085873}
   m_Layer: 0
   m_Name: LowerArmR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +202,7 @@ MeshCollider:
   m_GameObject: {fileID: 227659236137337262}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1511497133804400675}
   m_Layer: 0
   m_Name: Spine003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +329,7 @@ BoxCollider:
   m_GameObject: {fileID: 269267761480729814}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.0159319, z: 0.016979348}
   m_Center: {x: 0, y: -0.00065679353, z: -0.000001301058}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 7106051840276277595}
   m_Layer: 0
   m_Name: Fin002-0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 8652006752050923251}
   m_Layer: 0
   m_Name: Fin000
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 2638652431402355492}
   m_Layer: 0
   m_Name: Fin000-1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 9084888557919634009}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 7854853396499213021}
   m_Layer: 0
   m_Name: Fin002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 3253999674488395085}
   m_Layer: 0
   m_Name: Neck003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -785,7 +785,7 @@ BoxCollider:
   m_GameObject: {fileID: 738404993509513720}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.014433209, z: 0.009227793}
   m_Center: {x: 2.220159e-19, y: 0.0007501868, z: 0.0004999355}
@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 6177192072244343797}
   m_Layer: 0
   m_Name: Fin004-0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 2221087289557385590}
   m_Layer: 0
   m_Name: Fin002-003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 1996717874127823241}
   m_Layer: 0
   m_Name: Fin007
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 2868346345854472745}
   m_Layer: 0
   m_Name: Spine002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1185,7 +1185,7 @@ BoxCollider:
   m_GameObject: {fileID: 1440470329684742110}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.01581154, z: 0.016339418}
   m_Center: {x: 0, y: -0.00041122836, z: 0.00027334556}
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 6732513621124311516}
   m_Layer: 0
   m_Name: UpperArmL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1310,7 +1310,7 @@ MeshCollider:
   m_GameObject: {fileID: 1573764707344146008}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -1331,7 +1331,7 @@ GameObject:
   - component: {fileID: 4776344687730624944}
   m_Layer: 0
   m_Name: HandR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1458,7 +1458,7 @@ GameObject:
   - component: {fileID: 804087492382412691}
   m_Layer: 0
   m_Name: Fin001-005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 5553065712244901297}
   m_Layer: 0
   m_Name: Fin003-0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1619,7 +1619,7 @@ GameObject:
   - component: {fileID: 5993908103519686261}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 8059150809896735407}
   m_Layer: 0
   m_Name: Hip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1760,7 +1760,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2062674984167157084}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.047010813
   m_Height: 0.12
   m_Direction: 0
@@ -1778,7 +1778,7 @@ GameObject:
   - component: {fileID: 3714018558534060636}
   m_Layer: 0
   m_Name: Fin004-004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1860,7 +1860,7 @@ GameObject:
   - component: {fileID: 6430061108364352311}
   m_Layer: 0
   m_Name: Fin003-1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1942,7 +1942,7 @@ GameObject:
   - component: {fileID: 7420827448825878139}
   m_Layer: 0
   m_Name: Fin001-0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2027,7 +2027,7 @@ GameObject:
   - component: {fileID: 9183643296187645724}
   m_Layer: 0
   m_Name: LowerArmR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2132,7 +2132,7 @@ MeshCollider:
   m_GameObject: {fileID: 2637128996804645231}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -2148,7 +2148,7 @@ GameObject:
   - component: {fileID: 608689399596001571}
   m_Layer: 0
   m_Name: LeftArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2182,7 +2182,7 @@ GameObject:
   - component: {fileID: 7999332146211618869}
   m_Layer: 0
   m_Name: Fin001-2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2263,7 +2263,7 @@ GameObject:
   - component: {fileID: 8890302958604411086}
   m_Layer: 0
   m_Name: Fin003-2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2347,7 +2347,7 @@ GameObject:
   - component: {fileID: 5216106151259365205}
   m_Layer: 0
   m_Name: Neck001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2425,7 +2425,7 @@ BoxCollider:
   m_GameObject: {fileID: 3557272656897714532}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.015015128, z: 0.010684756}
   m_Center: {x: -3.0543843e-18, y: 0.00025326436, z: 0.0001682004}
@@ -2470,7 +2470,7 @@ GameObject:
   - component: {fileID: 2351406079658664760}
   m_Layer: 0
   m_Name: Fin001-003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2552,7 +2552,7 @@ GameObject:
   - component: {fileID: 4150349483682488590}
   m_Layer: 0
   m_Name: Fin001-1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2637,7 +2637,7 @@ GameObject:
   - component: {fileID: 1437249427822390408}
   m_Layer: 0
   m_Name: Ribs
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2742,7 +2742,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3757231210040103661}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.055134267
   m_Height: 0.0768286
   m_Direction: 1
@@ -2763,7 +2763,7 @@ GameObject:
   - component: {fileID: 142851476224629548}
   m_Layer: 0
   m_Name: CalfL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2868,7 +2868,7 @@ BoxCollider:
   m_GameObject: {fileID: 3769967206143515136}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.031287193, y: 0.026630335, z: 0.17219354}
   m_Center: {x: -0.000000058994132, y: -0.000000045169145, z: -0.0819414}
@@ -2885,7 +2885,7 @@ GameObject:
   - component: {fileID: 4440296089691782497}
   m_Layer: 0
   m_Name: Fin004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2970,7 +2970,7 @@ GameObject:
   - component: {fileID: 2035768157248830113}
   m_Layer: 0
   m_Name: Spine
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3075,7 +3075,7 @@ BoxCollider:
   m_GameObject: {fileID: 3970306588737868968}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.014433207, z: 0.0144513175}
   m_Center: {x: 0, y: 0.00075209554, z: 0.000782923}
@@ -3090,7 +3090,7 @@ GameObject:
   - component: {fileID: 2649663580098649616}
   m_Layer: 0
   m_Name: LeftSholder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,7 +3124,7 @@ GameObject:
   - component: {fileID: 6260201231645716836}
   m_Layer: 0
   m_Name: Fin000-003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3208,7 +3208,7 @@ GameObject:
   - component: {fileID: 9148521840463277899}
   m_Layer: 0
   m_Name: ThighR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3313,7 +3313,7 @@ BoxCollider:
   m_GameObject: {fileID: 4698014402143215235}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.05320763, y: 0.038002983, z: 0.1677685}
   m_Center: {x: -0.0010286175, y: 0.000000012060397, z: -0.066850275}
@@ -3333,7 +3333,7 @@ GameObject:
   - component: {fileID: 5566315676913526739}
   m_Layer: 0
   m_Name: FootL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3438,7 +3438,7 @@ BoxCollider:
   m_GameObject: {fileID: 4789647769486877975}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.033605605, y: 0.08750624, z: 0.022313893}
   m_Center: {x: -0.0075073857, y: -0.025632447, z: -0.00015534864}
@@ -3458,7 +3458,7 @@ GameObject:
   - component: {fileID: 8767596683539317950}
   m_Layer: 0
   m_Name: Neck004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3535,7 +3535,7 @@ BoxCollider:
   m_GameObject: {fileID: 4830769360764358887}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.014780413, z: 0.00999429}
   m_Center: {x: -1.0756034e-17, y: 0.00059364724, z: 0.0006605954}
@@ -3580,7 +3580,7 @@ GameObject:
   - component: {fileID: 7128692380453101371}
   m_Layer: 0
   m_Name: Fin001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3662,7 +3662,7 @@ GameObject:
   - component: {fileID: 2757486021899284307}
   m_Layer: 0
   m_Name: Fin005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3744,7 +3744,7 @@ GameObject:
   - component: {fileID: 296520839110640685}
   m_Layer: 0
   m_Name: Fin004-003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3824,7 +3824,7 @@ GameObject:
   - component: {fileID: 5084042418050207364}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3857,7 +3857,7 @@ GameObject:
   - component: {fileID: 654265125171082837}
   m_Layer: 0
   m_Name: Fin000-0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3942,7 +3942,7 @@ GameObject:
   - component: {fileID: 5129492182121870266}
   m_Layer: 0
   m_Name: UpperArmR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4047,7 +4047,7 @@ MeshCollider:
   m_GameObject: {fileID: 5978115155648022526}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -4068,7 +4068,7 @@ GameObject:
   - component: {fileID: 5941980917272214486}
   m_Layer: 0
   m_Name: ThighL
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4080,13 +4080,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5999957170840331672}
-  m_LocalRotation: {x: 0.7057285, y: -0.04412863, z: -0.04412863, w: 0.7057285}
+  m_LocalRotation: {x: -0.03762329, y: -0.7061051, z: -0.7061051, w: -0.03762329}
   m_LocalPosition: {x: 0.009018116, y: -0.022776812, z: 0.00017987099}
-  m_LocalScale: {x: -2.5399997, y: -2.5399995, z: -2.5399997}
+  m_LocalScale: {x: 2.54, y: 2.539999, z: 2.54}
   m_Children: []
   m_Father: {fileID: 9084888557919634009}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 82.844, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: -96.1, y: -90, z: -90}
 --- !u!33 &6669301434319540322
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4094,7 +4094,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5999957170840331672}
-  m_Mesh: {fileID: 4089312395962073580, guid: d0d9c2fd3eb9ad342ac05f999a7d5232, type: 3}
+  m_Mesh: {fileID: -4744226331156609746, guid: d0d9c2fd3eb9ad342ac05f999a7d5232, type: 3}
 --- !u!23 &2107749820716059060
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4173,7 +4173,7 @@ BoxCollider:
   m_GameObject: {fileID: 5999957170840331672}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.053207625, y: 0.038002975, z: 0.16776843}
   m_Center: {x: -0.002290167, y: 0.000000017695129, z: -0.06511281}
@@ -4188,7 +4188,7 @@ GameObject:
   - component: {fileID: 3870604944289250850}
   m_Layer: 0
   m_Name: LeftFoot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4219,7 +4219,7 @@ GameObject:
   - component: {fileID: 1370606818193854820}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4250,7 +4250,7 @@ GameObject:
   - component: {fileID: 1695890967012990076}
   m_Layer: 0
   m_Name: LeftHand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4283,7 +4283,7 @@ GameObject:
   - component: {fileID: 5753208095958468360}
   m_Layer: 0
   m_Name: Fin001-004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4365,7 +4365,7 @@ GameObject:
   - component: {fileID: 4218162124064226116}
   m_Layer: 0
   m_Name: Fin006
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4447,7 +4447,7 @@ GameObject:
   - component: {fileID: 145984930896739481}
   m_Layer: 0
   m_Name: Fin002-1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4529,7 +4529,7 @@ GameObject:
   - component: {fileID: 4633790285581203338}
   m_Layer: 0
   m_Name: Fin003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4609,7 +4609,7 @@ GameObject:
   - component: {fileID: 5685408673688057881}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4645,7 +4645,7 @@ GameObject:
   - component: {fileID: 4680836093252817924}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4751,7 +4751,7 @@ BoxCollider:
   m_GameObject: {fileID: 6955697132839747993}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.01513557, z: 0.011293886}
   m_Center: {x: 1.2278462e-23, y: 0, z: 0.000000008847566}
@@ -4768,7 +4768,7 @@ GameObject:
   - component: {fileID: 4325896146252165187}
   m_Layer: 0
   m_Name: Fin008
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4850,7 +4850,7 @@ GameObject:
   - component: {fileID: 4208369229075347412}
   m_Layer: 0
   m_Name: Fin002-005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4929,7 +4929,7 @@ GameObject:
   - component: {fileID: 6417602302719215228}
   m_Layer: 0
   m_Name: LeftSubLeg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4963,7 +4963,7 @@ GameObject:
   - component: {fileID: 9131337027050278717}
   m_Layer: 0
   m_Name: Fin000-002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5045,7 +5045,7 @@ GameObject:
   - component: {fileID: 2718231943769874922}
   m_Layer: 0
   m_Name: Fin002-2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5126,7 +5126,7 @@ GameObject:
   - component: {fileID: 4271180803313717810}
   m_Layer: 0
   m_Name: Fin002-004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5208,7 +5208,7 @@ GameObject:
   - component: {fileID: 8765940620315762785}
   m_Layer: 0
   m_Name: Fin003-003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5290,7 +5290,7 @@ GameObject:
   - component: {fileID: 8189571054556727452}
   m_Layer: 0
   m_Name: Fin004-1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5370,7 +5370,7 @@ GameObject:
   - component: {fileID: 4747646356057764315}
   m_Layer: 0
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5407,7 +5407,7 @@ GameObject:
   - component: {fileID: 3892616270601001108}
   m_Layer: 0
   m_Name: Spine001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5513,7 +5513,7 @@ BoxCollider:
   m_GameObject: {fileID: 7938619483400032793}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500418, y: 0.015468646, z: 0.015828922}
   m_Center: {x: 0, y: -0.000022639526, z: 0.00044703425}
@@ -5528,7 +5528,7 @@ GameObject:
   - component: {fileID: 8093321121528680514}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5561,7 +5561,7 @@ GameObject:
   - component: {fileID: 195269268}
   m_Layer: 0
   m_Name: PersAnimOrigin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5624,7 +5624,7 @@ GameObject:
   - component: {fileID: 8093321121710955491}
   m_Layer: 0
   m_Name: RightFoot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5655,7 +5655,7 @@ GameObject:
   - component: {fileID: 8093321121757080379}
   m_Layer: 0
   m_Name: RightLeg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5687,7 +5687,7 @@ GameObject:
   - component: {fileID: 8093321121766840852}
   m_Layer: 0
   m_Name: RightSholder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5719,7 +5719,7 @@ GameObject:
   - component: {fileID: 8093321121793618090}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5750,7 +5750,7 @@ GameObject:
   - component: {fileID: 8093321121817768989}
   m_Layer: 0
   m_Name: Torso
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5784,7 +5784,7 @@ GameObject:
   - component: {fileID: 8093321121915904228}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5817,9 +5817,10 @@ GameObject:
   - component: {fileID: 195269266}
   - component: {fileID: 195269267}
   - component: {fileID: 4458947559125477310}
+  - component: {fileID: 2131728747753909883}
   m_Layer: 0
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5897,10 +5898,11 @@ MonoBehaviour:
   postDeadDecal: {fileID: 4912436217134671704, guid: 3596770cb09a9ff48a523652b8c8e279, type: 3}
   afterFightLoot: {fileID: 0}
   state: 0
-  suicideHealth: 50
   target: {fileID: 0}
   attackDistance: 1.96
+  visionDistance: 53
   anim: {fileID: 8093321121602651424}
+  suicideHealth: 50
   suicidespeed: 5
   suicideTimer: 4
 --- !u!114 &4458947559125477310
@@ -5941,6 +5943,20 @@ MonoBehaviour:
   - {fileID: 1288145723218193707}
   - {fileID: 3253999674488395085}
   - {fileID: 8767596683539317950}
+--- !u!136 &2131728747753909883
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093321122169375273}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8093321122328323877
 GameObject:
   m_ObjectHideFlags: 0
@@ -5952,7 +5968,7 @@ GameObject:
   - component: {fileID: 8093321122328323876}
   m_Layer: 0
   m_Name: RightArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5984,7 +6000,7 @@ GameObject:
   - component: {fileID: 8093321122363279564}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6015,7 +6031,7 @@ GameObject:
   - component: {fileID: 8093321122370419637}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6046,7 +6062,7 @@ GameObject:
   - component: {fileID: 8093321122370857234}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6077,7 +6093,7 @@ GameObject:
   - component: {fileID: 8093321122396696431}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6108,7 +6124,7 @@ GameObject:
   - component: {fileID: 8093321122486115316}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6139,7 +6155,7 @@ GameObject:
   - component: {fileID: 8093321122565442405}
   m_Layer: 0
   m_Name: Hips
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6173,7 +6189,7 @@ GameObject:
   - component: {fileID: 8093321122604330136}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6204,7 +6220,7 @@ GameObject:
   - component: {fileID: 8093321122629897204}
   m_Layer: 0
   m_Name: RightHand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6235,7 +6251,7 @@ GameObject:
   - component: {fileID: 8093321122723195494}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6266,7 +6282,7 @@ GameObject:
   - component: {fileID: 8093321122929305415}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6297,7 +6313,7 @@ GameObject:
   - component: {fileID: 8093321123039439596}
   m_Layer: 0
   m_Name: RightSubLeg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6329,7 +6345,7 @@ GameObject:
   - component: {fileID: 8093321123159116546}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6361,7 +6377,7 @@ GameObject:
   - component: {fileID: 8093321123178133274}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6392,7 +6408,7 @@ GameObject:
   - component: {fileID: 8093321123399380804}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6429,7 +6445,7 @@ GameObject:
   - component: {fileID: 1288145723218193707}
   m_Layer: 0
   m_Name: Neck002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6507,7 +6523,7 @@ BoxCollider:
   m_GameObject: {fileID: 8177097862393962597}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.013500419, y: 0.0147804115, z: 0.009994305}
   m_Center: {x: -0.000000059604645, y: 0.0005065071, z: 0.0003353817}
@@ -6550,7 +6566,7 @@ GameObject:
   - component: {fileID: 27147802645192623}
   m_Layer: 0
   m_Name: '[Model]'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6586,7 +6602,7 @@ GameObject:
   - component: {fileID: 8369269875205744249}
   m_Layer: 0
   m_Name: HandR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6696,7 +6712,7 @@ BoxCollider:
   m_GameObject: {fileID: 8184065403945069100}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.003940894, y: 0.023371467, z: 0.033490915}
   m_Center: {x: 0.00000002806047, y: -0.0041819955, z: -0.011670435}
@@ -6716,7 +6732,7 @@ GameObject:
   - component: {fileID: 1340075549025083205}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6822,7 +6838,7 @@ SphereCollider:
   m_GameObject: {fileID: 8412341609626649987}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.065580964
   m_Center: {x: -1.743545e-16, y: -4.696395e-11, z: 0.014407763}
@@ -6839,7 +6855,7 @@ GameObject:
   - component: {fileID: 7034528831541722654}
   m_Layer: 0
   m_Name: Fin004-005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6920,7 +6936,7 @@ GameObject:
   - component: {fileID: 835852828235810184}
   m_Layer: 0
   m_Name: Fin009
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7005,7 +7021,7 @@ GameObject:
   - component: {fileID: 5637731047862701801}
   m_Layer: 0
   m_Name: FootR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7017,13 +7033,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8673850914701601357}
-  m_LocalRotation: {x: 0.706981, y: 0.013346586, z: 0.013346591, w: 0.7069807}
+  m_LocalRotation: {x: -0.013358715, y: -0.7069808, z: 0.7069808, w: 0.0133340685}
   m_LocalPosition: {x: -0.012, y: -0.029223204, z: -0.031909585}
-  m_LocalScale: {x: -2.54, y: -2.5399988, z: -2.5400007}
+  m_LocalScale: {x: 2.54, y: 2.539999, z: 2.540001}
   m_Children: []
   m_Father: {fileID: 8093321122396696431}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 87.837, y: 90.001, z: 90.001}
+  m_LocalEulerAnglesHint: {x: 87.837, y: -90.001, z: 90.001}
 --- !u!33 &5724848109824339103
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7110,7 +7126,7 @@ BoxCollider:
   m_GameObject: {fileID: 8673850914701601357}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.03360561, y: 0.08750624, z: 0.022313891}
   m_Center: {x: -0.008184556, y: -0.03230483, z: -0.00015537674}
@@ -7127,7 +7143,7 @@ GameObject:
   - component: {fileID: 8225795912449536339}
   m_Layer: 0
   m_Name: Fin003-004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7209,7 +7225,7 @@ GameObject:
   - component: {fileID: 4277455023031127643}
   m_Layer: 0
   m_Name: Fin003-005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7293,7 +7309,7 @@ GameObject:
   - component: {fileID: 3789209917997907240}
   m_Layer: 0
   m_Name: Jaw
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7398,7 +7414,7 @@ BoxCollider:
   m_GameObject: {fileID: 8853627569470233133}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.0777488, y: 0.06199504, z: 0.054660637}
   m_Center: {x: -3.103723e-16, y: -0.033150006, z: -0.04184424}
@@ -7418,7 +7434,7 @@ GameObject:
   - component: {fileID: 2306636300239265857}
   m_Layer: 0
   m_Name: CalfR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7523,7 +7539,7 @@ BoxCollider:
   m_GameObject: {fileID: 9015208176979040690}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.031287193, y: 0.026630344, z: 0.17219356}
   m_Center: {x: -0.00000006065481, y: -0.000000012150924, z: -0.07047537}

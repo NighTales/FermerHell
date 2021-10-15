@@ -11,7 +11,7 @@ public enum MessengerMode
 static internal class MessengerInternal
 {
 	readonly public static Dictionary<string, Delegate> eventTable = new Dictionary<string, Delegate>();
-	static public MessengerMode DEFAULT_MODE = MessengerMode.REQUIRE_LISTENER;
+	static public MessengerMode DEFAULT_MODE = MessengerMode.DONT_REQUIRE_LISTENER;
 
 	static public void AddListener(string eventType, Delegate callback)
 	{
