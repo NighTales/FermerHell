@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class InputMove : MonoBehaviour
+public class InputMove : MonoBehaviour, IDialogueActor
 {
     [SerializeField, Range(1, 100)] private float speed = 5f;
     [SerializeField, Range(1, 50)] private float jumpForce = 15.0f;
@@ -25,6 +25,7 @@ public class InputMove : MonoBehaviour
     [SerializeField] private bool inMenu;
     [SerializeField] private bool startup;
     [SerializeField] private bool fall;
+    [SerializeField] private bool inDialogue;
     [SerializeField] private float fallTimer;
 
     float deltaX;
@@ -58,7 +59,6 @@ public class InputMove : MonoBehaviour
     void Update()
     {
         Input();
-        
     }
 
     private void Input()
@@ -72,7 +72,7 @@ public class InputMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!inMenu)
+        if (!inMenu && !inDialogue)
         {
             Jump();
             PlayerSprint();
@@ -193,7 +193,10 @@ public class InputMove : MonoBehaviour
     {
         inMenu = pause;
     }
-
+    public void SetDialogueState(bool inDialogueState)
+    {
+        inDialogue = inDialogueState;
+    }
     #region Вызовы Invoke
     private void StopStartup() => startup = false;
     private void ReturnSprintOpportunity() => sprintMultiplicatorBufer = 1;
@@ -201,5 +204,7 @@ public class InputMove : MonoBehaviour
     {
         Messenger.Broadcast(GameEvent.STOP_SPRINT);
     }
+
+
     #endregion
 }

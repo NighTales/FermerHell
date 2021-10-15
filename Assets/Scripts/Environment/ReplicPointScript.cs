@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class ReplicPointScript : MonoBehaviour
 {
-    [HideInInspector]public ReplicDispether replicDispether;
+    public ReplicDispether replicDispether;
     public List<ReplicItem> replicas;
 
+
+
+
+    [ContextMenu("Добавить эти реплики")]
     public void PlayReplicas()
     {
         replicDispether.AddInList(replicas);
