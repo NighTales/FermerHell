@@ -11,6 +11,7 @@ public class HellEnemy : Enemy
     [SerializeField] protected Animator anim;
     protected NavMeshAgent agent;
     protected PhysicsPartController partController;
+    [SerializeField, Tooltip("Скорость"), Range(1, 10)] public float speed = 5;
     
     #region Initialization
 
@@ -25,6 +26,7 @@ public class HellEnemy : Enemy
     {
         base.Start();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
         if (target != null)
             Init(target);
         else

@@ -8,11 +8,7 @@ public class ScareCrow : HellEnemy
     [SerializeField, Tooltip("Задержка перед телепортацией"), Range(1, 100)] protected float jumpDelay = 5;
 
 
-    public void SpecialMove()
-    {
-        transform.position = target.transform.position + Vector3.back;
 
-    }
     protected override void Update()
     {
         
@@ -22,5 +18,11 @@ public class ScareCrow : HellEnemy
         }
         base.Update();
         
+    }
+    
+    public void SpecialMove()
+    {
+        transform.position = target.transform.position + Vector3.back;
+
     }
 }
