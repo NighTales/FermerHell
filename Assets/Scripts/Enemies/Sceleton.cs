@@ -21,10 +21,6 @@ public class Sceleton : HellEnemy
 
     protected float elapsedTimeAfterSuicideMode = 0f;
 
-    #region Initialization
-
-    #endregion
-
 
     public override void GetDamage(int damage)
     {

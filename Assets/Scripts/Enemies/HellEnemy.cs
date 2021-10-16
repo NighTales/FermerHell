@@ -122,7 +122,7 @@ public class HellEnemy : Enemy
     {
         agent.isStopped = true;
         anim.SetTrigger("Attack");   //???
-        if ((target.transform.position - transform.position).magnitude > attackDistance)//делать рейкаст и доставать компонент каждый раз???
+        if ((target.transform.position - transform.position).magnitude > attackDistance && !stunned)//делать рейкаст и доставать компонент каждый раз???
         {
             state = EnemyState.MoveToTarget;
         }
