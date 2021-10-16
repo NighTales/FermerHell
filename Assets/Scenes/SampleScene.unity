@@ -341,6 +341,9 @@ GameObject:
   - component: {fileID: 446343361}
   - component: {fileID: 446343360}
   - component: {fileID: 446343359}
+  - component: {fileID: 446343366}
+  - component: {fileID: 446343365}
+  - component: {fileID: 446343364}
   m_Layer: 0
   m_Name: Capsule (2)
   m_TagString: Untagged
@@ -439,6 +442,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &446343364
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446343358}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &446343365
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446343358}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &446343366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446343358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c2ffb8511e6834eb07905747613b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 84
+  _health: 0
+  scoreForWin: 1
+  damage: 10
+  lootPrefabs: []
+  postDeadDecal: {fileID: 0}
+  afterFightLoot: {fileID: 0}
+  state: 0
+  target: {fileID: 0}
+  attackDistance: 1
+  visionDistance: 15
+  anim: {fileID: 0}
+  speed: 5
+  ghosts: []
+  deadGhostsCount: 0
+  buffTarget: {x: 0, y: 0, z: 0}
+  iddleDistance: 1
+  finded: 0
 --- !u!1 &529150671
 GameObject:
   m_ObjectHideFlags: 0
