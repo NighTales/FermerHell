@@ -104,7 +104,7 @@ public class Sceleton : HellEnemy
 
     #region Special
 
-    public IEnumerator SpecialMove()
+    public override IEnumerator SpecialMove()
     {
         suicideKey = true;
         agent.speed = suicidespeed;

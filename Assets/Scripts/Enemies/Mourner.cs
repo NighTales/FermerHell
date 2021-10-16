@@ -6,20 +6,23 @@ using UnityEngine.AI;
 public class Mourner : HellEnemy
 {
     [SerializeField]  private List<Ghost> ghosts;
-    [SerializeField] private int deadGhostsCount = 0;
+    [SerializeField] private int deadGhostsCount;
    [SerializeField] private Vector3 buffTarget;
    [SerializeField]private float iddleDistance = 0.5f;
 
     public void Init(GameObject target)
     {
+        
         base.Init(target);
+        deadGhostsCount = 4;
         buffTarget = new Vector3();
         buffTarget.x = 999;
     }
     protected virtual void Update()
     {
-        if (deadGhostsCount == 4)
+        if (deadGhostsCount == 4 && !stunned)
         {
+            deadGhostsCount = 0;
             Attack();
         }
 
@@ -49,7 +52,7 @@ public class Mourner : HellEnemy
     protected override void Iddle()
     {
         agent.isStopped = true;
-        //anim.SetBool("Walk", false);
+        anim.SetBool("Walk", false);
 
         if (target != null)
         {
@@ -64,28 +67,22 @@ public class Mourner : HellEnemy
     public void FindTarget()
     {
         finded = false;
-        Vector3 vec = transform.position - target.transform.position;
+        Vector3 vec =transform.position+ transform.position - target.transform.position;
+        
         Vector3 normVector3 = vec / vec.magnitude;
         float distance = visionDistance - vec.magnitude * 2;
+        
         NavMeshPath path = new NavMeshPath();
-        float num = 1;
+        
         while (true)
         {
-            if (agent.CalculatePath(transform.position + normVector3 * distance * num, path))
+            Vector3 vec1 = new Vector3(Random.Range(transform.position.x,vec.x),transform.position.y,Random.Range(transform.position.z,vec.z));
+            if (agent.CalculatePath(vec1, path))
             {
                 
-                buffTarget=  transform.position + normVector3 * distance * num;
+                buffTarget= vec1 ;
                 finded = true;
                 return;
-            }
-            else if (num > 10)
-            {
-                Debug.Log("!");
-                return;
-            }
-
-            {
-                num += 0.5f;
             }
         }
     }
@@ -99,19 +96,16 @@ public class Mourner : HellEnemy
             {
                 state = EnemyState.Iddle;
             }
-            else if (!finded)
-            {
-                FindTarget();
-            }
             else
             {
-                if ((buffTarget - transform.position).magnitude < iddleDistance)
+                if (finded && (buffTarget - transform.position).magnitude < iddleDistance)
                 {
                     finded = false;
                 }
                 else
                 {
-                   // anim.SetBool("Walk", true);
+                    FindTarget();
+                    anim.SetBool("Walk", true);
                     agent.destination = buffTarget;
                 }
             }
@@ -124,13 +118,17 @@ public class Mourner : HellEnemy
 
     public override void Attack()
     {
-        agent.isStopped = true;
-        anim.SetTrigger("Attack"); //???
-        if ((target.transform.position - transform.position).magnitude >
-            attackDistance) //делать рейкаст и доставать компонент каждый раз???
-        {
-            state = EnemyState.MoveToTarget;
-        }
+        anim.SetTrigger("Attack");
+    }
+
+
+    public override IEnumerator SpecialMove()
+    {
+        yield return new WaitForSeconds(0);
+        Instantiate(ghosts[0], transform.position + Vector3.forward, transform.rotation);
+        Instantiate(ghosts[1], transform.position + Vector3.left, transform.rotation);
+        Instantiate(ghosts[2], transform.position + Vector3.right, transform.rotation);
+        Instantiate(ghosts[3], transform.position + Vector3.back, transform.rotation);
     }
 
     #endregion
