@@ -10,7 +10,6 @@ public class UIScript : MonoBehaviour
     [SerializeField] private GameObject taskPanel;
     [SerializeField] private List<GameObject> sprintCells;
     [SerializeField] private GameObject dashHint;
-    [SerializeField] private List<GameObject> statLayout;
     [SerializeField] private Text scoreLabel;
     [SerializeField] private List<Image> statEffect;
     [SerializeField] private Image skillImage;
