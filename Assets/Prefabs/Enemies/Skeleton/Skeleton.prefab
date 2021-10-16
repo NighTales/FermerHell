@@ -5612,7 +5612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6891f8fef77734eb7fffb182926176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceletonEnemy: {fileID: 195269267}
+  _hellEnemy: {fileID: 195269267}
 --- !u!1 &8093321121710955488
 GameObject:
   m_ObjectHideFlags: 0
@@ -5902,6 +5902,7 @@ MonoBehaviour:
   attackDistance: 1.96
   visionDistance: 53
   anim: {fileID: 8093321121602651424}
+  speed: 5
   suicideHealth: 50
   suicidespeed: 5
   suicideTimer: 4
