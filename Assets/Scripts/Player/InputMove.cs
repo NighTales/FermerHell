@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class InputMove : MonoBehaviour
 {
-    [SerializeField, Range(1, 10)] private float speed = 5f;
+    [SerializeField, Range(1, 100)] private float speed = 5f;
     [SerializeField, Range(1, 50)] private float jumpForce = 15.0f;
     [SerializeField, Range(-40, -1)] private float terminalVelocity = -10.0f;
     [SerializeField, Tooltip("Сила притяжения на земле"), Range(-2, 0)] private float minFall = -1.5f;
@@ -27,6 +27,11 @@ public class InputMove : MonoBehaviour
     [SerializeField] private bool fall;
     [SerializeField] private float fallTimer;
 
+    float deltaX;
+    float deltaZ;
+    bool inputShift;
+    bool inputSpace;
+    float timeDelta;
     void Awake()
     {
         PlayerBonusStat.Init();
@@ -52,6 +57,21 @@ public class InputMove : MonoBehaviour
     }
     void Update()
     {
+        Input();
+        
+    }
+
+    private void Input()
+    {
+        deltaX = UnityEngine.Input.GetAxis("Horizontal");
+        deltaZ = UnityEngine.Input.GetAxis("Vertical");
+        inputShift = UnityEngine.Input.GetKeyDown(KeyCode.LeftShift);
+        inputSpace = UnityEngine.Input.GetKeyDown(KeyCode.Space);
+        timeDelta = Time.fixedDeltaTime;
+    }
+
+    private void FixedUpdate()
+    {
         if (!inMenu)
         {
             Jump();
@@ -59,7 +79,6 @@ public class InputMove : MonoBehaviour
             PlayerMove();
         }
     }
-
     public void Setup(Transform targetPos)
     {
         startup = true;
@@ -84,7 +103,7 @@ public class InputMove : MonoBehaviour
         {
             fallTimer = 0;
             fall = true;
-            if (Input.GetButtonDown("Jump"))
+            if (inputSpace)
             {
                 vertSpeed = jumpForce;
             }
@@ -97,7 +116,7 @@ public class InputMove : MonoBehaviour
         {
             if (fall)
             {
-                vertSpeed -= gravity * 5 / PlayerBonusStat.bonusPack[BonusType.Jump] * Time.deltaTime;
+                vertSpeed -= gravity * 5 / PlayerBonusStat.bonusPack[BonusType.Jump] * timeDelta;
                 if (vertSpeed < terminalVelocity)
                 {
                     vertSpeed = terminalVelocity;
@@ -105,7 +124,7 @@ public class InputMove : MonoBehaviour
             }
             else
             {
-                fallTimer -= Time.deltaTime;
+                fallTimer -= timeDelta;
                 if (fallTimer <= 0)
                 {
                     fallTimer = 0;
@@ -119,16 +138,16 @@ public class InputMove : MonoBehaviour
     {
         if (!startup)
         {
-            float deltaX = Input.GetAxis("Horizontal");
-            float deltaZ = Input.GetAxis("Vertical");
+
             moveVector = new Vector3(deltaX, 0, deltaZ).normalized;//Ограничим движение по диагонали той же скоростью, что и движение параллельно осям
             moveVector = moveVector * speed * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed];
-            //moveVector = Vector3.ClampMagnitude(moveVector, speed) * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]; //Ограничим движение по диагонали той же скоростью, что и движение параллельно осям
+            //moveVector = Vector3.ClampMagnitude(moveVector, speed) * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]; 
             horSpeed = moveVector;
             moveVector.y = vertSpeed;
-            moveVector *= (Time.deltaTime);
+            moveVector *= timeDelta;
             moveVector = transform.TransformDirection(moveVector); //Преобразуем вектор движения от локальных к глобальным координатам.
-
+            //transform.position += moveVector;
+            //charController.SimpleMove(moveVector*100);
             charController.Move(moveVector);
         }
     }
@@ -138,8 +157,9 @@ public class InputMove : MonoBehaviour
         {
             sprintCount += sprintCountBuffer;
             sprintCountBuffer = 0;
+            Messenger<int>.Broadcast(GameEvent.CHANGE_SPRINT_COUNT, sprintCount);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && horSpeed.magnitude != 0 && sprintMultiplicatorBufer == 1)
+        if (inputShift && horSpeed.magnitude != 0 && sprintMultiplicatorBufer == 1)
         {
             if (sprintCount > 0)
             {
@@ -155,15 +175,16 @@ public class InputMove : MonoBehaviour
                 Messenger<Vector3>.Broadcast(GameEvent.START_SPRINT, horSpeed);
             }
         }
-        if (sprintCount < 3 || sprintCountBuffer < 3)
+        if (sprintCount < 3 && sprintCountBuffer < 3)
         {
-            currentSprintReloadTime -= Time.deltaTime;
+            currentSprintReloadTime -= timeDelta;
+            if (charController.isGrounded)
+                currentSprintReloadTime -= timeDelta;
             if (currentSprintReloadTime <= 0)
             {
                 sprintCountBuffer++;
                 currentSprintReloadTime = sprintCountBuffer == 3 ? 0 : sprintReloadTime;
                 sprintMultiplicatorBufer = 1;
-                Messenger<int>.Broadcast(GameEvent.CHANGE_SPRINT_COUNT, sprintCount);
             }
         }
     }
