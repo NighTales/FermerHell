@@ -9,6 +9,7 @@ public class ReplicDispether : MonoBehaviour
 {
     [SerializeField] private GameObject replicPanel;
     [SerializeField] private Text replicText;
+    [SerializeField] private Text speakerText;
 
     [SerializeField] private InputMove inputMove;
     [SerializeField] private MouseLock mouseLock;
@@ -85,8 +86,9 @@ public class ReplicItem
 {
     public Transform playerTarget;
     public AudioClip clip;
-    public Color textColor;
+    public Color textColor = new Color(0, 0, 0, 1);
     public string replicText;
+    public string speakerName;
 }
 
 public interface IDialogueActor
