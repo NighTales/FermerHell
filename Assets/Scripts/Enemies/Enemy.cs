@@ -40,7 +40,7 @@ public abstract class Enemy : AliveController
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Bullet"))
         {
@@ -79,7 +79,7 @@ public abstract class Enemy : AliveController
             OnFightAction();
         }
     }
-    private void OnTriggerExit(Collider other)
+    protected void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Turret"))
         {
@@ -107,7 +107,7 @@ public abstract class Enemy : AliveController
        // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         Destroy(gameObject);
     }
-    private void ReturnRB()
+    protected void ReturnRB()
     {
         rb.velocity = Vector3.zero;
         rb.useGravity = false;

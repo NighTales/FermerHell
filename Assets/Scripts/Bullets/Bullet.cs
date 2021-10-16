@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour //уничтожается при перво
     public virtual void MoveBullet()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
-        if(Physics.Linecast(pos, transform.position, out RaycastHit hit ,~ignoreMask))
+        if(Physics.Linecast(pos, transform.position, out RaycastHit hit , ignoreMask))
         {
             Hit(hit);
         }

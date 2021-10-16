@@ -23,6 +23,7 @@ public class Sceleton : HellEnemy
     
     public override void GetDamage(int damage)
     {
+        Messenger.Broadcast(GameEvent.HIT);
         if(Health > 0)
         {
             Health -= damage;
@@ -93,6 +94,7 @@ public class Sceleton : HellEnemy
 
 
         }
+        Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, 30);
         Destroy(gameObject);
     }
 
