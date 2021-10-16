@@ -9,31 +9,32 @@ public class ReplicDispether : MonoBehaviour
 {
     [SerializeField] private GameObject replicPanel;
     [SerializeField] private Text replicText;
-    [SerializeField] private Toggle useTextToggle;
+    [SerializeField] private Text speakerText;
+
+    [SerializeField] private InputMove inputMove;
+    [SerializeField] private MouseLock mouseLock;
 
     private List<ReplicItem> replicas;
     private AudioSource source;
     private ReplicItem bufer;
 
-    public void OnToggleChanged()
-    {
-        if(bufer != null)
-        {
-            replicPanel.SetActive(useTextToggle.isOn);
-            if (useTextToggle.isOn)
-            {
-                replicText.text = bufer.replicText;
-                replicText.color = bufer.textColor;
-            }
-        }
-    }
-
+    [ContextMenu("Setup()")]
     public void Setup()
     {
         replicas = new List<ReplicItem>();
         source = GetComponent<AudioSource>();
         replicPanel.SetActive(false);
     }
+
+    private void Update()
+    {
+        if(bufer != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            StopAllCoroutines();
+            StartCoroutine(CheckReplicas(0));
+        }
+    }
+
     public void ClearList()
     {
         replicas.Clear();
@@ -42,7 +43,15 @@ public class ReplicDispether : MonoBehaviour
     {
         replicas.AddRange(items);
         if(bufer == null)
+        {
+            if(replicas[0].playerTarget != null)
+            {
+                inputMove.SetDialogueState(true);
+                mouseLock.SetDialogueState(true);
+                mouseLock.SmoothLookToTarget(replicas[0].playerTarget);
+            }
             StartCoroutine(CheckReplicas(0));
+        }
     }
     public IEnumerator CheckReplicas(float time)
     {
@@ -54,18 +63,18 @@ public class ReplicDispether : MonoBehaviour
         else
         {
             bufer = null;
+            mouseLock.ReturnView();
+            inputMove.SetDialogueState(false);
+            mouseLock.SetDialogueState(false);
         }
     }
     private void StartReplica()
     {
         bufer = replicas[0];
         source.clip = bufer.clip;
-        if(useTextToggle.isOn)
-        {
-            replicPanel.SetActive(true);
-            replicText.text = bufer.replicText;
-            replicText.color = bufer.textColor;
-        }
+        replicPanel.SetActive(true);
+        replicText.text = bufer.replicText;
+        replicText.color = bufer.textColor;
         source.Play();
         StartCoroutine(CheckReplicas(source.clip.length + 0.3f));
         replicas.Remove(replicas[0]);
@@ -75,7 +84,14 @@ public class ReplicDispether : MonoBehaviour
 [Serializable]
 public class ReplicItem
 {
+    public Transform playerTarget;
     public AudioClip clip;
-    public Color textColor;
+    public Color textColor = new Color(0, 0, 0, 1);
     public string replicText;
+    public string speakerName;
+}
+
+public interface IDialogueActor
+{
+    void SetDialogueState(bool inDialogueState);
 }

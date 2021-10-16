@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLock : MonoBehaviour
+public class MouseLock : MonoBehaviour, IDialogueActor
 {
     [SerializeField, Tooltip("Объек с камерой")] private Transform viewObject;
     [SerializeField, Tooltip("Какие слои не считать за землю")] private LayerMask ignoreMask;
@@ -16,6 +16,7 @@ public class MouseLock : MonoBehaviour
     [HideInInspector] public Transform lookPoint;
 
     private bool inMenu;
+    private bool inDialogue;
     private float _rotationX = 0;
     private float sensivityMultiplicator;
 
@@ -52,11 +53,24 @@ public class MouseLock : MonoBehaviour
     }
     void LateUpdate()
     {
-        if(!inMenu)
+        if(!inMenu && !inDialogue)
         {
             Rotate();
             RaycastLook();
         }
+    }
+
+    public void SmoothLookToTarget(Transform target)
+    {
+        Quaternion targetRot = Quaternion.LookRotation(target.position - viewObject.position);
+        Quaternion currentRot = viewObject.rotation;
+
+        StartCoroutine(ChangeView(currentRot, targetRot));
+    }
+
+    public void ReturnView()
+    {
+        viewObject.transform.localEulerAngles = new Vector3(_rotationX, 0, 0);
     }
 
     private void Rotate()
@@ -84,9 +98,27 @@ public class MouseLock : MonoBehaviour
     {
         inMenu = pause;
     }
+    public void SetDialogueState(bool inDialogueState)
+    {
+        inDialogue = inDialogueState;
+    }
     private void OnChangeMouse(float value)
     {
         sensivityMultiplicator = value;
         PlayerPrefs.SetFloat("Mouse", sensivityMultiplicator);
+    }
+
+    private IEnumerator ChangeView(Quaternion currentRot, Quaternion targetRot)
+    {
+        float t = 0;
+
+        while(t < 1)
+        {
+            viewObject.rotation = Quaternion.Lerp(currentRot, targetRot, t);
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        viewObject.rotation = targetRot;
     }
 }

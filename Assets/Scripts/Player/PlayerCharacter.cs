@@ -38,7 +38,7 @@ public class PlayerCharacter : AliveController
     public void Setup()
     {
         Health = maxHealth;
-        Messenger<float>.Broadcast(GameEvent.CHANGE_HEALTH, maxHealth);
+        //Messenger<float>.Broadcast(GameEvent.CHANGE_HEALTH, maxHealth);
     }
 
     public override void GetDamage(int damage)
