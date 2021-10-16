@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : HellEnemy
+public class Ghost:HellEnemy
 {
     private Debuff _debuff;
     public void Init(GameObject target, Debuff debuff)
@@ -13,4 +13,15 @@ public class Ghost : HellEnemy
        // suicideKey = true;//?
         _debuff = debuff;
     }
+    
+    
+    
+    public virtual IEnumerator SpecialMove()
+    {
+        yield return new WaitForSeconds(0);
+       // target.GetComponent<Buff>().Timer();
+        Death();
+    }
+    
+    
 }

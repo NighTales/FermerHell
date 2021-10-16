@@ -11,7 +11,8 @@ public class HellEnemy : Enemy
     [SerializeField] protected Animator anim;
     protected NavMeshAgent agent;
     protected PhysicsPartController partController;
-    
+    [SerializeField, Tooltip("Скорость"), Range(1, 10)] public float speed = 5;
+    protected bool stunned = true;
     #region Initialization
 
     public void Init(GameObject target)
@@ -25,6 +26,7 @@ public class HellEnemy : Enemy
     {
         base.Start();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
         if (target != null)
             Init(target);
         else
@@ -49,6 +51,7 @@ public class HellEnemy : Enemy
     public  void Stun(bool stunned)
     {
         agent.isStopped = stunned;
+        this.stunned = stunned;
     }
     protected virtual void Update()
     {
@@ -128,6 +131,12 @@ public class HellEnemy : Enemy
 
 
     #endregion
+    public virtual IEnumerator SpecialMove()
+    {
+        yield return new WaitForSeconds(1);
+    }
+
+    
     
     
 }

@@ -5,21 +5,21 @@ using UnityEngine.Events;
 
 public class AnimEventReactor : MonoBehaviour
 {
-    [SerializeField]private Sceleton _sceletonEnemy;
+    [SerializeField]private HellEnemy _hellEnemy;
 
     public void StartStun()
     {
-        _sceletonEnemy.Stun(true);
+        _hellEnemy.Stun(true);
     }
     public void StopStun()
     {
         
-        _sceletonEnemy.Stun(false);
+        _hellEnemy.Stun(false);
     }
 
     public void SpecialMove()
     {
-        StartCoroutine(_sceletonEnemy.SpecialMove());
+        StartCoroutine(_hellEnemy.SpecialMove());
     }
   
 }

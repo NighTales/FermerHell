@@ -1,18 +1,135 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Mourner : MonoBehaviour
+public class Mourner : HellEnemy
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]  private List<Ghost> ghosts;
+    [SerializeField] private int deadGhostsCount;
+   [SerializeField] private Vector3 buffTarget;
+   [SerializeField]private float iddleDistance = 0.5f;
+
+    public void Init(GameObject target)
     {
         
+        base.Init(target);
+        deadGhostsCount = 4;
+        buffTarget = new Vector3();
+        buffTarget.x = 999;
+    }
+    protected virtual void Update()
+    {
+        if (deadGhostsCount == 4 && !stunned)
+        {
+            deadGhostsCount = 0;
+            Attack();
+        }
+
+        switch (state)
+        {
+            case EnemyState.Iddle:
+                Iddle();
+                break;
+            case EnemyState.MoveToTarget:
+                Move();
+                break;
+            case EnemyState.Attack:
+                Attack();
+                break;
+            default:
+                break;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GhostDeadReactor()
     {
-        
+        deadGhostsCount++;
     }
+
+    #region StateMethods
+
+    protected override void Iddle()
+    {
+        agent.isStopped = true;
+        anim.SetBool("Walk", false);
+
+        if (target != null)
+        {
+            if ((target.transform.position - transform.position).magnitude < visionDistance)
+            {
+                state = EnemyState.MoveToTarget;
+            }
+        }
+    }
+
+    [SerializeField]  private bool finded = false;
+    public void FindTarget()
+    {
+        finded = false;
+        Vector3 vec =transform.position+ transform.position - target.transform.position;
+        
+        Vector3 normVector3 = vec / vec.magnitude;
+        float distance = visionDistance - vec.magnitude * 2;
+        
+        NavMeshPath path = new NavMeshPath();
+        
+        while (true)
+        {
+            Vector3 vec1 = new Vector3(Random.Range(transform.position.x,vec.x),transform.position.y,Random.Range(transform.position.z,vec.z));
+            if (agent.CalculatePath(vec1, path))
+            {
+                
+                buffTarget= vec1 ;
+                finded = true;
+                return;
+            }
+        }
+    }
+
+    protected override void Move()
+    {
+        agent.isStopped = false;
+        if (target != null)
+        {
+            if ((target.transform.position - transform.position).magnitude > visionDistance)
+            {
+                state = EnemyState.Iddle;
+            }
+            else
+            {
+                if (finded && (buffTarget - transform.position).magnitude < iddleDistance)
+                {
+                    finded = false;
+                }
+                else
+                {
+                    FindTarget();
+                    anim.SetBool("Walk", true);
+                    agent.destination = buffTarget;
+                }
+            }
+        }
+        else if (!agent.isStopped)
+        {
+            agent.isStopped = true;
+        }
+    }
+
+    public override void Attack()
+    {
+        anim.SetTrigger("Attack");
+    }
+
+
+    public override IEnumerator SpecialMove()
+    {
+        yield return new WaitForSeconds(0);
+        Instantiate(ghosts[0], transform.position + Vector3.forward, transform.rotation);
+        Instantiate(ghosts[1], transform.position + Vector3.left, transform.rotation);
+        Instantiate(ghosts[2], transform.position + Vector3.right, transform.rotation);
+        Instantiate(ghosts[3], transform.position + Vector3.back, transform.rotation);
+    }
+
+    #endregion
 }

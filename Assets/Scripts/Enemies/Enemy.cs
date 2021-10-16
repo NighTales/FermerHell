@@ -78,6 +78,10 @@ public abstract class Enemy : AliveController
          //   Messenger.Broadcast(GameEvent.HIT);
             OnFightAction();
         }
+        else if (other.CompareTag("Burn"))
+        {
+            
+        }
     }
     protected void OnTriggerExit(Collider other)
     {
