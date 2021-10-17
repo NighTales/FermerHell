@@ -35,7 +35,7 @@ public class ShotgunBullet : Bullet //снаряд, который не удал
         }
         else if (hit.collider.CompareTag("InteractiveBox"))
         {
-            hit.collider.GetComponent<InteractiveBox>().OnFightAction();
+            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
             Messenger.Broadcast(GameEvent.HIT);
         }
         else

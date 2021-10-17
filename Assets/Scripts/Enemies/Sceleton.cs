@@ -67,6 +67,7 @@ public class Sceleton : HellEnemy
 
     public override void Death()
     {
+        afterDeadEvent?.Invoke();
         // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         int cycleCount = Random.Range(0, 3);
 

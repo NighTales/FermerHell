@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ReplicPointScript : MonoBehaviour
+public class ReplicPointScript : LogicModule
 {
     public ReplicDispether replicDispether;
     public List<ReplicItem> replicas;
 
-
-
+    public override void ActivateModule()
+    {
+        DeleteMeFromActors();
+        PlayReplicas();
+    }
 
     [ContextMenu("Добавить эти реплики")]
     public void PlayReplicas()

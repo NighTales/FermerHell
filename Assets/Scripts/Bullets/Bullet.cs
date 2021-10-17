@@ -77,7 +77,7 @@ public class Bullet : MonoBehaviour //уничтожается при перво
         }
         else if (hit.collider.CompareTag("InteractiveBox"))
         {
-            hit.collider.GetComponent<InteractiveBox>().OnFightAction();
+            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
                 Messenger.Broadcast(GameEvent.HIT);
         }
 
@@ -101,7 +101,7 @@ public class Bullet : MonoBehaviour //уничтожается при перво
         }
         else if (hit.collider.CompareTag("InteractiveBox"))
         {
-            hit.collider.GetComponent<InteractiveBox>().OnFightAction();
+            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
             Messenger.Broadcast(GameEvent.HIT);
         }
 

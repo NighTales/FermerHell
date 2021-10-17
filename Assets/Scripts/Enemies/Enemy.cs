@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public enum EnemyState
 {
@@ -21,6 +21,8 @@ public abstract class Enemy : AliveController
     [SerializeField] protected GameObject postDeadDecal;
     [SerializeField] protected GameObject afterFightLoot;
     private Rigidbody rb;
+
+    [SerializeField] protected UnityEvent afterDeadEvent;
 
     protected virtual void Start()
     {
@@ -78,10 +80,10 @@ public abstract class Enemy : AliveController
          //   Messenger.Broadcast(GameEvent.HIT);
             OnFightAction();
         }
-        else if (other.CompareTag("Burn"))
-        {
+        //else if (other.CompareTag("Burn"))
+        //{
             
-        }
+        //}
     }
     protected void OnTriggerExit(Collider other)
     {
@@ -93,6 +95,7 @@ public abstract class Enemy : AliveController
 
     public override void Death()
     {
+        afterDeadEvent?.Invoke();
        // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         int cycleCount = Random.Range(0, 3);
 
