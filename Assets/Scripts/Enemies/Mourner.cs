@@ -6,10 +6,12 @@ using UnityEngine.AI;
 public class Mourner : HellEnemy
 {
     [SerializeField]  private List<Ghost> ghosts;
-    [SerializeField] private int deadGhostsCount;
+    private int deadGhostsCount = 4;
    [SerializeField] private Vector3 buffTarget;
    [SerializeField]private float iddleDistance = 0.5f;
-
+   [SerializeField]  private bool finded = false;
+   private bool isReadyForAttack = true;
+   [SerializeField, Tooltip("перезарядка призыва"), Range(1, 10)]private float readyTime = 4;
     public void Init(GameObject target)
     {
         
@@ -18,28 +20,15 @@ public class Mourner : HellEnemy
         buffTarget = new Vector3();
         buffTarget.x = 999;
     }
-    protected virtual void Update()
+    protected override void Update()
     {
-        if (deadGhostsCount == 4 && !stunned)
+        if (deadGhostsCount == 4 && !stunned && isReadyForAttack)
         {
+            isReadyForAttack = false;
             deadGhostsCount = 0;
             Attack();
         }
-
-        switch (state)
-        {
-            case EnemyState.Iddle:
-                Iddle();
-                break;
-            case EnemyState.MoveToTarget:
-                Move();
-                break;
-            case EnemyState.Attack:
-                Attack();
-                break;
-            default:
-                break;
-        }
+        base.Update();
     }
 
     public void GhostDeadReactor()
@@ -63,7 +52,7 @@ public class Mourner : HellEnemy
         }
     }
 
-    [SerializeField]  private bool finded = false;
+
     public void FindTarget()
     {
         finded = false;
@@ -124,11 +113,12 @@ public class Mourner : HellEnemy
 
     public override IEnumerator SpecialMove()
     {
-        yield return new WaitForSeconds(0);
-        Instantiate(ghosts[0], transform.position + Vector3.forward, transform.rotation);
-        Instantiate(ghosts[1], transform.position + Vector3.left, transform.rotation);
-        Instantiate(ghosts[2], transform.position + Vector3.right, transform.rotation);
-        Instantiate(ghosts[3], transform.position + Vector3.back, transform.rotation);
+        Instantiate(ghosts[0], transform.position + Vector3.forward*2, transform.rotation).Init(target,this);
+        Instantiate(ghosts[1], transform.position + Vector3.left*2, transform.rotation).Init(target,this);
+        Instantiate(ghosts[2], transform.position + Vector3.right*2, transform.rotation).Init(target,this);
+        Instantiate(ghosts[3], transform.position + Vector3.back*2, transform.rotation).Init(target,this);
+        yield return new WaitForSeconds(readyTime);
+        isReadyForAttack = true;
     }
 
     #endregion

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4662415173259230600}
   - component: {fileID: 2364802017986054325}
-  - component: {fileID: 8854281952339127233}
+  - component: {fileID: 634908449546341008}
   m_Layer: 0
   m_Name: ghostbuffer
   m_TagString: Untagged
@@ -48,7 +48,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8854281952339127233
+--- !u!114 &634908449546341008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,6 +57,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9154290992608687346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 375d070af494c04409aa03d74c421636, type: 3}
+  m_Script: {fileID: 11500000, guid: c1d15c3ef59db7d48bb953a36451e7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

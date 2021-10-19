@@ -18,6 +18,10 @@ public class HellEnemy : Enemy
     public void Init(GameObject target)
     {
         this.target = target;
+        if (agent==null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
         agent.destination = target.transform.position;
         agent.isStopped = true;
     }
@@ -25,7 +29,10 @@ public class HellEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        agent = GetComponent<NavMeshAgent>();
+        if (agent==null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
         agent.speed = speed;
         if (target != null)
             Init(target);
