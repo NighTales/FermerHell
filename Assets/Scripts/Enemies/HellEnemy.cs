@@ -55,19 +55,23 @@ public class HellEnemy : Enemy
     }
     protected virtual void Update()
     {
-        switch (state)
+        if (!stunned)
         {
-            case EnemyState.Iddle:
-                Iddle();
-                break;
-            case EnemyState.MoveToTarget:
-                Move();
-                break;
-            case EnemyState.Attack:
-                Attack();
-                break;
-            default:
-                break;
+         
+            switch (state)
+            {
+                case EnemyState.Iddle:
+                    Iddle();
+                    break;
+                case EnemyState.MoveToTarget:
+                    Move();
+                    break;
+                case EnemyState.Attack:
+                    Attack();
+                    break;
+                default:
+                    break;
+            }   
         }
         
     }
