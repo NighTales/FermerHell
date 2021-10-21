@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5042879014067873490}
   - component: {fileID: 7646326457759901242}
   - component: {fileID: 2145505337527260912}
+  - component: {fileID: 6586090510289767804}
   - component: {fileID: 7800415160482136970}
   m_Layer: 0
   m_Name: Weeper
@@ -162,10 +163,23 @@ MonoBehaviour:
   - {fileID: 749622912, guid: 20e3f7f4d4a274c41930606740003b1d, type: 3}
   - {fileID: 749622912, guid: 20e3f7f4d4a274c41930606740003b1d, type: 3}
   - {fileID: 749622912, guid: 20e3f7f4d4a274c41930606740003b1d, type: 3}
-  deadGhostsCount: 0
   buffTarget: {x: 0, y: 0, z: 0}
   iddleDistance: 0.5
   finded: 0
+  readyTime: 4
+--- !u!114 &6586090510289767804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042879014067873491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8b22b9931fd684fa29e44b65a31655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
 --- !u!195 &7800415160482136970
 NavMeshAgent:
   m_ObjectHideFlags: 0

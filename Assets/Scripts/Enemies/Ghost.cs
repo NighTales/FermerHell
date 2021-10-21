@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class Ghost:HellEnemy
 {
-    private Debuff _debuff;
+    private BonusType type;
+    private int value;
     private Mourner mother;
     public void Init(GameObject target, Mourner mother)
     {
@@ -28,7 +29,15 @@ public class Ghost:HellEnemy
         yield return new WaitForSeconds(0);
        // target.GetComponent<Buff>().Timer();
        mother.GhostDeadReactor();
+       Action();
        Death();
+    }
+    public void Action()
+    {
+        //if(PlayerBonusStat.bonusPack[type] == 1)
+        {
+            Messenger<int>.Broadcast("TAKE_DEBUFF_" + type.ToString().ToUpper(), value);
+        }
     }
     
 }

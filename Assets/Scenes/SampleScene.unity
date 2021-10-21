@@ -335,6 +335,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2145505337527260912, guid: b99663986f3706243b2571d41eced8d8, type: 3}
+      propertyPath: buffs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5042879014067873490, guid: b99663986f3706243b2571d41eced8d8, type: 3}
       propertyPath: m_RootOrder
       value: 1

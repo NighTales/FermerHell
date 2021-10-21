@@ -29,7 +29,10 @@ public class UIDispetcher : MonoBehaviour
     [SerializeField] private Slider speedBonusSlider;
     [SerializeField] private Slider damageBonusSlider;
     [SerializeField] private Slider invilnvurableBonusSlider;
-
+    
+    [SerializeField] private Slider jumpDebuffSlider;
+    [SerializeField] private Slider speedDebuffSlider;
+    
     [SerializeField]
     [Tooltip("0 - влево, 1 - вправо")]
     private List<GameObject> sprintMarkers;
@@ -43,6 +46,9 @@ public class UIDispetcher : MonoBehaviour
     [SerializeField, Range(1, 120)] private float damageBonusTime = 60;
     [SerializeField, Range(1, 120)] private float invilnirableBonusTime = 60;
 
+    [SerializeField, Range(1,120)] private float jumpDebuffTime = 60;
+    [SerializeField, Range(1, 120)] private float speedDebuffTime = 60;
+    
     [SerializeField] private Image blackPanel;
 
     private bool opportunityToShowSettings = true;
@@ -306,6 +312,20 @@ public class UIDispetcher : MonoBehaviour
             speedBonusSlider.value = speedBonusTime;
         }
     }
+    private void OnTakeDebuffSpeed(int value)
+    {
+        if (value == 1)
+        {
+            speedDebuffSlider.gameObject.SetActive(false);
+        }
+        else
+        {
+            speedDebuffSlider.gameObject.SetActive(true);
+            speedDebuffSlider.maxValue = speedBonusTime;
+            speedDebuffSlider.value = speedBonusTime;
+        }
+    }
+    
     private void OnTakeBonusDamage(int value)
     {
         if (value == 1)
@@ -539,6 +559,46 @@ public class UIDispetcher : MonoBehaviour
                 invilnvurableBonusSlider.value -= Time.deltaTime;
             }
         }
+        
+        if (speedBonusSlider.gameObject.activeSelf)
+        {
+            if (speedBonusSlider.value - Time.deltaTime <= 0)
+            {
+                speedBonusSlider.value = 0;
+                Messenger<int>.Broadcast(GameEvent.TAKE_BONUS_SPEED, 1);
+            }
+            else
+            {
+                speedBonusSlider.value -= Time.deltaTime;
+            }
+        }
+        
+        //debuffs
+        if(jumpDebuffSlider.gameObject.activeSelf)
+        {
+            if(jumpDebuffSlider.value - Time.deltaTime <= 0)
+            {
+                jumpDebuffSlider.value = 0;
+                Messenger<int>.Broadcast(GameEvent.TAKE_DEBUFF_JUMP, 1);
+            }
+            else
+            {
+                jumpDebuffSlider.value -= Time.deltaTime;
+            }
+        }
+        if(speedDebuffSlider.gameObject.activeSelf)
+        {
+            if(speedDebuffSlider.value - Time.deltaTime <= 0)
+            {
+                speedDebuffSlider.value = 0;
+                Messenger<int>.Broadcast(GameEvent.TAKE_DEBUFF_SPEED, 1);
+            }
+            else
+            {
+                speedDebuffSlider.value -= Time.deltaTime;
+            }
+        }
+
     }
 
     private void ReturnHitMarker()

@@ -98,6 +98,14 @@ public class InputMove : MonoBehaviour, IDialogueActor
         PlayerBonusStat.bonusPack[BonusType.Speed] = value;
     }
 
+    private void OnTakeDebuffJump(int value)
+    {
+        PlayerBonusStat.debuffPack[BonusType.Jump] = value;
+    }
+    private void OnTakeDebuffSpeed(int value)
+    {
+        PlayerBonusStat.debuffPack[BonusType.Speed] = value;
+    }
     private void Jump()
     {
         if (charController.isGrounded)
@@ -117,7 +125,7 @@ public class InputMove : MonoBehaviour, IDialogueActor
         {
             if (fall)
             {
-                vertSpeed -= gravity * 5 / PlayerBonusStat.bonusPack[BonusType.Jump] * timeDelta;
+                vertSpeed -= gravity * 5 / PlayerBonusStat.bonusPack[BonusType.Jump] * timeDelta/PlayerBonusStat.debuffPack[BonusType.Jump];
                 if (vertSpeed < terminalVelocity)
                 {
                     vertSpeed = terminalVelocity;
@@ -141,7 +149,7 @@ public class InputMove : MonoBehaviour, IDialogueActor
         {
 
             moveVector = new Vector3(deltaX, 0, deltaZ).normalized;//Ограничим движение по диагонали той же скоростью, что и движение параллельно осям
-            moveVector = moveVector * speed * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed];
+            moveVector = moveVector * speed * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]/PlayerBonusStat.debuffPack[BonusType.Speed];
             //moveVector = Vector3.ClampMagnitude(moveVector, speed) * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]; 
             horSpeed = moveVector;
             moveVector.y = vertSpeed;
