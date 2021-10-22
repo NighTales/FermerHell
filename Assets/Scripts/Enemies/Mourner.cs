@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class Mourner : HellEnemy
 {
-    [SerializeField]  private List<Ghost> ghosts;
+    [SerializeField]  private List<Ghost> ghosts; 
+    [SerializeField]  private List<Ghost> ghostsPack;
     private int deadGhostsCount = 4;
    [SerializeField] private Vector3 buffTarget;
    [SerializeField]private float iddleDistance = 0.5f;
@@ -113,10 +114,25 @@ public class Mourner : HellEnemy
 
     public override IEnumerator SpecialMove()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            bool check = true;
+            while (check)
+            {
+             int r = Random.Range(0, 5);
+             if (!ghosts.Contains(ghostsPack[r]))
+             {
+                 ghosts.Add(ghostsPack[r]);
+                 check = false;
+             }
+            }
+            
+        }
         Instantiate(ghosts[0], transform.position + Vector3.forward*2, transform.rotation).Init(target,this);
         Instantiate(ghosts[1], transform.position + Vector3.left*2, transform.rotation).Init(target,this);
         Instantiate(ghosts[2], transform.position + Vector3.right*2, transform.rotation).Init(target,this);
         Instantiate(ghosts[3], transform.position + Vector3.back*2, transform.rotation).Init(target,this);
+        ghosts.Clear();
         yield return new WaitForSeconds(readyTime);
         isReadyForAttack = true;
     }

@@ -127,9 +127,10 @@ public class PlayerInventory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag.Equals("Item"))
+        if (other.tag.Equals("Item"))
         {
             other.GetComponent<GameItem>().SetTarget(transform);
         }
     }
+
 }

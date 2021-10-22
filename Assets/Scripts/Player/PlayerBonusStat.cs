@@ -16,10 +16,14 @@ public static class PlayerBonusStat
         bonusPack.Add(BonusType.Invulnerable, 1);
         bonusPack.Add(BonusType.Jump, 1);
         bonusPack.Add(BonusType.Speed, 1);
+        bonusPack.Add(BonusType.DOT, 1);
+        bonusPack.Add(BonusType.Resist, 1);
          debuffPack = new Dictionary<BonusType, int>();
         // debuffPack.Add(BonusType.Damage, 1);
         // debuffPack.Add(BonusType.Invulnerable, 1);
         debuffPack.Add(BonusType.Jump, 1);
         debuffPack.Add(BonusType.Speed, 1);
+        debuffPack.Add(BonusType.Resist, 1);
+        debuffPack.Add(BonusType.DOT, 1);
     }
 }

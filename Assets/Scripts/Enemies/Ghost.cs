@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Ghost:HellEnemy
 {
-    private BonusType type;
-    private int value;
+    [SerializeField, Tooltip("Тип дебаффа")] private BonusType type;
+    [SerializeField, Tooltip("модификатор дебаффа"),Range(1,1000)]private int value = 2;
     private Mourner mother;
     public void Init(GameObject target, Mourner mother)
     {

@@ -39,6 +39,8 @@ public class InputMove : MonoBehaviour, IDialogueActor
         Messenger<bool>.AddListener(GameEvent.PAUSE, OnPause);
         Messenger<int>.AddListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
         Messenger<int>.AddListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusSpeed);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_JUMP, OnTakeDebuffJump);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_SPEED, OnTakeDebuffSpeed);
         //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
     void OnDestroy()
@@ -46,6 +48,8 @@ public class InputMove : MonoBehaviour, IDialogueActor
         Messenger<bool>.RemoveListener(GameEvent.PAUSE, OnPause);
         Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
         Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusSpeed);
+        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_JUMP, OnTakeDebuffJump);
+        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_SPEED, OnTakeDebuffSpeed);
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 

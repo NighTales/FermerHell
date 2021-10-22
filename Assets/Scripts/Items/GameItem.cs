@@ -10,6 +10,7 @@ public abstract class GameItem : MonoBehaviour
     [SerializeField, Range(1, 100), Tooltip("Скорость приближения к игроку, когда собрали")] private float moveSpeed = 1;
     [SerializeField, Tooltip("Падать на землю")] protected bool physics;
     [SerializeField, Tooltip("Удалятся со временем")] private bool deleted = true;
+    [SerializeField, Range(1, 100), Tooltip("расстояние от которого начинается зона магнетизма")] private float magnetDistance = 1;
 
     [HideInInspector] public Transform target;
 
@@ -38,9 +39,15 @@ public abstract class GameItem : MonoBehaviour
     private void ItemMove()
     {
         Vector3 dir = (target.position + Vector3.up) - itemObject.position;
-        if (dir.magnitude > 2 * moveSpeed * Time.deltaTime)
+        if (dir.magnitude > 2 * moveSpeed * Time.deltaTime && dir.magnitude<magnetDistance )
         {
             itemObject.position += dir.normalized * moveSpeed * Time.deltaTime;
+        }
+        else if (dir.magnitude > magnetDistance)
+        {
+            int num = PlayerBonusStat.bonusPack[BonusType.Magnet] - PlayerBonusStat.debuffPack[BonusType.Magnet];
+
+            itemObject.position += dir.normalized * moveSpeed * Time.deltaTime*num;
         }
         else
         {
@@ -58,6 +65,15 @@ public abstract class GameItem : MonoBehaviour
             Destroy(GetComponent<BoxCollider>());
         }
         this.target = target;
+    } 
+    public virtual void UnSetTarget()
+    {
+        if(physics)
+        {
+            this.gameObject.AddComponent<Rigidbody>();
+            this.gameObject.AddComponent<BoxCollider>();
+        }
+        this.target = null;
     }
     /// <summary>
     /// Эффект от собираемого предмета

@@ -22,7 +22,7 @@ public enum BonusType
     Damage, //двойной урон
     Invulnerable, //неуязвимость
     DOT, // Damage Over Time
-    Resistance, // Сопротивление
+    Resist, // Сопротивление
     Magnet, // магнит плюшек
     
 }

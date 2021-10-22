@@ -159,10 +159,10 @@ MonoBehaviour:
   anim: {fileID: 5042879014450664360}
   speed: 5
   ghosts:
-  - {fileID: 749622912, guid: 20e3f7f4d4a274c41930606740003b1d, type: 3}
-  - {fileID: 749622912, guid: 20e3f7f4d4a274c41930606740003b1d, type: 3}
-  - {fileID: 749622912, guid: 20e3f7f4d4a274c41930606740003b1d, type: 3}
-  - {fileID: 749622912, guid: 20e3f7f4d4a274c41930606740003b1d, type: 3}
+  - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
+  - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
+  - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
+  - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
   buffTarget: {x: 0, y: 0, z: 0}
   iddleDistance: 0.5
   finded: 0
