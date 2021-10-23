@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(AudioSource))]
 public class PlayerCharacter : AliveController
@@ -16,6 +18,10 @@ public class PlayerCharacter : AliveController
         Messenger<int>.AddListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
         Messenger.AddListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.AddListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
+        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffResist);
         opportunityToDead = true;
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
@@ -24,6 +30,10 @@ public class PlayerCharacter : AliveController
         Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
         Messenger.RemoveListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.RemoveListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
+        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
+        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffResist);
         //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 
@@ -40,13 +50,62 @@ public class PlayerCharacter : AliveController
         Health = maxHealth;
         //Messenger<float>.Broadcast(GameEvent.CHANGE_HEALTH, maxHealth);
     }
+    
+    private void OnTakeBonusResist(int value)
+    {
+        PlayerBonusStat.bonusPack[BonusType.Resist] = value;
+    }
+    private void OnTakeDebuffResist(int value)
+    {
+        PlayerBonusStat.bonusPack[BonusType.DOT] = value;
+    }
+    private void OnTakeBonusDOT(int value)
+    {
+        PlayerBonusStat.bonusPack[BonusType.DOT] = value;
+        StartCoroutine(DOTBuffTic(value));
+    }
+    private void OnTakeDebuffDOT(int value)
+    {
+        PlayerBonusStat.bonusPack[BonusType.Resist] = value;
+        StartCoroutine(DOTDeBuffTic(value));
+    }
 
+    public IEnumerator DOTBuffTic(int value)
+    {
+        do
+        {
+            RestoreHealth(value);
+            yield return new WaitForSeconds(1);
+            
+        } while (PlayerBonusStat.bonusPack[BonusType.DOT]!=0);
+    }
+    public IEnumerator DOTDeBuffTic(int value)
+    {
+        do
+        {
+            GetDamage(value);
+            yield return new WaitForSeconds(1);
+            
+        } while (PlayerBonusStat.debuffPack[BonusType.DOT]!=0);
+    }
+    
+    
     public override void GetDamage(int damage)
     {
         if(PlayerBonusStat.bonusPack[BonusType.Invulnerable]==1 && opportunityToDead)
         {
             source.PlayOneShot(damageClips[Random.Range(0, damageClips.Count)]);
-            base.GetDamage(damage);
+            
+            //10 процентов дебаффа - 
+
+            float num = PlayerBonusStat.debuffPack[BonusType.Resist] - PlayerBonusStat.bonusPack[BonusType.Resist];
+            num /= 100;
+            num *= (float)damage;
+            int num1 = num > 0 ? (int)Math.Ceiling(num) : (int)Math.Floor(num);
+            
+            
+            base.GetDamage(damage +num1 );
+            
             Messenger<float>.Broadcast(GameEvent.CHANGE_HEALTH, Health);
         }
     }
@@ -56,7 +115,7 @@ public class PlayerCharacter : AliveController
         Messenger<float>.Broadcast(GameEvent.CHANGE_HEALTH, Health);
     }
    
-    public void OnTakeDamageFromDirection(Vector3 pos)
+    public void OnTakeDamageFromDirection(Vector3 pos) 
     {
         Vector3 dir = pos - transform.position;
         dir.y = 0;
@@ -137,6 +196,9 @@ public class PlayerCharacter : AliveController
         //    other.GetComponent<InfoPanel>().SetState(true);
         //}
     }
+    
+    
+    
 
     private void OnTriggerExit(Collider other)
     {

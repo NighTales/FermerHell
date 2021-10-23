@@ -24,7 +24,7 @@ public class UIScript : MonoBehaviour
     [SerializeField] private Slider voiceVolumeSlider;
 
     [SerializeField]
-    [Tooltip("0 - влево, 1 - вправо")]
+    [Tooltip("0 - РІР»РµРІРѕ, 1 - РІРїСЂР°РІРѕ")]
     private List<GameObject> sprintMarkers;
 
     private bool opportunityToShowSettings = true;
@@ -90,7 +90,7 @@ public class UIScript : MonoBehaviour
     private void OnChangeScore(int value = 0)
     {
         score += value * PlayerBonusStat.scoreMultiplicator;
-        scoreLabel.text = "Счёт: " + score;
+        scoreLabel.text = "РЎС‡С‘С‚: " + score;
     }
     private void OnChangeHealth(float value)
     {

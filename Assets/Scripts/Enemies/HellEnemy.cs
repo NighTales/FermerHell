@@ -11,13 +11,16 @@ public class HellEnemy : Enemy
     [SerializeField] protected Animator anim;
     protected NavMeshAgent agent;
     protected PhysicsPartController partController;
-    [SerializeField, Tooltip("Скорость"), Range(1, 10)] public float speed = 5;
     protected bool stunned = true;
     #region Initialization
 
     public void Init(GameObject target)
     {
         this.target = target;
+        if (agent==null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
         agent.destination = target.transform.position;
         agent.isStopped = true;
     }
@@ -25,7 +28,10 @@ public class HellEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        agent = GetComponent<NavMeshAgent>();
+        if (agent==null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
         agent.speed = speed;
         if (target != null)
             Init(target);
@@ -55,19 +61,23 @@ public class HellEnemy : Enemy
     }
     protected virtual void Update()
     {
-        switch (state)
+        if (!stunned)
         {
-            case EnemyState.Iddle:
-                Iddle();
-                break;
-            case EnemyState.MoveToTarget:
-                Move();
-                break;
-            case EnemyState.Attack:
-                Attack();
-                break;
-            default:
-                break;
+         
+            switch (state)
+            {
+                case EnemyState.Iddle:
+                    Iddle();
+                    break;
+                case EnemyState.MoveToTarget:
+                    Move();
+                    break;
+                case EnemyState.Attack:
+                    Attack();
+                    break;
+                default:
+                    break;
+            }   
         }
         
     }

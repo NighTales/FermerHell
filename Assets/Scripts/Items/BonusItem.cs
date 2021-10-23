@@ -17,8 +17,12 @@ public class BonusItem : GameItem //разные бонусы
 
 public enum BonusType
 {
-    Speed, //усиленный прыжок
-    Jump, //увеличенная скорость
+    Speed, //увеличенная скорость
+    Jump, //усиленный прыжок
     Damage, //двойной урон
-    Invulnerable //неуязвимость
+    Invulnerable, //неуязвимость
+    DOT, // Damage Over Time
+    Resist, // Сопротивление
+    Magnet, // магнит плюшек
+    
 }
