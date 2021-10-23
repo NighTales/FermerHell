@@ -73,7 +73,7 @@ public class BarierBuilder : MonoBehaviour
         }
         else
         {
-            lastOrigin = Instantiate(ItemsdForColumns[Random.Range(0, ItemsdForColumns.Count)],
+            lastOrigin = Instantiate(ItemsForBariers[Random.Range(0, ItemsdForColumns.Count)],
                 position, Quaternion.identity, lastOrigin).transform;
             lastOrigin.localRotation = Quaternion.Euler(Vector3.zero);
         }
