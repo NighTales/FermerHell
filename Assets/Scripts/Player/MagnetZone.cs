@@ -7,13 +7,13 @@ using UnityEngine;
 public class MagnetZone : MonoBehaviour
 {
     
-    [SerializeField, Range(1, 100), Tooltip("радиус триггера")] private float magnetMAxDistance = 1;
+    [SerializeField, Range(1, 100), Tooltip("радиус триггера")] private float magnetMaxDistance = 1;
     private CapsuleCollider collider;
 
     private void Start()
     {
         collider = GetComponent<CapsuleCollider>();
-        collider.radius = magnetMAxDistance;
+        collider.radius = magnetMaxDistance;
     }
 
     private void OnTriggerEnter(Collider other)

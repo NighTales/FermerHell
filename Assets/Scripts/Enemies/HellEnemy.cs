@@ -11,7 +11,6 @@ public class HellEnemy : Enemy
     [SerializeField] protected Animator anim;
     protected NavMeshAgent agent;
     protected PhysicsPartController partController;
-    [SerializeField, Tooltip("Скорость"), Range(1, 10)] public float speed = 5;
     protected bool stunned = true;
     #region Initialization
 

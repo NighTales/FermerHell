@@ -19,15 +19,18 @@ public class Sceleton : HellEnemy
     [SerializeField, Tooltip("Таймер для взрыва"), Range(1, 10)]
     protected float suicideTimer = 5;
 
-    protected float elapsedTimeAfterSuicideMode = 0f;
+   [SerializeField] protected float elapsedTimeAfterSuicideMode = 0f;
 
 
-    public override void GetDamage(int damage)
+    public override void GetDamage(int damage) //че за хуйня блять? 
     {
         Messenger.Broadcast(GameEvent.HIT);
         if(Health > 0)
         {
             Health -= damage;
+            
+            
+            
             if (Health > suicideHealth)
             {
                 anim.SetInteger("Damage", damage);
@@ -35,11 +38,15 @@ public class Sceleton : HellEnemy
             }
             else
             {
-                if (!anim.GetBool("WithoutLegs")) // затратно
+                
+                //false false
+                //true false
+                //false true
+                //true true
+                if (!suicideKey && !anim.GetBool("WithoutLegs")) //полузатратно
                 {
                     anim.SetBool("WithoutLegs", true);
-                    //suicideKey = true; //Могу ли я это использовать?
-
+                 
 
                     if (target != null)
                     {
@@ -50,7 +57,15 @@ public class Sceleton : HellEnemy
         }
     }
 
-
+    protected override void Update()
+    {
+        base.Update();
+        if (suicideKey)
+        {
+            elapsedTimeAfterSuicideMode += Time.deltaTime;
+        }
+        
+    }
     #region StateMethods
 
     public override void Attack()
