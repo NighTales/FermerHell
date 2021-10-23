@@ -152,17 +152,21 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
+  speed: 5
+  slowDebuffed: 0
+  burnDebuffed: 0
   state: 0
   target: {fileID: 0}
   attackDistance: 5
   visionDistance: 20
   anim: {fileID: 5042879014450664360}
-  speed: 5
-  ghosts:
+  ghosts: []
+  ghostsPack:
+  - {fileID: 2022726350042047587, guid: f869f75655670b249bbd5d58c29d4197, type: 3}
+  - {fileID: 307477933601681836, guid: ed111152abc315544bd46725c3efa70e, type: 3}
+  - {fileID: 195900091631078811, guid: f69db814a1170c0468518b0810540df0, type: 3}
   - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
-  - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
-  - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
-  - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
+  - {fileID: 7435431873147974847, guid: bddb167129db7db40a293edcc0a0f790, type: 3}
   buffTarget: {x: 0, y: 0, z: 0}
   iddleDistance: 0.5
   finded: 0
