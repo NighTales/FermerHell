@@ -24,7 +24,7 @@ public class PlayerInventory : MonoBehaviour
     private void OnDestroy()
     {
         Messenger.RemoveListener(GameEvent.WEAPON_ARE_HIDDEN, SetWeapon);
-        Messenger.RemoveListener(GameEvent.WEAPON_READY, ReturnOpportunityToChangeWeapon);
+        //Messenger.RemoveListener(GameEvent.WEAPON_READY, ReturnOpportunityToChangeWeapon);
         Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_DAMAGE, OnTakeBonusDamage);
         Messenger.RemoveListener(GameEvent.RETURN_TO_DEFAULT, OnReturnToDefault);
         Messenger.RemoveListener(GameEvent.START_FINAL_LOADING, HideAllWeapon);
