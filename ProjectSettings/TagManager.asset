@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Interactable
   - DeadZone
+  - Burn
+  - Slow
   layers:
   - Default
   - TransparentFX
