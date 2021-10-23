@@ -39,7 +39,7 @@ public class PlayerCharacter : AliveController
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         source = GetComponent<AudioSource>();
         Setup();
       //  Messenger<float>.Broadcast(GameEvent.CHANGE_MAX_HEALTH, maxHealth);

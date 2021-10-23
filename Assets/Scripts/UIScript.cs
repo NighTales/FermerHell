@@ -35,21 +35,36 @@ public class UIScript : MonoBehaviour
     void Start()
     {
         //MenuPanelToggle_ButtonClick();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         OnChangeScore();
         ReturnHitMarker();
         DisableAllSprintEffects();
         ClearAllStatEffect();
         ClearColorPower();
 
+       
+    }
+
+    private void Awake()
+    {
         Messenger.AddListener(GameEvent.HIT, OnHit);
         Messenger<int>.AddListener(GameEvent.CHANGE_SPRINT_COUNT, OnChangeSprint);
         Messenger<int>.AddListener(GameEvent.ENEMY_HIT, OnChangeScore);
         Messenger<float>.AddListener(GameEvent.CHANGE_HEALTH, OnChangeHealth);
         Messenger<Vector3>.AddListener(GameEvent.START_SPRINT, EnebleSprintEffect);
         Messenger.AddListener(GameEvent.STOP_SPRINT, DisableAllSprintEffects);
+        //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
-    
+    private void OnDestroy()
+    {
+        Messenger.RemoveListener(GameEvent.HIT, OnHit);
+        Messenger<int>.RemoveListener(GameEvent.CHANGE_SPRINT_COUNT, OnChangeSprint);
+        Messenger<int>.RemoveListener(GameEvent.ENEMY_HIT, OnChangeScore);
+        Messenger<float>.RemoveListener(GameEvent.CHANGE_HEALTH, OnChangeHealth);
+        Messenger<Vector3>.RemoveListener(GameEvent.START_SPRINT, EnebleSprintEffect);
+        Messenger.RemoveListener(GameEvent.STOP_SPRINT, DisableAllSprintEffects);
+    }
+
     // Update is called once per frame
     void Update()
     {
