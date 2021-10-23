@@ -9,6 +9,8 @@ TagManager:
   - Fire
   - Blade
   - Enemy
+  - Interactable
+  - DeadZone
   layers:
   - Default
   - TransparentFX

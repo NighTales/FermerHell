@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
-
 
 public enum EnemyState
 {
@@ -24,6 +24,8 @@ public abstract class Enemy : AliveController
     [SerializeField] protected GameObject afterFightLoot;
     private Rigidbody rb;
     [SerializeField, Range(1,100), Tooltip("Скорость")]protected float speed = 5f; 
+
+    [SerializeField] protected UnityEvent afterDeadEvent;
 
     public Dictionary<BonusType, int> buffeeds;
     [HideInInspector]public int slowDebuffed = 0;
@@ -89,7 +91,6 @@ public abstract class Enemy : AliveController
          //   Messenger.Broadcast(GameEvent.HIT);
             OnFightAction();
         }
-        
         else if (other.CompareTag("Burn"))
         {
             OnTakeDebuffDOT(other.gameObject.GetComponent<Buff>().buffvalue);
@@ -109,6 +110,7 @@ public abstract class Enemy : AliveController
 
     public override void Death()
     {
+        afterDeadEvent?.Invoke();
        // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         int cycleCount = Random.Range(0, 3);
 

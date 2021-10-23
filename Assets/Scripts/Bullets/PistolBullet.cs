@@ -46,7 +46,7 @@ public class PistolBullet : Bullet //летит сквозь врагов
         }
         else if (hit.collider.CompareTag("InteractiveBox"))
         {
-            hit.collider.GetComponent<InteractiveBox>().OnFightAction();
+            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
             Messenger.Broadcast(GameEvent.HIT);
         }
         else
@@ -84,7 +84,7 @@ public class PistolBullet : Bullet //летит сквозь врагов
         }
         else if (hit.collider.CompareTag("InteractiveBox"))
         {
-            hit.collider.GetComponent<InteractiveBox>().OnFightAction();
+            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
             Messenger.Broadcast(GameEvent.HIT);
         }
     }
