@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InfoMessageDispetcher : MonoBehaviour
 {
+    [Tooltip("Панель сообщения сообщения")] public GameObject messageTip;
     [Tooltip("Всплывающий текст сообщения")] public Text messageText;
     [Tooltip("Время появления текста"), Range(0, 2)] public float startTime = 1;
     [Tooltip("Время угасания текста"), Range(0, 2)] public float endTime = 1;
@@ -21,6 +22,7 @@ public class InfoMessageDispetcher : MonoBehaviour
     {
         queueItems = new List<MessageQueueItem>();
         messageText.CrossFadeAlpha(0, 0, true);
+        messageTip.SetActive(false);
         delayTimer = 0;
         alreadyWorks = false;
     }
@@ -33,6 +35,7 @@ public class InfoMessageDispetcher : MonoBehaviour
 
             if (!alreadyWorks)
             {
+                messageTip.SetActive(true);
                 alreadyWorks = true;
                 StartCoroutine(ShowMessages());
             }
@@ -76,6 +79,7 @@ public class InfoMessageDispetcher : MonoBehaviour
         }
 
         alreadyWorks = false;
+        messageTip.SetActive(false);
     }
 
     private bool CheckButton(MessageQueueItem item)
