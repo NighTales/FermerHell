@@ -21952,6 +21952,25 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2056542140939620645, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: m_Text
+      value: " \u041F\u043E\u0432\u0435\u0441\u0435\u043B\u0438\u0442\u044C\u0441\u044F
+        \u0441 \u043D\u0435\u0447\u0438\u0441\u0442\u044C\u044E \u0437\u0434\u0435\u0441\u044C.
+        \u0422\u043E\u043B\u044C\u043A\u043E \u043D\u0435 \u0437\u0430\u0431\u0443\u0434\u044C
+        \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056542140939620645, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056542140939620645, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056542141464418817, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2371883272153460546, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -22035,6 +22054,10 @@ PrefabInstance:
     - target: {fileID: 3837697979384233350, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992229361304135980, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: m_AspectRatio
+      value: 1.5326442
       objectReference: {fileID: 0}
     - target: {fileID: 4082650096532725985, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.y
