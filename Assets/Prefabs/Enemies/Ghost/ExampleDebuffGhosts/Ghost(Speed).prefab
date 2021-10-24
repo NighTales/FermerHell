@@ -69,12 +69,15 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
+  speed: 5
+  afterDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   state: 0
   target: {fileID: 0}
   attackDistance: 4
   visionDistance: 25
   anim: {fileID: 8166905597150133174}
-  speed: 5
   type: 0
   value: 10
 --- !u!195 &7435431873147974845

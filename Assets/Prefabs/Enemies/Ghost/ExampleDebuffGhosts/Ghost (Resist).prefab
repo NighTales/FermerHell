@@ -69,12 +69,15 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
+  speed: 5
+  afterDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   state: 0
   target: {fileID: 0}
   attackDistance: 4
   visionDistance: 25
   anim: {fileID: 1499314544440328850}
-  speed: 5
   type: 5
   value: 50
 --- !u!195 &195900091631078809
@@ -213,7 +216,7 @@ PrefabInstance:
     - target: {fileID: -1011968913627163577, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae0e79e89083f9d44ac1ae685b56ca69, type: 2}
+      objectReference: {fileID: 2100000, guid: 41b6213d739628d42aeff663bb276daf, type: 2}
     - target: {fileID: 919132149155446097, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_Name
       value: Ghost

@@ -1,37 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &1314269575558938277
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2232748467919366623}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a63a468dff0dad746b46ee972b812075, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &307477933601681839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2232748467919366623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6891f8fef77734eb7fffb182926176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hellEnemy: {fileID: 307477933601681836}
 --- !u!1 &1314269576401773138
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,12 +69,15 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
+  speed: 5
+  afterDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   state: 0
   target: {fileID: 0}
   attackDistance: 4
   visionDistance: 25
   anim: {fileID: 1314269575558938277}
-  speed: 5
   type: 6
   value: 2
 --- !u!195 &307477933601681838
@@ -131,6 +102,38 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &1314269575558938277
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232748467919366623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a63a468dff0dad746b46ee972b812075, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &307477933601681839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232748467919366623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6891f8fef77734eb7fffb182926176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hellEnemy: {fileID: 307477933601681836}
 --- !u!1001 &1314269574701290638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,7 +216,7 @@ PrefabInstance:
     - target: {fileID: -1011968913627163577, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae0e79e89083f9d44ac1ae685b56ca69, type: 2}
+      objectReference: {fileID: 2100000, guid: 629cad00834866641ac79994cf82de8d, type: 2}
     - target: {fileID: 919132149155446097, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_Name
       value: Ghost
