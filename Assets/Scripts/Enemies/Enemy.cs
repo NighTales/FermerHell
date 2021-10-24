@@ -28,8 +28,6 @@ public abstract class Enemy : AliveController
     [SerializeField] protected UnityEvent afterDeadEvent;
 
     public Dictionary<BonusType, int> buffeeds;
-    [HideInInspector]public int slowDebuffed = 0;
-    [HideInInspector]public int burnDebuffed = 0;
 
 
     protected virtual void Start()
@@ -91,14 +89,14 @@ public abstract class Enemy : AliveController
          //   Messenger.Broadcast(GameEvent.HIT);
             OnFightAction();
         }
-        else if (other.CompareTag("Burn"))
-        {
-            OnTakeDebuffDOT(other.gameObject.GetComponent<Buff>().buffvalue);
-        } 
-        else if (other.CompareTag("Slow"))
-        {
-            OnTakeDebuffSpeed(other.gameObject.GetComponent<Buff>().buffvalue);
-        }
+        // else if (other.CompareTag("Burn"))
+        // {
+        //     OnTakeDebuffDOT(other.gameObject.GetComponent<Buff>().buffvalue);
+        // } 
+        // else if (other.CompareTag("Slow"))
+        // {
+        //     OnTakeDebuffSpeed(other.gameObject.GetComponent<Buff>().buffvalue);
+        // }
     }
     protected void OnTriggerExit(Collider other)
     {
@@ -169,7 +167,7 @@ public abstract class Enemy : AliveController
 
     protected void OnTakeDebuffDOT(int value)// думай леха думай
     {
-        if (buffeeds[BonusType.Speed] == 0)
+        if (buffeeds[BonusType.DOT] == 0)
         {
             speed *= value;
         }

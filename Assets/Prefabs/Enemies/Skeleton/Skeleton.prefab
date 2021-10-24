@@ -5890,22 +5890,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6670879b4f623c344b3e42cf9daebc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 70
+  maxHealth: 500
   _health: 0
   scoreForWin: 1
   damage: 10
   lootPrefabs: []
   postDeadDecal: {fileID: 4912436217134671704, guid: 3596770cb09a9ff48a523652b8c8e279, type: 3}
   afterFightLoot: {fileID: 0}
+  speed: 5
+  slowDebuffed: 0
+  burnDebuffed: 0
   state: 0
   target: {fileID: 0}
   attackDistance: 1.96
   visionDistance: 53
   anim: {fileID: 8093321121602651424}
-  speed: 5
   suicideHealth: 50
   suicidespeed: 5
   suicideTimer: 4
+  elapsedTimeAfterSuicideMode: 0
 --- !u!114 &4458947559125477310
 MonoBehaviour:
   m_ObjectHideFlags: 0
