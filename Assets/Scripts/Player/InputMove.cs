@@ -33,23 +33,18 @@ public class InputMove : MonoBehaviour, IDialogueActor
     bool inputShift;
     bool inputSpace;
     float timeDelta;
+    PlayerBonusStat instant;
     void Awake()
     {
-        PlayerBonusStat.Init();
+        instant = PlayerBonusStat.Instant;
         Messenger<bool>.AddListener(GameEvent.PAUSE, OnPause);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusSpeed);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_JUMP, OnTakeDebuffJump);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_SPEED, OnTakeDebuffSpeed);
+
         //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
     void OnDestroy()
     {
         Messenger<bool>.RemoveListener(GameEvent.PAUSE, OnPause);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusSpeed);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_JUMP, OnTakeDebuffJump);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_SPEED, OnTakeDebuffSpeed);
+
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 
@@ -82,7 +77,7 @@ public class InputMove : MonoBehaviour, IDialogueActor
 
     private void FixedUpdate()
     {
-        
+
     }
     public void Setup(Transform targetPos)
     {
@@ -93,23 +88,7 @@ public class InputMove : MonoBehaviour, IDialogueActor
         Invoke("StopStartup", 0.5f);
     }
 
-    private void OnTakeBonusJump(int value)
-    {
-        PlayerBonusStat.bonusPack[BonusType.Jump] = value;
-    }
-    private void OnTakeBonusSpeed(int value)
-    {
-        PlayerBonusStat.bonusPack[BonusType.Speed] = value;
-    }
 
-    private void OnTakeDebuffJump(int value)
-    {
-        PlayerBonusStat.debuffPack[BonusType.Jump] = value;
-    }
-    private void OnTakeDebuffSpeed(int value)
-    {
-        PlayerBonusStat.debuffPack[BonusType.Speed] = value;
-    }
     private void Jump()
     {
         if (charController.isGrounded)
@@ -129,7 +108,7 @@ public class InputMove : MonoBehaviour, IDialogueActor
         {
             if (fall)
             {
-                vertSpeed -= gravity * 5 / PlayerBonusStat.bonusPack[BonusType.Jump] * timeDelta/PlayerBonusStat.debuffPack[BonusType.Jump];
+                vertSpeed -= gravity * 5 * timeDelta * (1 + (instant.debuffPack[BonusType.Jump].value - instant.bonusPack[BonusType.Jump].value) / 100f);
                 if (vertSpeed < terminalVelocity)
                 {
                     vertSpeed = terminalVelocity;
@@ -153,7 +132,7 @@ public class InputMove : MonoBehaviour, IDialogueActor
         {
 
             moveVector = new Vector3(deltaX, 0, deltaZ).normalized;//Ограничим движение по диагонали той же скоростью, что и движение параллельно осям
-            moveVector = moveVector * speed * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]/PlayerBonusStat.debuffPack[BonusType.Speed];
+            moveVector = moveVector * speed * sprintMultiplicatorBufer * (1 + (instant.bonusPack[BonusType.Speed].value - instant.debuffPack[BonusType.Speed].value) / 100f);
             //moveVector = Vector3.ClampMagnitude(moveVector, speed) * sprintMultiplicatorBufer * PlayerBonusStat.bonusPack[BonusType.Speed]; 
             horSpeed = moveVector;
             moveVector.y = vertSpeed;

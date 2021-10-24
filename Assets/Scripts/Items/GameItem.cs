@@ -15,7 +15,7 @@ public abstract class GameItem : MonoBehaviour
     [HideInInspector] public Transform target;
 
     private const float deletedTime = 120; //все собираемые объекты будут удаляться через равное время
-
+    PlayerBonusStat instant = PlayerBonusStat.Instant;
     private void Start()
     {
         if(deleted)
@@ -45,7 +45,7 @@ public abstract class GameItem : MonoBehaviour
         }
         else if (dir.magnitude > magnetDistance)
         {
-            int num = PlayerBonusStat.bonusPack[BonusType.Magnet] - PlayerBonusStat.debuffPack[BonusType.Magnet];
+            int num = instant.bonusPack[BonusType.Magnet].value - instant.debuffPack[BonusType.Magnet].value;
 
             itemObject.position += dir.normalized * moveSpeed * Time.deltaTime*num;
         }

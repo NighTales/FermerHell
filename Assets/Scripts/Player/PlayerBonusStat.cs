@@ -1,29 +1,63 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public static class PlayerBonusStat
+public class PlayerBonusStat
 {
-    public static Dictionary<BonusType, int> bonusPack;
-    public static Dictionary<BonusType, int> debuffPack;
-    public static int scoreMultiplicator = 1;
-
-    public static void Init()
+    public readonly Dictionary<BonusType, Bonus> bonusPack = new Dictionary<BonusType, Bonus>();
+    public readonly Dictionary<BonusType, Bonus> debuffPack = new Dictionary<BonusType, Bonus>();
+    public int scoreMultiplicator = 1;
+    public float BuffTime = 10f;
+    public float DebuffTimt = 8f;
+    public static PlayerBonusStat Instant
     {
-        scoreMultiplicator = 1;
-        bonusPack = new Dictionary<BonusType, int>();
-        bonusPack.Add(BonusType.Damage, 1);
-        bonusPack.Add(BonusType.Invulnerable, 1);
-        bonusPack.Add(BonusType.Jump, 1);
-        bonusPack.Add(BonusType.Speed, 1);
-        bonusPack.Add(BonusType.DOT, 1);
-        bonusPack.Add(BonusType.Resist, 1);
-         debuffPack = new Dictionary<BonusType, int>();
-        // debuffPack.Add(BonusType.Damage, 1);
-        // debuffPack.Add(BonusType.Invulnerable, 1);
-        debuffPack.Add(BonusType.Jump, 1);
-        debuffPack.Add(BonusType.Speed, 1);
-        debuffPack.Add(BonusType.Resist, 1);
-        debuffPack.Add(BonusType.DOT, 1);
+        get
+        {
+            if (instant == null)
+                instant = new PlayerBonusStat();
+            return instant;
+        }
     }
+    private static PlayerBonusStat instant;
+    private PlayerBonusStat() { Init(); }
+
+    public class Bonus
+    {
+        public int value { get; set; }
+        public float time { get; set; }
+
+        public Bonus(int value, float time)
+        {
+            this.value = value;
+            this.time = time;
+        }
+    }
+    public void Init()
+    {
+        bonusPack.Add(BonusType.Jump, new Bonus(0, 0));
+        bonusPack.Add(BonusType.Speed, new Bonus(0, 0));
+        bonusPack.Add(BonusType.DOT, new Bonus(0, 0));
+        bonusPack.Add(BonusType.Resist, new Bonus(0, 0));
+        bonusPack.Add(BonusType.Magnet, new Bonus(0, 0));
+
+        debuffPack.Add(BonusType.Jump, new Bonus(0, 0));
+        debuffPack.Add(BonusType.Speed, new Bonus(0, 0));
+        debuffPack.Add(BonusType.DOT, new Bonus(0, 0));
+        debuffPack.Add(BonusType.Resist, new Bonus(0, 0));
+        debuffPack.Add(BonusType.Magnet, new Bonus(0, 0));
+    }
+}
+public enum BonusType
+{
+    Speed, //увеличенная скорость
+    Jump, //усиленный прыжок
+    DOT, // Damage Over Time
+    Resist, // Сопротивление
+    Magnet, // магнит плюшек
+
+    Damage, // урон
+    FireRate, //скорострельность
+    Area, //площадь
 }

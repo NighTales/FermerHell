@@ -34,7 +34,7 @@ public class AudioSourceVolumeChanger : MonoBehaviour
                 break;
 
         }
-     //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
+        //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
     private void OnDestroy()
     {
@@ -51,7 +51,7 @@ public class AudioSourceVolumeChanger : MonoBehaviour
                 Messenger<bool>.RemoveListener(GameEvent.PAUSE, OnPause);
                 break;
         }
-       // Messenger.RemoveListener(GameEvent.EXIT_LEVEL, OnDestroy);
+        // Messenger.RemoveListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 
     private void Start()
@@ -74,13 +74,13 @@ public class AudioSourceVolumeChanger : MonoBehaviour
 
     private void ChangeVolume(float value)
     {
-        source.volume = value;
+            source.volume = value;
     }
     private void OnPause(bool pause)
     {
-        if(pause)
+        if (pause)
         {
-            if(source.isPlaying)
+            if (source.isPlaying)
             {
                 source.Pause();
                 usePause = true;
@@ -88,7 +88,7 @@ public class AudioSourceVolumeChanger : MonoBehaviour
         }
         else
         {
-            if(usePause && !source.isPlaying)
+            if (usePause && !source.isPlaying)
             {
                 source.Play();
                 usePause = false;

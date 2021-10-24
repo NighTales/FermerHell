@@ -66,17 +66,17 @@ public class TargetTrackerBullet : Bullet //Снаряд, который дов�
         {
             Explosion();
         }
-        else if (other.CompareTag("Turret"))
-        {
-            other.GetComponent<Turret>().AddTarget(transform);
-        }
+        //else if (other.CompareTag("Turret"))
+        //{
+        //    other.GetComponent<Turret>().AddTarget(transform);
+        //}
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Turret"))
-        {
-            other.GetComponent<Turret>().RemoveTarget(transform);
-        }
+        //if (other.CompareTag("Turret"))
+        //{
+        //    other.GetComponent<Turret>().RemoveTarget(transform);
+        //}
     }
 
 }

@@ -30,14 +30,18 @@
     public const string TAKE_BONUS_SPEED = "TAKE_BONUS_SPEED";
     public const string TAKE_BONUS_DOT = "TAKE_BONUS_DOT";
     public const string TAKE_BONUS_RESIST = "TAKE_BONUS_RESIST";
+    public const string TAKE_BONUS_MUGNET = "TAKE_BONUS_MUGNET";
     
     public const string TAKE_BONUS_DAMAGE = "TAKE_BONUS_DAMAGE";
+    public const string TAKE_BONUS_FireRate = "TAKE_BONUS_FireRate";
+    public const string TAKE_BONUS_Area = "TAKE_BONUS_Area";
     public const string TAKE_BONUS_INVULNERABLE = "TAKE_BONUS_INVULNERABLE"; 
     
     public const string TAKE_DEBUFF_JUMP = "TAKE_DEBUFF_JUMP";
     public const string TAKE_DEBUFF_SPEED = "TAKE_DEBUFF_SPEED";
     public const string TAKE_DEBUFF_DOT = "TAKE_DEBUFF_DOT";
     public const string TAKE_DEBUFF_RESIST = "TAKE_DEBUFF_RESIST";
+    public const string TAKE_DEBUFF_MUGNET = "TAKE_DEBUFF_MUGNET";
 
     
     

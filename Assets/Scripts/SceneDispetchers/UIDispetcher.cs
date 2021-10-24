@@ -63,7 +63,7 @@ public class UIDispetcher : MonoBehaviour
     private bool opportunityToShowSettings = true;
     private int score;
     private float scoreReturnTime;
-
+    PlayerBonusStat instant = PlayerBonusStat.Instant;
     void Awake()
     {
         Messenger.AddListener(GameEvent.HIT, OnHit);
@@ -219,7 +219,7 @@ public class UIDispetcher : MonoBehaviour
         {
             scoreReturnTime = 0;
             scoreMultiplicatorText.text = string.Empty;
-            PlayerBonusStat.scoreMultiplicator = 1;
+            instant.scoreMultiplicator = 1;
         }
 
         for (int i = 0; i < damageMarkersAnimators.Count; i++)
@@ -290,11 +290,11 @@ public class UIDispetcher : MonoBehaviour
     }
     private void OnEnemyDead()
     {
-        if(scoreReturnTime > 0 && PlayerBonusStat.scoreMultiplicator < 10)
+        if(scoreReturnTime > 0 && instant.scoreMultiplicator < 10)
         {
-            PlayerBonusStat.scoreMultiplicator++;
-            scoreMultiplicatorText.text = "X" + PlayerBonusStat.scoreMultiplicator;
-            scoreMultiplicatorText.color = Color.Lerp(Color.green, Color.red, 0.1f * PlayerBonusStat.scoreMultiplicator);
+            instant.scoreMultiplicator++;
+            scoreMultiplicatorText.text = "X" + instant.scoreMultiplicator;
+            scoreMultiplicatorText.color = Color.Lerp(Color.green, Color.red, 0.1f * instant.scoreMultiplicator);
             scoreMultiplicatorAnim.SetTrigger("ChangeScoreMultiplicator");
         }
         scoreReturnTime = 5;
@@ -514,7 +514,7 @@ public class UIDispetcher : MonoBehaviour
     }
     private void OnChangeScore(int value)
     {
-        score += value * PlayerBonusStat.scoreMultiplicator;
+        score += value * instant.scoreMultiplicator;
         scoreLabel.text = "Счёт: " + score;
     }
     private void OnChangeSprint(int value)

@@ -24,13 +24,29 @@ public class UIScript : MonoBehaviour
     [SerializeField] private Slider voiceVolumeSlider;
 
     [SerializeField]
-    [Tooltip("0 - влево, 1 - вправо")]
+    [Header("0 - влево, 1 - вправо")]
     private List<GameObject> sprintMarkers;
 
     private bool opportunityToShowSettings = true;
     private int score = 0;
-    private int currentStatEffect = 0;
+    //private int currentStatEffect = 0;
+    [SerializeField]
+    private PlayerBonusStat instant = PlayerBonusStat.Instant;
 
+
+    [SerializeField] private Sprite SpeedBonus;
+    [SerializeField] private Sprite JumpBonus;
+    [SerializeField] private Sprite DOTBonus;
+    [SerializeField] private Sprite ResistBonus;
+    [SerializeField] private Sprite MagnetBonus;
+    [SerializeField] private Sprite SpeedDebuff;
+    [SerializeField] private Sprite JumpDebuff;
+    [SerializeField] private Sprite DOTDebuff;
+    [SerializeField] private Sprite ResistDebuff;
+    [SerializeField] private Sprite MagnetDebuff;
+
+    private Dictionary<BonusType, Sprite> bonusPack = new Dictionary<BonusType, Sprite>();
+    private Dictionary<BonusType, Sprite> DebuffPack = new Dictionary<BonusType, Sprite>();
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +58,16 @@ public class UIScript : MonoBehaviour
         ClearAllStatEffect();
         ClearColorPower();
 
-       
+        bonusPack.Add(BonusType.Speed, SpeedBonus);
+        bonusPack.Add(BonusType.Resist, ResistBonus);
+        bonusPack.Add(BonusType.Magnet, MagnetBonus);
+        bonusPack.Add(BonusType.Jump, JumpBonus);
+        bonusPack.Add(BonusType.DOT, DOTBonus);
+        DebuffPack.Add(BonusType.Speed, SpeedDebuff);
+        DebuffPack.Add(BonusType.Resist, ResistDebuff);
+        DebuffPack.Add(BonusType.Magnet, MagnetDebuff);
+        DebuffPack.Add(BonusType.Jump, JumpDebuff);
+        DebuffPack.Add(BonusType.DOT, DOTDebuff);
     }
 
     private void Awake()
@@ -73,7 +98,7 @@ public class UIScript : MonoBehaviour
     }
     private void ClearAllStatEffect()
     {
-        foreach(var item in statEffect)
+        foreach (var item in statEffect)
         {
             item.enabled = false;
         }
@@ -104,7 +129,7 @@ public class UIScript : MonoBehaviour
     }
     private void OnChangeScore(int value = 0)
     {
-        score += value * PlayerBonusStat.scoreMultiplicator;
+        score += value * instant.scoreMultiplicator;
         scoreLabel.text = "Счёт: " + score;
     }
     private void OnChangeHealth(float value)
