@@ -13,6 +13,8 @@ public class PhysicsPartController : MonoBehaviour
 
         for (int i = 0; i < FirstPartGroup.Count; i++)
         {
+            FirstPartGroup[i].tag = "Untagged";
+        
             direction = (FirstPartGroup[i].transform.position - originPosition).normalized;
             FirstPartGroup[i].ImpulseToPart(direction);
         }
@@ -24,6 +26,7 @@ public class PhysicsPartController : MonoBehaviour
 
         for (int i = 0; i < SecondPartGroup.Count; i++)
         {
+            SecondPartGroup[i].tag = "Untagged";
             direction = (SecondPartGroup[i].transform.position - originPosition).normalized;
             SecondPartGroup[i].ImpulseToPart(direction);
         }

@@ -14,7 +14,7 @@ public enum EnemyState
 }
 
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody))][RequireComponent(typeof(Collider))]
 public abstract class Enemy : AliveController
 {
     [SerializeField, Range(1,100), Tooltip("Количество очков, получаемое за победу над врагом")] protected int scoreForWin = 1;
@@ -25,9 +25,12 @@ public abstract class Enemy : AliveController
     private Rigidbody rb;
     [SerializeField, Range(1,100), Tooltip("Скорость")]protected float speed = 5f; 
 
+    [SerializeField, Range(1,100), Tooltip("Стандартная Скорость")]protected float basespeed ; 
+
     [SerializeField] protected UnityEvent afterDeadEvent;
 
-    public Dictionary<BonusType, int> buffeeds;
+    [SerializeField]public Dictionary<BonusType, int> buffeeds;
+    private float dOTTime = 0f; 
 
 
     protected virtual void Start()
@@ -35,11 +38,18 @@ public abstract class Enemy : AliveController
         buffeeds = new Dictionary<BonusType, int>();
         buffeeds.Add(BonusType.Speed, 0);
         buffeeds.Add(BonusType.DOT, 0);
+        basespeed = speed;
         Health = maxHealth;
         rb = GetComponent<Rigidbody>();
         ReturnRB();
     }
-
+    protected virtual void Update()
+    {
+        if (dOTTime>0)
+        {
+            dOTTime -= Time.deltaTime;
+        }
+    }
     protected virtual void OnFightAction()
     {
        // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
@@ -76,22 +86,23 @@ public abstract class Enemy : AliveController
                 GetDamage(zone.damage);
             }
         }
-        else if(other.CompareTag("Turret"))
-        {
-            other.GetComponent<Turret>().AddTarget(transform);
-        }
+        // else if(other.CompareTag("Turret"))
+        // {
+        //     other.GetComponent<Turret>().AddTarget(transform);
+        // }
         // else if(other.CompareTag("DeadZone"))
         // {
         //     Death();
+        // // }
+        // else if (other.CompareTag("Blade"))
+        // {
+        //  //   Messenger.Broadcast(GameEvent.HIT);
+        //     OnFightAction();
         // }
-        else if (other.CompareTag("Blade"))
-        {
-         //   Messenger.Broadcast(GameEvent.HIT);
-            OnFightAction();
-        }
         // else if (other.CompareTag("Burn"))
         // {
-        //     OnTakeDebuffDOT(other.gameObject.GetComponent<Buff>().buffvalue);
+        //     buffeeds[BonusType.DOT]++;
+        //     OnTakeDebuffDOT(other.gameObject.GetComponent<Buff>().buffvalue,other.gameObject.GetComponent<Buff>().time);
         // } 
         // else if (other.CompareTag("Slow"))
         // {
@@ -137,7 +148,7 @@ public abstract class Enemy : AliveController
 
     #region Buffs
 
-    public void StartBuff(BonusType type, int value)
+    public void StartBuff(BonusType type, int value,float time)
     {
         switch (type)
         {
@@ -145,47 +156,46 @@ public abstract class Enemy : AliveController
                 OnTakeDebuffSpeed(value);
                 break;
             case BonusType.DOT:
-                OnTakeDebuffDOT(value);
+                OnTakeDebuffDOT(value,time);
                 break;
             default:
                 break;
         }
-    
     }
+
+    protected int slowvalue = 0;
     protected void OnTakeDebuffSpeed(int value)
     {
+        slowvalue = value;
+        float actionvalue = speed;
         if (buffeeds[BonusType.Speed] == 0)
         {
-            speed *= value;
+            speed = basespeed;
         }
         else
         {
-            speed /= value;
+            speed =basespeed - (basespeed * (float)value/100);
         }
+        OnSpeedChangeAction(speed/actionvalue);
     }
-    
 
-    protected void OnTakeDebuffDOT(int value)// думай леха думай
+    protected virtual void OnSpeedChangeAction(float value)
+    {
+        
+    }
+
+    protected void OnTakeDebuffDOT(int value,float time)// думай леха думай
     {
         if (buffeeds[BonusType.DOT] == 0)
         {
-            speed *= value;
+            dOTTime = time;
         }
         else
         {
-            speed /= value;
+            StartCoroutine(DOTDeBuffTic(value));
         }
-        StartCoroutine(DOTDeBuffTic(value));
     }
-    public IEnumerator DOTDeBuffTimer(int value)//думай лёха думай
-    {
-        do
-        {
-            GetDamage(value);
-            yield return new WaitForSeconds(1);
-            
-        } while (true);
-    }
+   
     public IEnumerator DOTDeBuffTic(int value)
     {
         do
@@ -193,7 +203,9 @@ public abstract class Enemy : AliveController
             GetDamage(value);
             yield return new WaitForSeconds(1);
             
-        } while (true);
+        } while (dOTTime>0 || buffeeds[BonusType.DOT] != 0);
     }
+
+
     #endregion
 }
