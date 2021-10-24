@@ -17,11 +17,11 @@ public class Buff : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            if (enemy.slowDebuffed == 0)
+            enemy.buffeeds[typeBuff]++;
+            if (enemy.buffeeds[typeBuff] == 1)
             {
                 enemy.StartBuff(typeBuff, buffvalue);
             }
-            enemy.buffeeds[typeBuff]++;
         } 
     }
         
@@ -31,8 +31,13 @@ public class Buff : MonoBehaviour
     {
         if (other.CompareTag("Slow"))
         {
-            other.GetComponent<Enemy>().buffeeds[typeBuff]++;
-        } 
+            Enemy enemy = other.GetComponent<Enemy>();
+            enemy.buffeeds[typeBuff]--;
+            if (enemy.buffeeds[typeBuff] == 0)
+            {
+                enemy.StartBuff(typeBuff, buffvalue);
+            }
+        }
     }
     // public Buff() //?&??
     // {
