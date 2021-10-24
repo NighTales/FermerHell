@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SimpleEnemy : Enemy
 {
-    [SerializeField] private float speed = 3.0f;
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField, Tooltip("Расстояние, на котором носитель скрипта будет реагировать на препятствие (длина луча)")] protected float obstacleRange = 5.0f;
     [SerializeField, Tooltip("Слои, которые не будут считаться препятствиями")] protected LayerMask ignoreMask;
