@@ -78,6 +78,8 @@ public class InfoMessageDispetcher : MonoBehaviour
             queueItems.Remove(queueItems[0]);
         }
 
+        yield return new WaitForSeconds(endTime);
+
         alreadyWorks = false;
         messageTip.SetActive(false);
     }

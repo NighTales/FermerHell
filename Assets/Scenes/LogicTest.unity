@@ -274,6 +274,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!1 &41009125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3570120389653675364, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+  m_PrefabInstance: {fileID: 720689074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &55267861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4341,19 +4346,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697403154069530050, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.592
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 697403154069530050, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 697403154069530050, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.592
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 697403154069530050, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 23.907743
       objectReference: {fileID: 0}
     - target: {fileID: 716365070896122066, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: statEffect.Array.size
@@ -4457,19 +4462,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2797928364318262619, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.592
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2797928364318262619, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2797928364318262619, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.592
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2797928364318262619, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 24.404367
       objectReference: {fileID: 0}
     - target: {fileID: 2939629788777047224, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4581,19 +4586,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7347852737170616655, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.592
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7347852737170616655, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7347852737170616655, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.592
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7347852737170616655, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 24.01752
       objectReference: {fileID: 0}
     - target: {fileID: 7370494122835776175, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4991,6 +4996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44215b2ddc912343a4f8764c1b131ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageTip: {fileID: 41009125}
   messageText: {fileID: 76509420}
   startTime: 1
   endTime: 1
@@ -5357,7 +5363,7 @@ MonoBehaviour:
     playerTarget: {fileID: 0}
     clip: {fileID: 8300000, guid: b0a09e5527059f24f8a59ac44e59cb34, type: 3}
     replicText: "\u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442\u0438\u0440\u0443\u0439
-      \u0435\u0433\u043E! \u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442\u0438\u0440\u0443!
+      \u0435\u0433\u043E! \u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442\u0438\u0440\u0443\u0439!
       \u0417\u0430\u043A\u0438\u043D\u0443\u043B\u0438 \u0447\u0451\u0440\u0442\u0438
       \u043A\u0443\u0434\u0430, \u0442\u0435\u043F\u0435\u0440\u044C \u0432\u044B\u0431\u0438\u0440\u0430\u0439\u0441\u044F."
     afterReplicaAction:
