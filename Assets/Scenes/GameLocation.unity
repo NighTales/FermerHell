@@ -21900,9 +21900,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 716365070896122066, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: sprintMarkers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1816592441}
+    - target: {fileID: 716365070896122066, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: sprintMarkers.Array.data[1]
+      value: 
+      objectReference: {fileID: 1816592440}
     - target: {fileID: 781109351916576518, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784123561406289153, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 835277698376132543, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -21998,6 +22010,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2957493650675830848, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155314223818564910, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3304870069875769042, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
@@ -22510,6 +22526,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+--- !u!1 &1816592440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3454655777360970696, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+  m_PrefabInstance: {fileID: 1816592439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1816592441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7902387102161736846, guid: 15952d2e155fee64ba7c67adc38365b1, type: 3}
+  m_PrefabInstance: {fileID: 1816592439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1818216781
 GameObject:
   m_ObjectHideFlags: 0
