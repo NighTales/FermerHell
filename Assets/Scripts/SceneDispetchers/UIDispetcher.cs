@@ -74,19 +74,18 @@ public class UIDispetcher : MonoBehaviour
         Messenger<float>.AddListener(GameEvent.CHANGE_HEALTH, OnChangeHealth);
         Messenger<float>.AddListener(GameEvent.CHANGE_MAX_HEALTH, OnChangeMaxHealth);
         
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusSpeed);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusDOT);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_JUMP, OnTakeBonusJump);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_SPEED, OnTakeBonusSpeed);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_RESIST, OnTakeBonusResist);
         
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DAMAGE, OnTakeBonusDamage);
         Messenger<int>.AddListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulrable);
         
         
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_JUMP, OnTakeDebuffJump);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_SPEED, OnTakeDebuffSpeed);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffDOT);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_JUMP, OnTakeDebuffJump);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_SPEED, OnTakeDebuffSpeed);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_RESIST, OnTakeDebuffResist);
         
         Messenger.AddListener(GameEvent.PLAYER_DEAD, OnPlayerDead);
         Messenger<int>.AddListener(GameEvent.NEXT_WAVE, OnNextWave);
@@ -106,18 +105,17 @@ public class UIDispetcher : MonoBehaviour
         Messenger<float>.RemoveListener(GameEvent.CHANGE_HEALTH, OnChangeHealth);
         Messenger<float>.RemoveListener(GameEvent.CHANGE_MAX_HEALTH, OnChangeMaxHealth);
 
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_JUMP, OnTakeBonusJump);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_SPEED, OnTakeBonusJump);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusDOT);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_JUMP, OnTakeBonusJump);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_SPEED, OnTakeBonusJump);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_RESIST, OnTakeBonusResist);
         
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_DAMAGE, OnTakeBonusJump);
         Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusJump);
         
-        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_JUMP, OnTakeDebuffJump);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_SPEED, OnTakeDebuffSpeed);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffDOT);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_JUMP, OnTakeDebuffJump);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_SPEED, OnTakeDebuffSpeed);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_RESIST, OnTakeDebuffResist);
         
         Messenger<int>.RemoveListener(GameEvent.NEXT_WAVE, OnNextWave);
         Messenger<int>.RemoveListener(GameEvent.DAMAGE_MARKER_ACTIVATE, OnDamageMarkerActivate);
@@ -620,7 +618,7 @@ public class UIDispetcher : MonoBehaviour
             if(jumpBonusSlider.value - Time.deltaTime <= 0)
             {
                 jumpBonusSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_BONUS_JUMP, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_BONUS_JUMP, 1);
             }
             else
             {
@@ -632,7 +630,7 @@ public class UIDispetcher : MonoBehaviour
             if (speedBonusSlider.value - Time.deltaTime <= 0)
             {
                 speedBonusSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_BONUS_SPEED, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_BONUS_SPEED, 1);
             }
             else
             {
@@ -644,7 +642,7 @@ public class UIDispetcher : MonoBehaviour
             if(DOTBonusSlider.value - Time.deltaTime <= 0)
             {
                 DOTBonusSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_BONUS_DOT, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_BONUS_DOT, 1);
             }
             else
             {
@@ -656,7 +654,7 @@ public class UIDispetcher : MonoBehaviour
             if (resistBonusSlider.value - Time.deltaTime <= 0)
             {
                 resistBonusSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_BONUS_RESIST, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_BONUS_RESIST, 1);
             }
             else
             {
@@ -669,7 +667,6 @@ public class UIDispetcher : MonoBehaviour
             if (damageBonusSlider.value - Time.deltaTime <= 0)
             {
                 damageBonusSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_BONUS_DAMAGE, 1);
             }
             else
             {
@@ -696,7 +693,7 @@ public class UIDispetcher : MonoBehaviour
             if(jumpDebuffSlider.value - Time.deltaTime <= 0)
             {
                 jumpDebuffSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_DEBUFF_JUMP, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_DEBUFF_JUMP, 1);
             }
             else
             {
@@ -708,7 +705,7 @@ public class UIDispetcher : MonoBehaviour
             if(speedDebuffSlider.value - Time.deltaTime <= 0)
             {
                 speedDebuffSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_DEBUFF_SPEED, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_DEBUFF_SPEED, 1);
             }
             else
             {
@@ -720,7 +717,7 @@ public class UIDispetcher : MonoBehaviour
             if(DOTDebuffSlider.value - Time.deltaTime <= 0)
             {
                 DOTDebuffSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_DEBUFF_DOT, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_DEBUFF_DOT, 1);
             }
             else
             {
@@ -732,7 +729,7 @@ public class UIDispetcher : MonoBehaviour
             if(resistDebuffSlider.value - Time.deltaTime <= 0)
             {
                 resistDebuffSlider.value = 0;
-                Messenger<int>.Broadcast(GameEvent.TAKE_DEBUFF_RESIST, 1);
+                Messenger<int>.Broadcast(GameEvent.Set_DEBUFF_RESIST, 1);
             }
             else
             {

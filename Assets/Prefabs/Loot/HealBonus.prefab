@@ -65,7 +65,8 @@ MonoBehaviour:
   deleted: 1
   magnetDistance: 1
   target: {fileID: 0}
-  type: 4
+  type: 2
+  value: 3
 --- !u!1 &4616562093394359029
 GameObject:
   m_ObjectHideFlags: 0

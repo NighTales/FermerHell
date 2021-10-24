@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720dc4949d29c0d47aab793665fe7bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnetMAxDistance: 2
+  magnetMaxDistance: 1
 --- !u!1 &5964494417071156201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,6 +2202,8 @@ GameObject:
   - component: {fileID: 8396015941545340339}
   - component: {fileID: 8396015941545340336}
   - component: {fileID: 8396015941545340337}
+  - component: {fileID: 7975714982648844221}
+  - component: {fileID: 4747516307001813615}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -2443,6 +2445,150 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &7975714982648844221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396015941545340329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f9c4a231f0ec448a954835935a59b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4747516307001813615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396015941545340329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e942ea15f0345594d87423024ab25c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rGBCharge:
+    red: 0
+    green: 0
+    blue: 0
+  camObject: {fileID: 8396015942399266163}
+  maxDistance: 300
+  ignoreRaycast:
+    serializedVersion: 2
+    m_Bits: 4
+  Skills:
+  - rGBCharge:
+      red: 0
+      green: 0
+      blue: 3
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: 16be463864c227d448ea5d5fa093987e, type: 3}
+  - rGBCharge:
+      red: 0
+      green: 2
+      blue: 1
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: 020ab0fe7dbf1064a9b6698d0d5be936, type: 3}
+  - rGBCharge:
+      red: 0
+      green: 1
+      blue: 2
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: d14c972519a1bfd4d89208dec53e06ab, type: 3}
+  - rGBCharge:
+      red: 0
+      green: 3
+      blue: 0
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: 7fb42f80d673f69478d27ce2a0789dd6, type: 3}
+  - rGBCharge:
+      red: 2
+      green: 1
+      blue: 0
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: 795552300334b6b4d93f86a9dc20a073, type: 3}
+  - rGBCharge:
+      red: 1
+      green: 0
+      blue: 2
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: 423c2d66b1ad30744862111287f9a992, type: 3}
+  - rGBCharge:
+      red: 1
+      green: 1
+      blue: 1
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: 2fc0041b8f21afd4981d7f6026b580ba, type: 3}
+  - rGBCharge:
+      red: 1
+      green: 2
+      blue: 0
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: e18ca9fdf6fa8d04a9436b1f9f41004a, type: 3}
+  - rGBCharge:
+      red: 2
+      green: 0
+      blue: 1
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: 865d4a0842800664f95d2842f3393994, type: 3}
+  - rGBCharge:
+      red: 3
+      green: 0
+      blue: 0
+    Self: 0
+    ParticleEffect: {fileID: 0}
+    Radius: 5
+    TimeSec: 20
+    Damage: 20
+    effects: []
+    Sprite1: {fileID: 21300000, guid: b03a2d340bca4464399003274346c736, type: 3}
 --- !u!1 &8396015941823357421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2762,7 @@ GameObject:
   - component: {fileID: 8396015942399266166}
   - component: {fileID: 8396015942399266161}
   - component: {fileID: 8396015942399266160}
+  - component: {fileID: 8172124499511640335}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2689,6 +2836,38 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8396015942399266163}
   m_Enabled: 1
+--- !u!114 &8172124499511640335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396015942399266163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &8712685079243253371
 GameObject:
   m_ObjectHideFlags: 0

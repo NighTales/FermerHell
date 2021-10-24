@@ -8,14 +8,18 @@ public class MedicineItem : GameItem //аптечка
 
     public override void SetTarget(Transform target)
     {
-        AliveController alive = target.GetComponent<AliveController>();
-        if (alive.Health < alive.maxHealth)
-            base.SetTarget(target);
+        if(target.TryGetComponent(out AliveController aliveController))
+        {
+            if (aliveController.Health < aliveController.maxHealth)
+                base.SetTarget(target);
+        }
     }
 
     public override void Action()
     {
-        PlayerCharacter alive = target.GetComponent<PlayerCharacter>();
-        alive.RestoreHealth(hp);
+        if(target.TryGetComponent(out PlayerCharacter  playerCharacter))
+        {
+            playerCharacter.RestoreHealth(hp);
+        }
     }
 }

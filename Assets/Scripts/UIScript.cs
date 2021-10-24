@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,7 +32,7 @@ public class UIScript : MonoBehaviour
     private int score = 0;
     //private int currentStatEffect = 0;
     [SerializeField]
-    private PlayerBonusStat instant = PlayerBonusStat.Instant;
+    private PlayerBonusStat PlayerStatInstant = PlayerBonusStat.Instant;
 
 
     [SerializeField] private Sprite SpeedBonus;
@@ -45,11 +46,15 @@ public class UIScript : MonoBehaviour
     [SerializeField] private Sprite ResistDebuff;
     [SerializeField] private Sprite MagnetDebuff;
 
-    private Dictionary<BonusType, Sprite> bonusPack = new Dictionary<BonusType, Sprite>();
-    private Dictionary<BonusType, Sprite> DebuffPack = new Dictionary<BonusType, Sprite>();
+    private Dictionary<BonusType, Tuple<Sprite, Image>> bonusPack = new Dictionary<BonusType, Tuple<Sprite, Image>>();
+    private Dictionary<BonusType, Tuple<Sprite, Image>> debuffPack = new Dictionary<BonusType, Tuple<Sprite, Image>>();
+
+    public Skill.RGBCharge rGBCharge = new Skill.RGBCharge(0, 0, 0);
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         //MenuPanelToggle_ButtonClick();
         //DontDestroyOnLoad(gameObject);
         OnChangeScore();
@@ -58,26 +63,59 @@ public class UIScript : MonoBehaviour
         ClearAllStatEffect();
         ClearColorPower();
 
-        bonusPack.Add(BonusType.Speed, SpeedBonus);
-        bonusPack.Add(BonusType.Resist, ResistBonus);
-        bonusPack.Add(BonusType.Magnet, MagnetBonus);
-        bonusPack.Add(BonusType.Jump, JumpBonus);
-        bonusPack.Add(BonusType.DOT, DOTBonus);
-        DebuffPack.Add(BonusType.Speed, SpeedDebuff);
-        DebuffPack.Add(BonusType.Resist, ResistDebuff);
-        DebuffPack.Add(BonusType.Magnet, MagnetDebuff);
-        DebuffPack.Add(BonusType.Jump, JumpDebuff);
-        DebuffPack.Add(BonusType.DOT, DOTDebuff);
-    }
+        bonusPack.Add(BonusType.Speed, new Tuple<Sprite, Image>(SpeedBonus, statEffect[0]));
+        bonusPack.Add(BonusType.Resist, new Tuple<Sprite, Image>(ResistBonus, statEffect[1]));
+        bonusPack.Add(BonusType.Magnet, new Tuple<Sprite, Image>(MagnetBonus, statEffect[2]));
+        bonusPack.Add(BonusType.Jump, new Tuple<Sprite, Image>(JumpBonus, statEffect[3]));
+        bonusPack.Add(BonusType.DOT, new Tuple<Sprite, Image>(DOTBonus, statEffect[4]));
 
+        debuffPack.Add(BonusType.Speed, new Tuple<Sprite, Image>(SpeedDebuff, statEffect[5]));
+        debuffPack.Add(BonusType.Resist, new Tuple<Sprite, Image>(ResistDebuff, statEffect[6]));
+        debuffPack.Add(BonusType.Magnet, new Tuple<Sprite, Image>(MagnetDebuff, statEffect[7]));
+        debuffPack.Add(BonusType.Jump, new Tuple<Sprite, Image>(JumpDebuff, statEffect[8]));
+        debuffPack.Add(BonusType.DOT, new Tuple<Sprite, Image>(DOTDebuff, statEffect[9]));
+    }
+    List<Action<int>> actions;
     private void Awake()
     {
+        actions = new List<Action<int>>();
+
+        actions.Add(new Action<int>(c => OnSetBonus(BonusType.Jump, c)));
+        actions.Add(new Action<int>(c => OnSetBonus(BonusType.Speed, c)));
+        actions.Add(new Action<int>(c => OnSetBonus(BonusType.Resist, c)));
+        actions.Add(new Action<int>(c => OnSetBonus(BonusType.DOT, c)));
+        actions.Add(new Action<int>(c => OnSetBonus(BonusType.Magnet, c)));
+
+        actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Jump, c)));
+        actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Speed, c)));
+        actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Resist, c)));
+        actions.Add(new Action<int>(c => OnSetDebuff(BonusType.DOT, c)));
+        actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Magnet, c)));
+
         Messenger.AddListener(GameEvent.HIT, OnHit);
         Messenger<int>.AddListener(GameEvent.CHANGE_SPRINT_COUNT, OnChangeSprint);
         Messenger<int>.AddListener(GameEvent.ENEMY_HIT, OnChangeScore);
         Messenger<float>.AddListener(GameEvent.CHANGE_HEALTH, OnChangeHealth);
         Messenger<Vector3>.AddListener(GameEvent.START_SPRINT, EnebleSprintEffect);
         Messenger.AddListener(GameEvent.STOP_SPRINT, DisableAllSprintEffects);
+
+        Messenger.AddListener(GameEvent.CLEAR_COLORS, ClearColorPower);
+        Messenger.AddListener(GameEvent.ADD_R_CHARGE, AddRColor);
+        Messenger.AddListener(GameEvent.ADD_G_CHARGE, AddGColor);
+        Messenger.AddListener(GameEvent.ADD_B_CHARGE, AddBColor);
+        Messenger.AddListener(GameEvent.READY_TO_MAGIC, ReadyMagic);
+
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_JUMP, actions[0]);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_SPEED, actions[1]);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, actions[2]);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_RESIST, actions[3]);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_MUGNET, actions[4]);
+
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_JUMP, actions[5]);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_SPEED, actions[6]);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, actions[7]);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_RESIST, actions[8]);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
     private void OnDestroy()
@@ -88,6 +126,24 @@ public class UIScript : MonoBehaviour
         Messenger<float>.RemoveListener(GameEvent.CHANGE_HEALTH, OnChangeHealth);
         Messenger<Vector3>.RemoveListener(GameEvent.START_SPRINT, EnebleSprintEffect);
         Messenger.RemoveListener(GameEvent.STOP_SPRINT, DisableAllSprintEffects);
+
+        Messenger.RemoveListener(GameEvent.CLEAR_COLORS, ClearColorPower);
+        Messenger.RemoveListener(GameEvent.ADD_R_CHARGE, AddRColor);
+        Messenger.RemoveListener(GameEvent.ADD_G_CHARGE, AddGColor);
+        Messenger.RemoveListener(GameEvent.ADD_B_CHARGE, AddBColor);
+        Messenger.RemoveListener(GameEvent.READY_TO_MAGIC, ReadyMagic);
+
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_JUMP, actions[0]);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_SPEED, actions[1]);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_DOT, actions[2]);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_RESIST, actions[3]);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_MUGNET, actions[4]);
+
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_JUMP, actions[5]);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_SPEED, actions[6]);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_DOT, actions[7]);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_RESIST, actions[8]);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
     }
 
     // Update is called once per frame
@@ -100,9 +156,10 @@ public class UIScript : MonoBehaviour
     {
         foreach (var item in statEffect)
         {
-            item.enabled = false;
+            item.gameObject.SetActive(false);
         }
     }
+    
     private void ClearColorPower()
     {
         foreach (var item in colorSkillPower)
@@ -113,7 +170,50 @@ public class UIScript : MonoBehaviour
         clearHint.SetActive(false);
         applyHint.SetActive(false);
         useSkillHint.SetActive(false);
+        rGBCharge.ClearColors(true);
     }
+    private void AddColor()
+    {
+        clearHint.SetActive(true);
+        if (rGBCharge.ColorCount >= 3)
+        {
+            applyHint.SetActive(true);
+        }
+    }
+    private void AddRColor()
+    {
+        colorSkillPower[rGBCharge.ColorCount].enabled = true;
+        colorSkillPower[rGBCharge.ColorCount].color = Color.red;
+        rGBCharge.red++;
+
+        AddColor();
+    }
+    private void AddGColor()
+    {
+        colorSkillPower[rGBCharge.ColorCount].enabled = true;
+        colorSkillPower[rGBCharge.ColorCount].color = Color.green;
+        rGBCharge.green++;
+
+        AddColor();
+    }
+
+    private void AddBColor()
+    {
+        colorSkillPower[rGBCharge.ColorCount].enabled = true;
+        colorSkillPower[rGBCharge.ColorCount].color = Color.blue;
+        rGBCharge.blue++;
+
+        AddColor();
+    }
+
+    private void ReadyMagic()
+    {
+        skillImage.enabled = true;
+        skillImage.sprite = PlayerStatInstant.ActiveSlillSprite;
+        useSkillHint.SetActive(true);
+        Debug.Log("UI ReadyMagic");
+    }
+
     public void RestartScene_ButtonClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -129,7 +229,7 @@ public class UIScript : MonoBehaviour
     }
     private void OnChangeScore(int value = 0)
     {
-        score += value * instant.scoreMultiplicator;
+        score += value * PlayerStatInstant.scoreMultiplicator;
         scoreLabel.text = "Счёт: " + score;
     }
     private void OnChangeHealth(float value)
@@ -203,5 +303,43 @@ public class UIScript : MonoBehaviour
     public void Exit_ButtonClick()
     {
         Application.Quit();
+    }
+
+    private void OnSetBonus(BonusType bonusType, int value)
+    {
+        if (value > 0)
+        {
+            AddStatEffect(bonusType);
+            Debug.Log("OnSetBonus " + bonusType + " AddStatEffect");
+        }
+        else
+        {
+            RemoveStatEffect(bonusType);
+            Debug.Log("OnSetBonus " + bonusType + " RemoveStatEffect");
+        }
+    }
+
+    private void OnSetDebuff(BonusType bonusType, int value)
+    {
+        if (value > 0)
+        {
+            AddStatEffect(bonusType);
+            Debug.Log("AddStatEffect " + bonusType + "  AddStatEffect");
+        }
+        else
+        {
+            RemoveStatEffect(bonusType);
+            Debug.Log("AddStatEffect " + bonusType + "  RemoveStatEffect");
+        }
+    }
+    private void AddStatEffect(BonusType bonusType)
+    {
+        bonusPack[bonusType].Item2.sprite = bonusPack[bonusType].Item1;
+        bonusPack[bonusType].Item2.gameObject.SetActive(true);
+    }
+
+    private void RemoveStatEffect(BonusType bonusType)
+    {
+        bonusPack[bonusType].Item2.gameObject.SetActive(false);
     }
 }

@@ -14,9 +14,9 @@ public class Shotgun : Weapon
     [SerializeField, Range(0.01f, 0.3f)]
     private float maxAngle = 0.15f;
     [SerializeField, Range(0.01f, 2)]
-    private float minRecoilTime = 1.5f;
+    private float minRecoilTime = 0.5f;
     [SerializeField, Range(1, 10)]
-    private float maxRecoilTime = 1.5f;
+    private float maxRecoilTime = 1f;
     [SerializeField, Range(0.1f, 1)]
     private float step = 0.2f;
 
@@ -45,19 +45,9 @@ public class Shotgun : Weapon
                     opportunityToShoot = false;
                     //pack.currentAmmo--;
                     //Messenger<int>.Broadcast(GameEvent.AMMO_ARE_CHANGED, pack.currentAmmo);
-                    //Invoke("ReturnOpportunityToShoot", currentRecoilTime);
-                    currentRecoilTime -= step;
-                    if (currentRecoilTime < minRecoilTime)
-                        currentRecoilTime = minRecoilTime;
+                    Invoke("ReturnOpportunityToShoot", currentRecoilTime);
+                    currentRecoilTime = maxRecoilTime - 0.2f * instant.bonusPack[BonusType.FireRate].value; ;
                 }
-            }
-            else
-            {
-                //if (pack.currentAmmo <= 0)
-                //{
-                //    ChangeShootType();
-                //}
-                currentRecoilTime = maxRecoilTime;
             }
         }
         else
@@ -116,8 +106,8 @@ public class Shotgun : Weapon
         for (int i = 0; i < countOfBullet; i++)
         {
             GameObject currentBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
-            currentBullet.transform.forward = GetRandomVector(maxAngle);
-            int damageMultiplicator = damage + damage * instant.bonusPack[BonusType.Damage].value / 100;
+            currentBullet.transform.forward = GetRandomVector(maxAngle + 10 * instant.bonusPack[BonusType.Area].value);
+            int damageMultiplicator = damage + damage * instant.bonusPack[BonusType.Damage].value * 50 / 100;
             currentBullet.GetComponent<Bullet>().Init(bulletSpeed, pack.bulletLifeTime, damageMultiplicator, ignoreMask);
         }
     }

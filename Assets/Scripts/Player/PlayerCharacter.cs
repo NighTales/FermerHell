@@ -19,8 +19,8 @@ public class PlayerCharacter : AliveController
         Messenger.AddListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.AddListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
 
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusDOT);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffDOT);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
         opportunityToDead = true;
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
@@ -30,8 +30,8 @@ public class PlayerCharacter : AliveController
         Messenger.RemoveListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.RemoveListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
 
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusDOT);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffDOT);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
         //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 

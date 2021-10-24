@@ -11,17 +11,21 @@ public class PlayerBonusStat
     public int scoreMultiplicator = 1;
     public float BuffTime = 10f;
     public float DebuffTimt = 8f;
+    public Sprite ActiveSlillSprite;
     public static PlayerBonusStat Instant
     {
         get
         {
             if (instant == null)
+            {
                 instant = new PlayerBonusStat();
+                instant.Init();
+            }
             return instant;
         }
     }
     private static PlayerBonusStat instant;
-    private PlayerBonusStat() { Init(); }
+    private PlayerBonusStat() {  }
 
     public class Bonus
     {
@@ -34,7 +38,7 @@ public class PlayerBonusStat
             this.time = time;
         }
     }
-    public void Init()
+    private void Init()
     {
         bonusPack.Add(BonusType.Jump, new Bonus(0, 0));
         bonusPack.Add(BonusType.Speed, new Bonus(0, 0));
@@ -47,6 +51,24 @@ public class PlayerBonusStat
         debuffPack.Add(BonusType.DOT, new Bonus(0, 0));
         debuffPack.Add(BonusType.Resist, new Bonus(0, 0));
         debuffPack.Add(BonusType.Magnet, new Bonus(0, 0));
+
+
+        bonusPack.Add(BonusType.Damage, new Bonus(0, 0));
+        bonusPack.Add(BonusType.Area, new Bonus(0, 0));
+        bonusPack.Add(BonusType.FireRate, new Bonus(0, 0));
+
+        Messenger<int>.AddListener(GameEvent.SET_R_BONUS, SetRBonus);
+        Messenger<int>.AddListener(GameEvent.SET_G_BONUS, SetGBonus);
+        Messenger<int>.AddListener(GameEvent.SET_B_BONUS, SetBBonus);
+    }
+    public void SetRBonus(int value) => SetWeaponBuff(BonusType.Damage, value);
+    public void SetGBonus(int value) => SetWeaponBuff(BonusType.FireRate, value);
+    public void SetBBonus(int value) => SetWeaponBuff(BonusType.Area, value);
+
+    public void SetWeaponBuff(BonusType type, int value)
+    {
+        bonusPack[type].value = value;
+        Debug.Log("" + type + "  " + value);
     }
 }
 public enum BonusType
