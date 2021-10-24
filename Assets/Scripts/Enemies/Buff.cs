@@ -7,11 +7,8 @@ public class Buff : MonoBehaviour
 {
     public float time = 5f;
     public BonusType typeBuff;
-
     public int buffvalue = 2;
 
-    public int buffed = 0;
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -20,22 +17,27 @@ public class Buff : MonoBehaviour
             enemy.buffeeds[typeBuff]++;
             if (enemy.buffeeds[typeBuff] == 1)
             {
-                enemy.StartBuff(typeBuff, buffvalue);
+                enemy.StartBuff(typeBuff, buffvalue, time);
             }
-        } 
+        }
     }
-        
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Slow"))
+        if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.buffeeds[typeBuff]--;
-            if (enemy.buffeeds[typeBuff] == 0)
+            if (enemy is Ghost)
             {
-                enemy.StartBuff(typeBuff, buffvalue);
+            }
+            else
+            {
+                enemy.buffeeds[typeBuff]--;
+                if (enemy.buffeeds[typeBuff] == 0)
+                {
+                    enemy.StartBuff(typeBuff, buffvalue, time);
+                }
             }
         }
     }
