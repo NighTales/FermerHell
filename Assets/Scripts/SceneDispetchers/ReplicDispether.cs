@@ -26,11 +26,11 @@ public class ReplicDispether : MonoBehaviour
         Setup();
     }
 
-
     public void Setup()
     {
         replicas = new List<ReplicItem>();
         source = GetComponent<AudioSource>();
+        replicText.CrossFadeAlpha(0, 0, false);
         replicPanel.SetActive(false);
         opportunityToSkip = false;
     }
@@ -53,6 +53,8 @@ public class ReplicDispether : MonoBehaviour
         replicas.AddRange(items);
         if(bufer == null)
         {
+            replicPanel.SetActive(true);
+            skipImage.enabled = false;
             StartCoroutine(CheckReplicas(0));
         }
     }
@@ -61,9 +63,9 @@ public class ReplicDispether : MonoBehaviour
         yield return new WaitForSeconds(time);
         bufer?.afterReplicaAction?.Invoke();
         source.Stop();
-        replicPanel.SetActive(false);
+        
         if (replicas.Count > 0)
-            StartReplica();
+            StartCoroutine(StartReplica());
         else
         {
             bufer = null;
@@ -72,9 +74,12 @@ public class ReplicDispether : MonoBehaviour
             mouseLock.SetDialogueState(false);
             skipImage.enabled = false;
             opportunityToSkip = false;
+            replicText.CrossFadeAlpha(0, 0.5f, true);
+            yield return new WaitForSeconds(0.5f);
+            replicPanel.SetActive(false);
         }
     }
-    private void StartReplica()
+    private IEnumerator StartReplica()
     {
         bufer = replicas[0];
 
@@ -91,10 +96,16 @@ public class ReplicDispether : MonoBehaviour
         }
 
         source.clip = bufer.clip;
-        replicPanel.SetActive(true);
+
+        replicText.CrossFadeAlpha(0, 0.5f, true);
+
+        yield return new WaitForSeconds(0.5f);
+
         replicText.text = bufer.replicText;
         replicText.color = bufer.role.roleTextColor;
         speackerImage.sprite = bufer.role.roleIcon;
+        replicText.CrossFadeAlpha(1, 0.5f, true);
+        yield return new WaitForSeconds(0.5f);
         source.Play();
         StartCoroutine(CheckReplicas(source.clip.length + 0.3f));
         replicas.Remove(replicas[0]);
