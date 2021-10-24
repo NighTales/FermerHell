@@ -23,7 +23,7 @@ public abstract class Enemy : AliveController
     [SerializeField] protected GameObject postDeadDecal;
     [SerializeField] protected GameObject afterFightLoot;
     private Rigidbody rb;
-    [SerializeField, Range(1,100), Tooltip("Скорость")]protected float speed = 5f; 
+    protected float speed = 5f; 
 
     [SerializeField, Range(1,100), Tooltip("Стандартная Скорость")]protected float basespeed ; 
 

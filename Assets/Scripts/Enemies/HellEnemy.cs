@@ -6,7 +6,7 @@ public class HellEnemy : Enemy
 {
     [SerializeField] protected EnemyState state;
     [SerializeField, Tooltip("Целевой объект")] protected GameObject target;
-    [SerializeField, Tooltip("Дальность атаки"), Range(1, 10)] protected float attackDistance = 5;
+    [SerializeField, Tooltip("Дальность атаки"), Range(1, 100)] protected float attackDistance = 5;
     [SerializeField, Tooltip("Дальность обзора"), Range(1, 100)] protected float visionDistance = 5;
     [SerializeField] protected Animator anim;
     protected NavMeshAgent agent;
