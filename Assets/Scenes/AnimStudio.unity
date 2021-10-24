@@ -336,7 +336,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 26a28692516327845a47cbe0e1761ca0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,6 +380,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1444904159
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8513241231776776462, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_Name
+      value: Scarecrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513241231776776463, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c04c8680a7ba009418b76f363121be1d, type: 3}
 --- !u!1001 &1563438319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -556,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 2346921938133034030, guid: edc498f092e15f54dbf27629be530684, type: 3}
       propertyPath: m_Name
       value: PumOnLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346921938133034030, guid: edc498f092e15f54dbf27629be530684, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edc498f092e15f54dbf27629be530684, type: 3}
