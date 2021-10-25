@@ -17,9 +17,10 @@ public class PlayerMagic : MonoBehaviour
     private bool rightClickUp = false;
     private bool refresh = false;
     private bool apply = false;
-    private GameObject targetMark;
+    [SerializeField]private GameObject targetMark;
     PlayerBonusStat playerStatInstant = PlayerBonusStat.Instant;
     private bool inMenu = false;
+    private Vector3 dir;
     void Awake()
     {
         Messenger<bool>.AddListener(GameEvent.PAUSE, OnPause);
@@ -36,14 +37,17 @@ public class PlayerMagic : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        dir = transform.forward;
+        targetMark.SetActive(false);
         CreateTargetMark();
     }
 
     private void CreateTargetMark()
     {
-        targetMark = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        //targetMark = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        targetMark = Instantiate(targetMark);
         targetMark.SetActive(false);
-        targetMark.AddComponent<NavMeshObstacle>();
+        //targetMark.AddComponent<NavMeshObstacle>();
         //targetMark.GetComponent<BoxCollider>().enabled = false;
     }
 
@@ -52,6 +56,29 @@ public class PlayerMagic : MonoBehaviour
     {
         if (!inMenu)
             InputKeys();
+        Debug.Log(targetMark.activeSelf);
+        if (targetMark.activeSelf)
+        { 
+            
+
+            RaycastHit hit = new RaycastHit();
+            
+            if (Physics.Raycast(camObject.transform.position,camObject.transform.forward,out hit,30,~0))
+            {
+                targetMark.transform.position = hit.point + Vector3.up;
+            }
+            // Vector3 camForward = camObject.transform.forward;
+            // camForward.y = 0;
+            //
+            // if (h != 0 || v != 0)
+            // {
+            //     dir =  camObject.transform.right * h + camForward * v;
+            //     if (dir != Vector3.zero)
+            //     {
+            //         
+            //     }
+            // }
+        }
 
     }
     private void LateUpdate()
@@ -117,7 +144,11 @@ public class PlayerMagic : MonoBehaviour
             if (!skill.Self)
             {
                 if (!targetMark.activeSelf)
+                {
+                    targetMark.transform.localScale =new Vector3( skill.Radius,1,skill.Radius);
+                    //targetMark.gameObject.GetComponent<CapsuleCollider>
                     targetMark.SetActive(true);
+                }
 
                 if (Physics.Raycast(
                     camObject.transform.position,
