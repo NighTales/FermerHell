@@ -21,5 +21,4 @@ public class AnimEventReactor : MonoBehaviour
     {
         StartCoroutine(_hellEnemy.SpecialMove());
     }
-  
 }

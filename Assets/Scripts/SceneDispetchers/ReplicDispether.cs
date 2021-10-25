@@ -40,6 +40,11 @@ public class ReplicDispether : MonoBehaviour
         if(opportunityToSkip && Input.GetKeyDown(KeyCode.Space))
         {
             StopAllCoroutines();
+            if(replicas.Count > 0)
+            {
+                replicas.RemoveAt(0);
+                replicText.CrossFadeAlpha(0, 0, false);
+            }
             StartCoroutine(CheckReplicas(0));
         }
     }
@@ -75,7 +80,8 @@ public class ReplicDispether : MonoBehaviour
             skipImage.enabled = false;
             opportunityToSkip = false;
             replicText.CrossFadeAlpha(0, 0.5f, true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.6f);
+            replicText.text = string.Empty;
             replicPanel.SetActive(false);
         }
     }
