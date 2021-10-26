@@ -21,6 +21,8 @@ public class PlayerMagic : MonoBehaviour
     PlayerBonusStat playerStatInstant = PlayerBonusStat.Instant;
     private bool inMenu = false;
     private Vector3 dir;
+    private bool isStarted = false;
+
     void Awake()
     {
         Messenger<bool>.AddListener(GameEvent.PAUSE, OnPause);
@@ -56,29 +58,28 @@ public class PlayerMagic : MonoBehaviour
     {
         if (!inMenu)
             InputKeys();
-        Debug.Log(targetMark.activeSelf);
-        if (targetMark.activeSelf)
-        { 
-            
-
-            RaycastHit hit = new RaycastHit();
-            
-            if (Physics.Raycast(camObject.transform.position,camObject.transform.forward,out hit,30,~0))
-            {
-                targetMark.transform.position = hit.point + Vector3.up;
-            }
-            // Vector3 camForward = camObject.transform.forward;
-            // camForward.y = 0;
-            //
-            // if (h != 0 || v != 0)
-            // {
-            //     dir =  camObject.transform.right * h + camForward * v;
-            //     if (dir != Vector3.zero)
-            //     {
-            //         
-            //     }
-            // }
-        }
+        // if (targetMark.activeSelf)
+        // { 
+        //     
+        //
+        //     // RaycastHit hit = new RaycastHit();
+        //     //
+        //     // if (Physics.Raycast(camObject.transform.position,camObject.transform.forward,out hit,30,~0))
+        //     // {
+        //     //     targetMark.transform.position = hit.point+Vector3.up*0.25f;
+        //     // }
+        //     // Vector3 camForward = camObject.transform.forward;
+        //     // camForward.y = 0;
+        //     //
+        //     // if (h != 0 || v != 0)
+        //     // {
+        //     //     dir =  camObject.transform.right * h + camForward * v;
+        //     //     if (dir != Vector3.zero)
+        //     //     {
+        //     //         
+        //     //     }
+        //     // }
+        // }
 
     }
     private void LateUpdate()
@@ -94,7 +95,7 @@ public class PlayerMagic : MonoBehaviour
     private void InputKeys()
     {
         rightClickOn = Input.GetKey(KeyCode.Mouse1);
-        rightClickOn = Input.GetKeyUp(KeyCode.Mouse1);
+        rightClickUp = Input.GetKey(KeyCode.Mouse0);
         refresh = Input.GetKeyDown(KeyCode.Q);
         apply = Input.GetKeyDown(KeyCode.E);
     }
@@ -137,15 +138,18 @@ public class PlayerMagic : MonoBehaviour
     }
     public void UseMagic()
     {
-        if (rGBCharge.ColorCount >= 3 && rightClickOn)
+        
+        
+        if (rGBCharge.ColorCount >= 3 && (rightClickOn|| targetMark.activeSelf ))
         {
             Vector3 target = Vector3.zero;
+            //isStarted = true;
 
             if (!skill.Self)
             {
                 if (!targetMark.activeSelf)
                 {
-                    targetMark.transform.localScale =new Vector3( skill.Radius,1,skill.Radius);
+                    targetMark.transform.localScale =new Vector3( skill.Radius,skill.Radius,0.25f);
                     //targetMark.gameObject.GetComponent<CapsuleCollider>
                     targetMark.SetActive(true);
                 }
@@ -157,11 +161,11 @@ public class PlayerMagic : MonoBehaviour
                     maxDistance,
                     ~ignoreRaycast))
                 {
-                    targetMark.transform.position = hitInfo.point;
+                    targetMark.transform.position = hitInfo.point+Vector3.up*0.25f;
 
                     if (rightClickUp)
                     {
-                        target = hitInfo.point;
+                        target = hitInfo.point ;
                     }
                 }
             }
@@ -191,6 +195,7 @@ public class PlayerMagic : MonoBehaviour
                 }
 
                 rGBCharge.ClearColors();
+                
                 targetMark.SetActive(false);
             }
         }
