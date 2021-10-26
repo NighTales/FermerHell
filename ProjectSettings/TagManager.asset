@@ -13,6 +13,7 @@ TagManager:
   - DeadZone
   - Burn
   - Slow
+  - DamageZone
   layers:
   - Default
   - TransparentFX
