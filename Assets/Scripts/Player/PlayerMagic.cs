@@ -152,6 +152,7 @@ public class PlayerMagic : MonoBehaviour
                     targetMark.transform.localScale =new Vector3( skill.Radius,skill.Radius,0.25f);
                     //targetMark.gameObject.GetComponent<CapsuleCollider>
                     targetMark.SetActive(true);
+                    Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, true);
                 }
 
                 if (Physics.Raycast(
@@ -197,10 +198,16 @@ public class PlayerMagic : MonoBehaviour
                 rGBCharge.ClearColors();
                 
                 targetMark.SetActive(false);
+                StartCoroutine(Shoot());
             }
         }
     }
 
+    private IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(1);
+                Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, false);
+    }
     public void AddColor(Color color)
     {
         if (rGBCharge.ColorCount < 3)

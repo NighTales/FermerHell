@@ -107,7 +107,7 @@ MonoBehaviour:
   moveSpeed: 10
   physics: 0
   deleted: 1
-  magnetDistance: 1
+  magnetDistance: 3
   target: {fileID: 0}
   hp: 60
 --- !u!1 &9098472548116274937

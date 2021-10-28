@@ -188,6 +188,6 @@ MonoBehaviour:
   moveSpeed: 10
   physics: 0
   deleted: 1
-  magnetDistance: 1
+  magnetDistance: 3
   target: {fileID: 0}
   hp: 30

@@ -24,10 +24,12 @@ public abstract class Weapon : MonoBehaviour
 
     private bool opportunityToFight;
     private bool inMenu;
+    private bool inMagicShoot;
 
     void Awake()
     {
         Messenger<bool>.AddListener(GameEvent.PAUSE, OnPause);
+        Messenger<bool>.AddListener(GameEvent.MAGIC_SHOOT, OnMagicShoot);
        // Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
 
         anim = GetComponent<Animator>();
@@ -36,6 +38,7 @@ public abstract class Weapon : MonoBehaviour
     void OnDestroy()
     {
         Messenger<bool>.RemoveListener(GameEvent.PAUSE, OnPause);
+        Messenger<bool>.RemoveListener(GameEvent.MAGIC_SHOOT, OnMagicShoot);
        //  Messenger.RemoveListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 
@@ -50,15 +53,18 @@ public abstract class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if(!inMenu)
+        if(!inMenu && ! inMagicShoot)
         {
             if (lookPoint != null)
             {
                 shootPoint.LookAt(lookPoint);
             }
-            FirstShoot();
-            SecondShoot();
-            Fight();
+
+                FirstShoot();
+                SecondShoot();
+                Fight();
+                
+            
         }
     }
    
@@ -94,6 +100,11 @@ public abstract class Weapon : MonoBehaviour
     private void OnPause(bool pause)
     {
         inMenu = pause;
+    }    
+    private void OnMagicShoot(bool shoot)
+    {
+        inMagicShoot = shoot;
+
     }
 }
 

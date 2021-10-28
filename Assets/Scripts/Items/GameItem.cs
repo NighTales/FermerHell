@@ -10,7 +10,7 @@ public abstract class GameItem : MonoBehaviour
     [SerializeField, Range(1, 100), Tooltip("Скорость приближения к игроку, когда собрали")] private float moveSpeed = 1;
     [SerializeField, Tooltip("Падать на землю")] protected bool physics;
     [SerializeField, Tooltip("Удалятся со временем")] private bool deleted = true;
-    [SerializeField, Range(1, 100), Tooltip("расстояние от которого начинается зона магнетизма")] private float magnetDistance = 1;
+    [SerializeField, Range(1, 100), Tooltip("расстояние от которого начинается зона магнетизма")] private float magnetDistance = 3;
 
      public Transform target;
 

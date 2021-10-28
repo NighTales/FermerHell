@@ -146,7 +146,7 @@ MonoBehaviour:
   moveSpeed: 10
   physics: 1
   deleted: 1
-  magnetDistance: 1
+  magnetDistance: 3
   target: {fileID: 0}
   type: 4
   value: 1

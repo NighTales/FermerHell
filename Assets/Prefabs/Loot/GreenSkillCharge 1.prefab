@@ -96,7 +96,7 @@ MonoBehaviour:
   moveSpeed: 1
   physics: 0
   deleted: 1
-  magnetDistance: 1
+  magnetDistance: 3
   target: {fileID: 0}
   color: {r: 0, g: 1, b: 0, a: 1}
 --- !u!135 &4666533275870583203

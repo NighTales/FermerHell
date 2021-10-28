@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: physics
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3369409935383647113, guid: 43387a4bf7a10b64db045a352a4b3f17, type: 3}
+      propertyPath: magnetDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3369409935383647115, guid: 43387a4bf7a10b64db045a352a4b3f17, type: 3}
       propertyPath: m_RootOrder
       value: 0

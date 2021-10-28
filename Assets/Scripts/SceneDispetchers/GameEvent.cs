@@ -1,6 +1,7 @@
 ﻿public static class GameEvent
 {
     public const string PAUSE = "PAUSE";
+    public const string MAGIC_SHOOT = "MAGIC_SHOOT";
     public const string MUSIC_CHANGED = "MUSIC_CHANGED";
     public const string SOUNDS_CHANGED = "SOUNDS_CHANGED";
     public const string VOICE_CHANGED = "VOICE_CHANGED";
