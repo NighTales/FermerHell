@@ -58,28 +58,6 @@ public class PlayerMagic : MonoBehaviour
     {
         if (!inMenu)
             InputKeys();
-        // if (targetMark.activeSelf)
-        // { 
-        //     
-        //
-        //     // RaycastHit hit = new RaycastHit();
-        //     //
-        //     // if (Physics.Raycast(camObject.transform.position,camObject.transform.forward,out hit,30,~0))
-        //     // {
-        //     //     targetMark.transform.position = hit.point+Vector3.up*0.25f;
-        //     // }
-        //     // Vector3 camForward = camObject.transform.forward;
-        //     // camForward.y = 0;
-        //     //
-        //     // if (h != 0 || v != 0)
-        //     // {
-        //     //     dir =  camObject.transform.right * h + camForward * v;
-        //     //     if (dir != Vector3.zero)
-        //     //     {
-        //     //         
-        //     //     }
-        //     // }
-        // }
 
     }
     private void LateUpdate()
@@ -180,10 +158,8 @@ public class PlayerMagic : MonoBehaviour
             {
                 if (skill.Radius > 0)
                 {
-                    foreach (var ef in skill.effects)
-                    {
-
-                    }
+                    //skill.SkillObject.transform.localScale =new Vector3( skill.Radius,1,skill.Radius);
+                    Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation).GetComponent<SkillLogic>().Init(skill.Radius);
                 }
                 else
                 {
@@ -242,10 +218,11 @@ public class Skill
     [Range(0f, 10f)] public float Radius = 5f;
     [Range(1f, 60f)] public float TimeSec = 20f;
     [Range(0, 500)] public int Damage = 20;
+    public GameObject SkillObject;
     public List<Effect> effects = new List<Effect>();
     public Sprite Sprite1;
     [Serializable]
-    public class Effect
+    public class Effect 
     {
         public BonusType bonusType = BonusType.DOT;
         [Range(1, 50)] public int power = 5;
