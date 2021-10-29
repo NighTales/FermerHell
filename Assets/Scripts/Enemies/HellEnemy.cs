@@ -14,16 +14,23 @@ public class HellEnemy : Enemy
     protected bool stunned = true;
     #region Initialization
 
-    public void Init(GameObject target)
+    private void Awake()
     {
-        this.target = target;
         if (agent==null)
         {
             agent = GetComponent<NavMeshAgent>();
         }
+    }
+
+    public void Init(GameObject target)
+    {
+        this.target = target;
+
         agent.destination = target.transform.position;
         agent.isStopped = true;
     }
+
+
 
     protected override void Start()
     {
@@ -53,8 +60,10 @@ public class HellEnemy : Enemy
         state = EnemyState.Iddle; // idlle
     }
     #endregion
-    
-    public  void Stun(bool stunned)
+
+
+
+    public void Stun(bool stunned)
     {
         agent.isStopped = stunned;
         this.stunned = stunned;
