@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(AudioSource))]
@@ -9,6 +10,7 @@ public class PlayerCharacter : AliveController
 {
     [SerializeField] private List<AudioClip> damageClips;
     [SerializeField] private AudioClip sprintClip;
+    [SerializeField] private UnityEvent onDeath;
 
     private AudioSource source;
     private bool opportunityToDead;
@@ -159,6 +161,7 @@ public class PlayerCharacter : AliveController
     public override void Death()
     {
         Messenger.Broadcast(GameEvent.PLAYER_DEAD);
+        onDeath.Invoke();
     }
 
     private void SetUpToFinalLoading()
