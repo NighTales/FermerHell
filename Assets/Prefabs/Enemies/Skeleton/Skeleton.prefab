@@ -5890,7 +5890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6670879b4f623c344b3e42cf9daebc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
+  maxHealth: 200
   _health: 0
   scoreForWin: 1
   damage: 10
@@ -5904,16 +5904,17 @@ MonoBehaviour:
   - {fileID: 4666533275870583201, guid: 851fce35a38c5d446af90ca9ef5fc38e, type: 3}
   - {fileID: 4666533275870583201, guid: 3e676916ae9bcd546bc6c820bc8c3936, type: 3}
   - {fileID: 4666533275870583201, guid: 862731670a526944c9148ba23f567a33, type: 3}
-  postDeadDecal: {fileID: 4912436217134671704, guid: 3596770cb09a9ff48a523652b8c8e279, type: 3}
+  postDeadDecal: {fileID: 6394758626496931138, guid: 7e86df9d2e1dfff43aad7cdccde4d45e, type: 3}
   afterFightLoot: {fileID: 0}
-  speed: 5
+  speed: 1
+  basespeed: 0
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
   state: 0
   target: {fileID: 0}
   attackDistance: 1.96
-  visionDistance: 53
+  visionDistance: 50
   anim: {fileID: 8093321121602651424}
   suicideHealth: 50
   suicidespeed: 5

@@ -59,8 +59,9 @@ public class HellEnemy : Enemy
         agent.isStopped = stunned;
         this.stunned = stunned;
     }
-    protected virtual void Update()
+    protected override void Update()
     {
+        base.Update();
         if (!stunned)
         {
          
@@ -79,7 +80,6 @@ public class HellEnemy : Enemy
                     break;
             }   
         }
-        
     }
     #region StateMethods
 
@@ -119,6 +119,7 @@ public class HellEnemy : Enemy
             else
             {
                anim.SetBool("Walk", true);
+               
                agent.destination = target.transform.position;
             }
         }
@@ -127,7 +128,15 @@ public class HellEnemy : Enemy
             agent.isStopped = true;
         }
     }
-    
+
+    protected override void OnSpeedChangeAction(float value)
+    {
+        
+        agent.speed = speed;
+        anim.speed = value;
+
+    }
+
     public virtual void Attack()
     {
         agent.isStopped = true;

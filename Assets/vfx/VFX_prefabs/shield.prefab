@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2186698900911750331}
   - component: {fileID: 2186698900911750308}
   - component: {fileID: 2186698900911750309}
+  - component: {fileID: 3828618380044975889}
   m_Layer: 0
   m_Name: shield
   m_TagString: Untagged
@@ -4921,6 +4922,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3828618380044975889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2186698900911750310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d4df486bb008342b610a6981749408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerCollider: {fileID: 0}
 --- !u!1 &2186698902061540637
 GameObject:
   m_ObjectHideFlags: 0
