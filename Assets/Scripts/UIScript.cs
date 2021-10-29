@@ -27,6 +27,10 @@ public class UIScript : MonoBehaviour
     [Tooltip("0 - влево, 1 - вправо")]
     private List<GameObject> sprintMarkers;
 
+    [SerializeField] private GameObject finalPanel;
+    [SerializeField] private Text finalPanelMessageText;
+    [SerializeField] private Text finalPanelScoreText;
+
     private bool opportunityToShowSettings = true;
     private int score = 0;
     private int currentStatEffect = 0;
@@ -41,8 +45,13 @@ public class UIScript : MonoBehaviour
         DisableAllSprintEffects();
         ClearAllStatEffect();
         ClearColorPower();
-
-       
+        if(pausePanel.activeSelf)
+        {
+            MenuPanelToggle_ButtonClick();
+        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
     }
 
     private void Awake()
@@ -173,6 +182,18 @@ public class UIScript : MonoBehaviour
             sprintCells[i].SetActive(i < value);
         }
         dashHint.SetActive(value > 0);
+    }
+
+    public void ShowFinalPanel(string message)
+    {
+        Messenger<bool>.Broadcast(GameEvent.PAUSE, true);
+        opportunityToShowSettings = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+        finalPanel.SetActive(true);
+        finalPanelMessageText.text = message;
+        finalPanelScoreText.text = "Ваш счёт\n" + score;
     }
 
     public void Exit_ButtonClick()

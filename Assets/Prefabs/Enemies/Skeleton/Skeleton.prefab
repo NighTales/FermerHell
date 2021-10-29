@@ -5898,8 +5898,9 @@ MonoBehaviour:
   postDeadDecal: {fileID: 4912436217134671704, guid: 3596770cb09a9ff48a523652b8c8e279, type: 3}
   afterFightLoot: {fileID: 0}
   speed: 5
-  slowDebuffed: 0
-  burnDebuffed: 0
+  afterDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   state: 0
   target: {fileID: 0}
   attackDistance: 1.96
@@ -6222,9 +6223,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8093321122629897204}
+  - component: {fileID: 1563438321}
   m_Layer: 0
   m_Name: RightHand
-  m_TagString: Enemy
+  m_TagString: DamageZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6244,6 +6246,19 @@ Transform:
   m_Father: {fileID: 8093321122328323876}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -27.072, z: 0}
+--- !u!65 &1563438321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093321122629897205}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18071134, y: 0.10940421, z: 0.12938704}
+  m_Center: {x: 0.0648562, y: -0.052420318, z: 0.009084645}
 --- !u!1 &8093321122723195495
 GameObject:
   m_ObjectHideFlags: 0

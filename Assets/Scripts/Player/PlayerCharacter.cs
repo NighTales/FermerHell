@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(AudioSource))]
@@ -9,6 +10,7 @@ public class PlayerCharacter : AliveController
 {
     [SerializeField] private List<AudioClip> damageClips;
     [SerializeField] private AudioClip sprintClip;
+    [SerializeField] private UnityEvent onDeath;
 
     private AudioSource source;
     private bool opportunityToDead;
@@ -159,6 +161,7 @@ public class PlayerCharacter : AliveController
     public override void Death()
     {
         Messenger.Broadcast(GameEvent.PLAYER_DEAD);
+        onDeath.Invoke();
     }
 
     private void SetUpToFinalLoading()
@@ -178,11 +181,11 @@ public class PlayerCharacter : AliveController
                 GetDamage(zone.damage);
             }
         }
-        //else if (other.CompareTag("LizerSword"))
-        //{
-        //    OnTakeDamageFromDirection(other.transform.position);
-        //    GetDamage(10);
-        //}
+        else if (other.CompareTag("DamageZone"))
+        {
+            OnTakeDamageFromDirection(other.transform.position);
+            GetDamage(10);
+        }
         else if(other.CompareTag("Finish"))
         {
             other.GetComponent<SceneController>().OnPlayerEntered();
