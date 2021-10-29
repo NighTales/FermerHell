@@ -31,7 +31,7 @@
     public const string Set_BONUS_SPEED = "TAKE_BONUS_SPEED";
     public const string Set_BONUS_DOT = "TAKE_BONUS_DOT";
     public const string Set_BONUS_RESIST = "TAKE_BONUS_RESIST";
-    public const string Set_BONUS_MUGNET = "TAKE_BONUS_MUGNET";
+    public const string Set_BONUS_MAGNET = "SET_BONUS_MAGNET";
     
     public const string TAKE_BONUS_INVULNERABLE = "TAKE_BONUS_INVULNERABLE"; 
     
@@ -39,7 +39,7 @@
     public const string Set_DEBUFF_SPEED = "TAKE_DEBUFF_SPEED";
     public const string Set_DEBUFF_DOT = "TAKE_DEBUFF_DOT";
     public const string Set_DEBUFF_RESIST = "TAKE_DEBUFF_RESIST";
-    public const string Set_DEBUFF_MUGNET = "TAKE_DEBUFF_MUGNET";
+    public const string Set_DEBUFF_MAGNET = "SET_DEBUFF_MAGNET";
 
     public const string SET_R_BONUS = "SET_R_BONUS";
     public const string SET_B_BONUS = "SET_B_BONUS";
