@@ -4935,6 +4935,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCollider: {fileID: 0}
+  delayTime: 0
+  durationTime: 10
+  isBuff: 1
+  isNeedToRestart: 0
+  Buff: 3
+  buffValue: 40
 --- !u!1 &2186698902061540637
 GameObject:
   m_ObjectHideFlags: 0

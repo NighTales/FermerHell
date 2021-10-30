@@ -26,11 +26,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8312985200269544475}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.54, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 10, z: 1}
   m_Children:
-  - {fileID: 1385009796696464387}
+  - {fileID: 7963355074461926725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,13 +51,31 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 3.36
+      - m_Value: 10
         m_Name: radius
+        m_Overridden: 1
+      - m_Value: 100
+        m_Name: rate
+        m_Overridden: 1
+      - m_Value: 0.3
+        m_Name: trail_lifetime
+        m_Overridden: 1
+      - m_Value: 3
+        m_Name: meteor_lifetime
+        m_Overridden: 1
+      - m_Value: 0.2
+        m_Name: trail_size
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0, y: 5, z: 0}
+        m_Name: initial_position
+        m_Overridden: 1
+      - m_Value: {x: 0, y: -25, z: 10}
+        m_Name: direction
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -69,9 +87,136 @@ VisualEffect:
     m_AnimationCurve:
       m_Array: []
     m_Gradient:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 1.0960243, g: 0, b: 0.14295968, a: 0}
+          key1: {r: 0, g: 0.31631097, b: 2.8314261, a: 1}
+          key2: {r: 0.20623991, g: 0.06414607, b: 0.6388662, a: 0.9577465}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 26600
+          ctime1: 65535
+          ctime2: 58403
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 4819
+          atime2: 55512
+          atime3: 65535
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 4
+        m_Name: Color_outside
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 145.62822, g: 0, b: 55.476162, a: 0}
+          key1: {r: 0.21388988, g: 0.037967186, b: 0.745283, a: 1}
+          key2: {r: 0.030456364, g: 0, b: 0.5647059, a: 0.9577465}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 9252
+          ctime1: 26407
+          ctime2: 62644
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 3277
+          atime1: 13878
+          atime2: 57440
+          atime3: 65535
+          atime4: 65535
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 3
+          m_NumAlphaKeys: 4
+        m_Name: Color_inside
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 0.8712447, g: 3.0378933, b: 2.9369495, a: 0}
+          key1: {r: 0.7619552, g: 1.4628615, b: 3.774171, a: 1}
+          key2: {r: 0.3761889, g: 0.0039215838, b: 0.7254902, a: 0.9577465}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 964
+          ctime2: 26407
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 9638
+          atime2: 47417
+          atime3: 65535
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 3
+          m_NumAlphaKeys: 4
+        m_Name: Color_sparkles
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 0.71112365, g: 0, b: 0.7921569, a: 1}
+          key1: {r: 0.049482517, g: 0, b: 0.29411766, a: 0.9577465}
+          key2: {r: 0, g: 0, b: 0, a: 0}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 9830
+          ctime1: 27563
+          ctime2: 0
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 386
+          atime1: 34695
+          atime2: 65535
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 3
+        m_Name: Color_marks_on_ground
+        m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+        m_Name: trail_texture
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &8312985200269544474
@@ -129,71 +274,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d4df486bb008342b610a6981749408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerCollider: {fileID: 874386825781682192}
---- !u!1001 &1937693001677669689
+  triggerCollider: {fileID: 747743928930405387}
+  delayTime: 0
+  durationTime: 10
+  isBuff: 0
+  isNeedToRestart: 0
+  Buff: 0
+  buffValue: 40
+--- !u!1001 &8713444941522663514
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 8312985200269544472}
     m_Modifications:
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6423969307262422426, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
+    - target: {fileID: 5086245852890835391, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
       propertyPath: m_Name
-      value: Trigger DOT
+      value: Trigger FireRain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
---- !u!4 &1385009796696464387 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
+--- !u!4 &7963355074461926725 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 710612813043030330, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
-  m_PrefabInstance: {fileID: 1937693001677669689}
+  m_CorrespondingSourceObject: {fileID: 1616762843770289439, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
+  m_PrefabInstance: {fileID: 8713444941522663514}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &874386825781682192 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 1641108703438284073, guid: 91a4d58935ab56345aef449090b0d5d0, type: 3}
-  m_PrefabInstance: {fileID: 1937693001677669689}
+--- !u!135 &747743928930405387 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 8254224170309383249, guid: 4ab3470c5a1f4c242b0732439a9f2d22, type: 3}
+  m_PrefabInstance: {fileID: 8713444941522663514}
   m_PrefabAsset: {fileID: 0}

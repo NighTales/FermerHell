@@ -2481,120 +2481,80 @@ MonoBehaviour:
       green: 0
       blue: 3
     Self: 0
-    ParticleEffect: {fileID: 0}
-    Radius: 5
-    TimeSec: 20
-    Damage: 20
-    SkillObject: {fileID: 0}
-    effects: []
+    Radius: 10
+    SkillObject: {fileID: 7121036947954333256, guid: 93ae083756fee334187983a19a4d7414, type: 3}
     Sprite1: {fileID: 21300000, guid: 16be463864c227d448ea5d5fa093987e, type: 3}
   - rGBCharge:
       red: 0
       green: 2
       blue: 1
-    Self: 0
-    ParticleEffect: {fileID: 0}
+    Self: 1
     Radius: 5
-    TimeSec: 20
-    Damage: 20
     SkillObject: {fileID: 2186698900911750310, guid: be40207a93c901b4e82e0a3e165674d0, type: 3}
-    effects: []
     Sprite1: {fileID: 21300000, guid: 020ab0fe7dbf1064a9b6698d0d5be936, type: 3}
   - rGBCharge:
       red: 0
       green: 1
       blue: 2
     Self: 0
-    ParticleEffect: {fileID: 0}
     Radius: 5
-    TimeSec: 20
-    Damage: 20
-    SkillObject: {fileID: 0}
-    effects: []
+    SkillObject: {fileID: 8334146320019559753, guid: 41d8d7f9ee332dc4cadbb52d0d97b2e8, type: 3}
     Sprite1: {fileID: 21300000, guid: d14c972519a1bfd4d89208dec53e06ab, type: 3}
   - rGBCharge:
       red: 0
       green: 3
       blue: 0
     Self: 0
-    ParticleEffect: {fileID: 0}
     Radius: 5
-    TimeSec: 20
-    Damage: 20
-    SkillObject: {fileID: 0}
-    effects: []
+    SkillObject: {fileID: 3181653166041214808, guid: 1d49c0930158a5d4181db5362b328e30, type: 3}
     Sprite1: {fileID: 21300000, guid: 7fb42f80d673f69478d27ce2a0789dd6, type: 3}
   - rGBCharge:
       red: 2
       green: 1
       blue: 0
     Self: 0
-    ParticleEffect: {fileID: 0}
     Radius: 5
-    TimeSec: 20
-    Damage: 20
     SkillObject: {fileID: 490151761044381491, guid: aec3d3bdae7b7804db7253c9d701274b, type: 3}
-    effects: []
     Sprite1: {fileID: 21300000, guid: 795552300334b6b4d93f86a9dc20a073, type: 3}
   - rGBCharge:
       red: 1
       green: 0
       blue: 2
     Self: 0
-    ParticleEffect: {fileID: 0}
     Radius: 5
-    TimeSec: 20
-    Damage: 20
     SkillObject: {fileID: 8312985200269544475, guid: 6950064705bba4f46b5e630c307a7a56, type: 3}
-    effects: []
     Sprite1: {fileID: 21300000, guid: 423c2d66b1ad30744862111287f9a992, type: 3}
   - rGBCharge:
       red: 1
       green: 1
       blue: 1
-    Self: 0
-    ParticleEffect: {fileID: 0}
+    Self: 1
     Radius: 5
-    TimeSec: 20
-    Damage: 20
-    SkillObject: {fileID: 0}
-    effects: []
+    SkillObject: {fileID: 8072637978671573588, guid: c8a58a985939cca49b9a4bf3c24cde27, type: 3}
     Sprite1: {fileID: 21300000, guid: 2fc0041b8f21afd4981d7f6026b580ba, type: 3}
   - rGBCharge:
       red: 1
       green: 2
       blue: 0
     Self: 0
-    ParticleEffect: {fileID: 0}
     Radius: 5
-    TimeSec: 20
-    Damage: 20
-    SkillObject: {fileID: 0}
-    effects: []
+    SkillObject: {fileID: 7555757273410971419, guid: 8e04d9d9201dc8748845e437cb5cbd70, type: 3}
     Sprite1: {fileID: 21300000, guid: e18ca9fdf6fa8d04a9436b1f9f41004a, type: 3}
   - rGBCharge:
       red: 2
       green: 0
       blue: 1
     Self: 0
-    ParticleEffect: {fileID: 0}
     Radius: 5
-    TimeSec: 20
-    Damage: 20
     SkillObject: {fileID: 9203959996409887882, guid: d22e0db1f55d0bc4a8b5a8bffcb35e82, type: 3}
-    effects: []
     Sprite1: {fileID: 21300000, guid: 865d4a0842800664f95d2842f3393994, type: 3}
   - rGBCharge:
       red: 3
       green: 0
       blue: 0
-    Self: 0
-    ParticleEffect: {fileID: 0}
-    Radius: 5
-    TimeSec: 20
-    Damage: 20
+    Self: 1
+    Radius: 10
     SkillObject: {fileID: 4763240675493431770, guid: 7d337032552b82d4c9a2d238552cdba5, type: 3}
-    effects: []
     Sprite1: {fileID: 21300000, guid: b03a2d340bca4464399003274346c736, type: 3}
   targetMark: {fileID: 204381674374265307, guid: 24678419f1835dc4f9235cf565d0ecf5, type: 3}
 --- !u!1 &8396015941823357421

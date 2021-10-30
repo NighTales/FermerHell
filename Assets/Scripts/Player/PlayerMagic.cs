@@ -12,12 +12,13 @@ public class PlayerMagic : MonoBehaviour
     [Range(100f, 500f)] public float maxDistance = 300;
     public LayerMask ignoreRaycast;
     public List<Skill> Skills = new List<Skill>(10);
+    [SerializeField]private GameObject targetMark;
+    
     private Skill skill;
     private bool rightClickOn = false;
     private bool rightClickUp = false;
     private bool refresh = false;
     private bool apply = false;
-    [SerializeField]private GameObject targetMark;
     PlayerBonusStat playerStatInstant = PlayerBonusStat.Instant;
     private bool inMenu = false;
     private Vector3 dir;
@@ -127,7 +128,7 @@ public class PlayerMagic : MonoBehaviour
             {
                 if (!targetMark.activeSelf)
                 {
-                    targetMark.transform.localScale =new Vector3( skill.Radius,skill.Radius,0.25f);
+                    targetMark.transform.localScale =new Vector3( skill.Radius*2,skill.Radius*2,0.25f);
                     //targetMark.gameObject.GetComponent<CapsuleCollider>
                     targetMark.SetActive(true);
                     Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, true);
@@ -150,7 +151,7 @@ public class PlayerMagic : MonoBehaviour
             }
             else
             {
-                target = transform.position;
+                target = transform.position + Vector3.up*skill.upmyltiplier;
             }
 
 
@@ -158,17 +159,28 @@ public class PlayerMagic : MonoBehaviour
             {
                 if (skill.Radius > 0)
                 {
-                    //skill.SkillObject.transform.localScale =new Vector3( skill.Radius,1,skill.Radius);
-                    Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation).GetComponent<SkillLogic>().Init(skill.Radius);
-                }
+                    
+                    if (skill.Self)
+                    {
+                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation,this.transform).GetComponent<SkillLogic>().Init(skill.Radius,this.transform);
+                        
+
+                    }
+                    else
+                    {
+                        //skill.SkillObject.transform.localScale =new Vector3( skill.Radius,skill.Radius,skill.Radius);
+                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation).GetComponent<SkillLogic>().Init(skill.Radius,this.transform);
+                        
+                    }
+                    }
                 else
                 {
-                    if (gameObject.TryGetComponent(out PlayerBonusScript playerBonus))
-                        foreach (var ef in skill.effects)
-                        {
-
-                            playerBonus.ActiveBuff(ef.bonusType, ef.power);
-                        }
+                    // if (gameObject.TryGetComponent(out PlayerBonusScript playerBonus))
+                    //     foreach (var ef in skill.effects)
+                    //     {
+                    //
+                    //         playerBonus.ActiveBuff(ef.bonusType, ef.power);
+                    //     }
                 }
 
                 rGBCharge.ClearColors();
@@ -214,13 +226,15 @@ public class Skill
 {
     public RGBCharge rGBCharge = new RGBCharge(0, 0, 0);
     public bool Self = false;
-    public GameObject ParticleEffect;
+   // public GameObject ParticleEffect;
     [Range(0f, 10f)] public float Radius = 5f;
-    [Range(1f, 60f)] public float TimeSec = 20f;
-    [Range(0, 500)] public int Damage = 20;
+    //[Range(1f, 60f)] public float TimeSec = 20f;
+    //[Range(0, 500)] public int Damage = 20;
     public GameObject SkillObject;
-    public List<Effect> effects = new List<Effect>();
+    //public List<Effect> effects = new List<Effect>();
     public Sprite Sprite1;
+    public float upmyltiplier;
+
     [Serializable]
     public class Effect 
     {

@@ -13,6 +13,9 @@ TagManager:
   - DeadZone
   - Burn
   - Slow
+  - Item
+  - FriendFire
+  - AllFire
   layers:
   - Default
   - TransparentFX

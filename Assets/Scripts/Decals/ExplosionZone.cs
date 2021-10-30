@@ -7,7 +7,7 @@ using UnityEngine;
 public class ExplosionZone : MonoBehaviour
 {
     [Range(1,100)] public int damage = 10;
-    [Range(1, 100)] public float force = 10;
+    [Range(0, 100)] public float force = 10;
     public List<Skill.Effect> effects;
 
     public void ChangeRange(float range, float damage)

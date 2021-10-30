@@ -18,6 +18,11 @@ public abstract class GameItem : MonoBehaviour
     PlayerBonusStat instant = PlayerBonusStat.Instant;
     private void Start()
     {
+        if (!physics)
+        {
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<BoxCollider>());
+        }
         if (deleted)
         {
             Destroy(gameObject, deletedTime);

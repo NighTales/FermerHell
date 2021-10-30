@@ -86,6 +86,24 @@ public abstract class Enemy : AliveController
                 GetDamage(zone.damage);
             }
         }
+        else if(other.CompareTag("FriendFire"))
+        {
+            ExplosionZone zone = other.GetComponent<ExplosionZone>();
+            if(zone != null)
+            {
+                if(rb == null)
+                {
+                    rb = GetComponent<Rigidbody>();
+                }
+                rb.useGravity = true;
+                rb.isKinematic = false;
+
+                Vector3 dir = other.transform.position - (transform.position + Vector3.up);
+                rb.AddForce(dir.normalized * zone.force, ForceMode.Impulse);
+                Invoke("ReturnRB", 1);
+                GetDamage(zone.damage);
+            }
+        }
         // else if(other.CompareTag("Turret"))
         // {
         //     other.GetComponent<Turret>().AddTarget(transform);
