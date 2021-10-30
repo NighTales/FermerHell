@@ -106,6 +106,7 @@ public class Sceleton : HellEnemy
         // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode >= 1)
         {
+            postDeadDecal.tag = "Untagged";
             GameObject deadDecal = Instantiate(postDeadDecal, transform.position, Quaternion.identity);
             deadDecal.GetComponent<Decal>().Init(1);
             deadDecal.GetComponent<ExplosionZone>().ChangeRange(elapsedTimeAfterSuicideMode * attackDistance,
@@ -121,9 +122,11 @@ public class Sceleton : HellEnemy
     public override IEnumerator SpecialMove()
     {
         suicideKey = true;
-        agent.speed = suicidespeed;
+        
+        basespeed = suicidespeed;
+        speed = suicidespeed;
+        OnTakeDebuffSpeed(slowvalue);
         yield return new WaitForSeconds(suicideTimer);
-        Debug.Log("5 секунд прошло");
         Death(); //Health-=100;
     }
 

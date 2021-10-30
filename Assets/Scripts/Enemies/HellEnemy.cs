@@ -6,7 +6,7 @@ public class HellEnemy : Enemy
 {
     [SerializeField] protected EnemyState state;
     [SerializeField, Tooltip("Целевой объект")] protected GameObject target;
-    [SerializeField, Tooltip("Дальность атаки"), Range(1, 10)] protected float attackDistance = 5;
+    [SerializeField, Tooltip("Дальность атаки"), Range(1, 100)] protected float attackDistance = 5;
     [SerializeField, Tooltip("Дальность обзора"), Range(1, 100)] protected float visionDistance = 5;
     [SerializeField] protected Animator anim;
     protected NavMeshAgent agent;
@@ -68,8 +68,9 @@ public class HellEnemy : Enemy
         agent.isStopped = stunned;
         this.stunned = stunned;
     }
-    protected virtual void Update()
+    protected override void Update()
     {
+        base.Update();
         if (!stunned)
         {
          
@@ -88,7 +89,6 @@ public class HellEnemy : Enemy
                     break;
             }   
         }
-        
     }
     #region StateMethods
 
@@ -128,6 +128,7 @@ public class HellEnemy : Enemy
             else
             {
                anim.SetBool("Walk", true);
+               
                agent.destination = target.transform.position;
             }
         }
@@ -136,7 +137,15 @@ public class HellEnemy : Enemy
             agent.isStopped = true;
         }
     }
-    
+
+    protected override void OnSpeedChangeAction(float value)
+    {
+        
+        agent.speed = speed;
+        anim.speed = value;
+
+    }
+
     public virtual void Attack()
     {
         agent.isStopped = true;

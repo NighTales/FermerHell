@@ -20,9 +20,10 @@ public class PlayerCharacter : AliveController
         //Messenger<int>.AddListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
         Messenger.AddListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.AddListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
-
-        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
-        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
+        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffDOT);
         opportunityToDead = true;
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
@@ -31,9 +32,10 @@ public class PlayerCharacter : AliveController
        // Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
         Messenger.RemoveListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.RemoveListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
-
-        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
-        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
+        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
+        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
+        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffDOT);
         //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 
