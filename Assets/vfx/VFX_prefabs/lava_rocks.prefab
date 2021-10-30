@@ -52,19 +52,19 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 10
+      - m_Value: 7
         m_Name: radius
         m_Overridden: 1
-      - m_Value: 10
+      - m_Value: 3
         m_Name: spike_size
         m_Overridden: 1
-      - m_Value: 10
+      - m_Value: 30
         m_Name: Count
         m_Overridden: 1
-      - m_Value: 10
+      - m_Value: 3
         m_Name: spot_size
         m_Overridden: 1
-      - m_Value: 10
+      - m_Value: 3
         m_Name: Ground_size
         m_Overridden: 1
     m_Vector2f:
@@ -214,6 +214,10 @@ PrefabInstance:
     - target: {fileID: 2288469191425138046, guid: b3cacfefc436c3d4091f3d3e65136853, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526313578947445284, guid: b3cacfefc436c3d4091f3d3e65136853, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5708411487688903134, guid: b3cacfefc436c3d4091f3d3e65136853, type: 3}
       propertyPath: m_Name
