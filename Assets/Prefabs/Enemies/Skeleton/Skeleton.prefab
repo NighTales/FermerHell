@@ -5912,7 +5912,7 @@ MonoBehaviour:
       m_Calls: []
   state: 0
   target: {fileID: 0}
-  attackDistance: 1.96
+  attackDistance: 1.5
   visionDistance: 50
   anim: {fileID: 8093321121602651424}
   suicideHealth: 50

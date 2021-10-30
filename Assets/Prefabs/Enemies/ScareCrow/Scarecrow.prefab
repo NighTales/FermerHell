@@ -484,7 +484,7 @@ MonoBehaviour:
       m_Calls: []
   state: 0
   target: {fileID: 0}
-  attackDistance: 3
+  attackDistance: 2
   visionDistance: 30
   anim: {fileID: 1413720040082667054}
   jumpDistance: 20

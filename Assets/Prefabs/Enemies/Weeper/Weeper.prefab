@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2145505337527260912}
   - component: {fileID: 6586090510289767804}
   - component: {fileID: 7800415160482136970}
+  - component: {fileID: 5524033839740992894}
   m_Layer: 0
   m_Name: Weeper
   m_TagString: Enemy
@@ -145,14 +146,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c2ffb8511e6834eb07905747613b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 500
   _health: 0
   scoreForWin: 1
   damage: 10
-  lootPrefabs: []
+  lootPrefabs:
+  - {fileID: 4666533275870583201, guid: 862731670a526944c9148ba23f567a33, type: 3}
+  - {fileID: 4666533275870583201, guid: 851fce35a38c5d446af90ca9ef5fc38e, type: 3}
+  - {fileID: 4666533275870583201, guid: 3e676916ae9bcd546bc6c820bc8c3936, type: 3}
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
-  basespeed: 0
+  basespeed: 1
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -168,9 +172,11 @@ MonoBehaviour:
   - {fileID: 195900091631078811, guid: f69db814a1170c0468518b0810540df0, type: 3}
   - {fileID: 8426971433734444581, guid: ae585f3ff7a986340807acc3bd4525e6, type: 3}
   - {fileID: 7435431873147974847, guid: bddb167129db7db40a293edcc0a0f790, type: 3}
+  deadGhostsCount: 4
   buffTarget: {x: 0, y: 0, z: 0}
   iddleDistance: 0.5
   finded: 0
+  isReadyForAttack: 1
   readyTime: 4
 --- !u!114 &6586090510289767804
 MonoBehaviour:
@@ -207,6 +213,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &5524033839740992894
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042879014067873491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &5042879014450664362
 GameObject:
   m_ObjectHideFlags: 0

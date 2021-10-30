@@ -929,14 +929,14 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 0}
   afterFightLoot: {fileID: 0}
-  basespeed: 0
+  basespeed: 1
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
   state: 0
   target: {fileID: 0}
   attackDistance: 10
-  visionDistance: 100
+  visionDistance: 30
   anim: {fileID: 2346921938123544482}
   bulletPrefab: {fileID: 6039601171618138222, guid: 3831a4ad5c2c08943a4bd37d45ca732a, type: 3}
   shootPoint: {fileID: 2081020690}
