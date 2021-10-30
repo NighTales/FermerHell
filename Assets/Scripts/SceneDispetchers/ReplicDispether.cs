@@ -15,6 +15,8 @@ public class ReplicDispether : MonoBehaviour
 
     [SerializeField] private InputMove inputMove;
     [SerializeField] private MouseLock mouseLock;
+    [SerializeField] private ReplicaRole blackGrimoirRole;
+    [SerializeField] private Animator blackGrimoirAnim;
 
     private List<ReplicItem> replicas;
     private AudioSource source;
@@ -83,6 +85,7 @@ public class ReplicDispether : MonoBehaviour
             yield return new WaitForSeconds(0.6f);
             replicText.text = string.Empty;
             replicPanel.SetActive(false);
+            blackGrimoirAnim.SetBool("Talk", false);
         }
     }
     private IEnumerator StartReplica()
@@ -112,9 +115,22 @@ public class ReplicDispether : MonoBehaviour
         speackerImage.sprite = bufer.role.roleIcon;
         replicText.CrossFadeAlpha(1, 0.5f, true);
         yield return new WaitForSeconds(0.5f);
+        if (bufer.role == blackGrimoirRole)
+        {
+            blackGrimoirAnim.SetBool("Talk", true);
+        }
+        else
+        {
+            blackGrimoirAnim.SetBool("Talk", false);
+        }
         source.Play();
         StartCoroutine(CheckReplicas(source.clip.length + 0.3f));
         replicas.Remove(replicas[0]);
+    }
+
+    public void SetTriggerForAnim()
+    {
+        blackGrimoirAnim.SetTrigger("Action");
     }
 }
 
