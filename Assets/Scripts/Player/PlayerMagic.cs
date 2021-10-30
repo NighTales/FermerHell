@@ -117,8 +117,6 @@ public class PlayerMagic : MonoBehaviour
     }
     public void UseMagic()
     {
-        
-        
         if (rGBCharge.ColorCount >= 3 && (rightClickOn|| targetMark.activeSelf ))
         {
             Vector3 target = Vector3.zero;
