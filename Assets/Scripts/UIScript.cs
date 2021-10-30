@@ -66,7 +66,7 @@ public class UIScript : MonoBehaviour
         DisableAllSprintEffects();
         ClearAllStatEffect();
         ClearColorPower();
-        if(pausePanel.activeSelf)
+        if (pausePanel.activeSelf)
         {
             MenuPanelToggle_ButtonClick();
         }
@@ -93,14 +93,14 @@ public class UIScript : MonoBehaviour
 
         actions.Add(new Action<int>(c => OnSetBonus(BonusType.Jump, c)));
         actions.Add(new Action<int>(c => OnSetBonus(BonusType.Speed, c)));
-        actions.Add(new Action<int>(c => OnSetBonus(BonusType.Resist, c)));
         actions.Add(new Action<int>(c => OnSetBonus(BonusType.DOT, c)));
+        actions.Add(new Action<int>(c => OnSetBonus(BonusType.Resist, c)));
         actions.Add(new Action<int>(c => OnSetBonus(BonusType.Magnet, c)));
 
         actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Jump, c)));
         actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Speed, c)));
-        actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Resist, c)));
         actions.Add(new Action<int>(c => OnSetDebuff(BonusType.DOT, c)));
+        actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Resist, c)));
         actions.Add(new Action<int>(c => OnSetDebuff(BonusType.Magnet, c)));
 
         Messenger.AddListener(GameEvent.HIT, OnHit);
@@ -170,7 +170,7 @@ public class UIScript : MonoBehaviour
             item.gameObject.SetActive(false);
         }
     }
-    
+
     private void ClearColorPower()
     {
         foreach (var item in colorSkillPower)

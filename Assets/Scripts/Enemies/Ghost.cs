@@ -34,9 +34,9 @@ public class Ghost:HellEnemy
     }
     public void Action()
     {
-        //if(PlayerBonusStat.bonusPack[type] == 1)
+        if(target.TryGetComponent(out PlayerBonusScript playerBonus))
         {
-            Messenger<int>.Broadcast("TAKE_DEBUFF_" + type.ToString().ToUpper(), value);
+            playerBonus.ActiveDebuff(type, value);
         }
     }
     
