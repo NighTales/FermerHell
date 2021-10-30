@@ -58,7 +58,6 @@ public abstract class Weapon : MonoBehaviour
             }
             FirstShoot();
             SecondShoot();
-            Fight();
         }
     }
    

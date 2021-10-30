@@ -6,19 +6,19 @@ using UnityEngine;
 public abstract class GameItem : MonoBehaviour
 {
     [SerializeField, Tooltip("Этот объект будет вращаться")] private Transform itemObject;
-    [SerializeField, Range(0,50)] private float rotationSpeed = 1;
+    [SerializeField, Range(0, 50)] private float rotationSpeed = 1;
     [SerializeField, Range(1, 100), Tooltip("Скорость приближения к игроку, когда собрали")] private float moveSpeed = 1;
     [SerializeField, Tooltip("Падать на землю")] protected bool physics;
     [SerializeField, Tooltip("Удалятся со временем")] private bool deleted = true;
     [SerializeField, Range(1, 100), Tooltip("расстояние от которого начинается зона магнетизма")] private float magnetDistance = 1;
 
-    [HideInInspector] public Transform target;
+     public Transform target;
 
     private const float deletedTime = 120; //все собираемые объекты будут удаляться через равное время
-
+    PlayerBonusStat instant = PlayerBonusStat.Instant;
     private void Start()
     {
-        if(deleted)
+        if (deleted)
         {
             Destroy(gameObject, deletedTime);
         }
@@ -26,12 +26,12 @@ public abstract class GameItem : MonoBehaviour
 
     void Update()
     {
-        if(target == null)
+        if (target == null)
             ItemRotate();
         else
             ItemMove();
     }
-    
+
     private void ItemRotate()
     {
         itemObject.transform.Rotate(transform.up, rotationSpeed * Time.deltaTime);
@@ -39,15 +39,15 @@ public abstract class GameItem : MonoBehaviour
     private void ItemMove()
     {
         Vector3 dir = (target.position + Vector3.up) - itemObject.position;
-        if (dir.magnitude > 2 * moveSpeed * Time.deltaTime && dir.magnitude<magnetDistance )
+        if (dir.magnitude > 2 * moveSpeed * Time.deltaTime && dir.magnitude < magnetDistance)
         {
             itemObject.position += dir.normalized * moveSpeed * Time.deltaTime;
         }
         else if (dir.magnitude > magnetDistance)
         {
-            int num = PlayerBonusStat.bonusPack[BonusType.Magnet] - PlayerBonusStat.debuffPack[BonusType.Magnet];
+            int num = instant.bonusPack[BonusType.Magnet].value - instant.debuffPack[BonusType.Magnet].value;
 
-            itemObject.position += dir.normalized * moveSpeed * Time.deltaTime*num;
+            itemObject.position += dir.normalized * moveSpeed * Time.deltaTime * num;
         }
         else
         {
@@ -56,22 +56,26 @@ public abstract class GameItem : MonoBehaviour
         }
     }
 
-    
+
     public virtual void SetTarget(Transform target)
     {
-        if(physics)
+        if (physics)
         {
             Destroy(GetComponent<Rigidbody>());
             Destroy(GetComponent<BoxCollider>());
         }
         this.target = target;
-    } 
+    }
     public virtual void UnSetTarget()
     {
-        if(physics)
+        if (physics)
         {
-            this.gameObject.AddComponent<Rigidbody>();
-            this.gameObject.AddComponent<BoxCollider>();
+            if (!gameObject.TryGetComponent<Rigidbody>(out _))
+            {
+                this.gameObject.AddComponent<Rigidbody>();
+            }
+            if (!gameObject.TryGetComponent<BoxCollider>(out _))
+                this.gameObject.AddComponent<BoxCollider>();
         }
         this.target = null;
     }

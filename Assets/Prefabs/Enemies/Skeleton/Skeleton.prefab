@@ -5894,7 +5894,16 @@ MonoBehaviour:
   _health: 0
   scoreForWin: 1
   damage: 10
-  lootPrefabs: []
+  lootPrefabs:
+  - {fileID: 883358677344654546, guid: 971bfc9d32059fd40ac595ffd9c0a4a2, type: 3}
+  - {fileID: 535174813531164673, guid: e69079ddad848344c914501bc4a8d076, type: 3}
+  - {fileID: 1893234075552465738, guid: e9609fa716d627544a7589356258e720, type: 3}
+  - {fileID: 9185116464772212681, guid: cf7eb7f851cff4e43a55fad4fee916aa, type: 3}
+  - {fileID: 958104403761810010, guid: a04c0554dafd84840b8434ee3a2b8e3e, type: 3}
+  - {fileID: 906391810423621348, guid: 4b2a0656e83844a4a8fb6897439b10ea, type: 3}
+  - {fileID: 4666533275870583201, guid: 851fce35a38c5d446af90ca9ef5fc38e, type: 3}
+  - {fileID: 4666533275870583201, guid: 3e676916ae9bcd546bc6c820bc8c3936, type: 3}
+  - {fileID: 4666533275870583201, guid: 862731670a526944c9148ba23f567a33, type: 3}
   postDeadDecal: {fileID: 4912436217134671704, guid: 3596770cb09a9ff48a523652b8c8e279, type: 3}
   afterFightLoot: {fileID: 0}
   speed: 5

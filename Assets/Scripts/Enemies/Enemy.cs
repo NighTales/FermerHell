@@ -76,10 +76,10 @@ public abstract class Enemy : AliveController
                 GetDamage(zone.damage);
             }
         }
-        else if(other.CompareTag("Turret"))
-        {
-            other.GetComponent<Turret>().AddTarget(transform);
-        }
+        //else if(other.CompareTag("Turret"))
+        //{
+        //    other.GetComponent<Turret>().AddTarget(transform);
+        //}
         // else if(other.CompareTag("DeadZone"))
         // {
         //     Death();
@@ -100,10 +100,10 @@ public abstract class Enemy : AliveController
     }
     protected void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Turret"))
-        {
-            other.GetComponent<Turret>().RemoveTarget(transform);
-        }
+        //if (other.CompareTag("Turret"))
+        //{
+        //    other.GetComponent<Turret>().RemoveTarget(transform);
+        //}
     }
 
     public override void Death()

@@ -26,19 +26,30 @@
     public const string AMMO_ARE_CHANGED = "AMMO_HAS_CHANGED";
     public const string RETURN_TO_DEFAULT = "RETURN_TO_DEFAULT";
 
-    public const string TAKE_BONUS_JUMP = "TAKE_BONUS_JUMP";
-    public const string TAKE_BONUS_SPEED = "TAKE_BONUS_SPEED";
-    public const string TAKE_BONUS_DOT = "TAKE_BONUS_DOT";
-    public const string TAKE_BONUS_RESIST = "TAKE_BONUS_RESIST";
+    public const string Set_BONUS_JUMP = "TAKE_BONUS_JUMP";
+    public const string Set_BONUS_SPEED = "TAKE_BONUS_SPEED";
+    public const string Set_BONUS_DOT = "TAKE_BONUS_DOT";
+    public const string Set_BONUS_RESIST = "TAKE_BONUS_RESIST";
+    public const string Set_BONUS_MUGNET = "TAKE_BONUS_MUGNET";
     
-    public const string TAKE_BONUS_DAMAGE = "TAKE_BONUS_DAMAGE";
     public const string TAKE_BONUS_INVULNERABLE = "TAKE_BONUS_INVULNERABLE"; 
     
-    public const string TAKE_DEBUFF_JUMP = "TAKE_DEBUFF_JUMP";
-    public const string TAKE_DEBUFF_SPEED = "TAKE_DEBUFF_SPEED";
-    public const string TAKE_DEBUFF_DOT = "TAKE_DEBUFF_DOT";
-    public const string TAKE_DEBUFF_RESIST = "TAKE_DEBUFF_RESIST";
+    public const string Set_DEBUFF_JUMP = "TAKE_DEBUFF_JUMP";
+    public const string Set_DEBUFF_SPEED = "TAKE_DEBUFF_SPEED";
+    public const string Set_DEBUFF_DOT = "TAKE_DEBUFF_DOT";
+    public const string Set_DEBUFF_RESIST = "TAKE_DEBUFF_RESIST";
+    public const string Set_DEBUFF_MUGNET = "TAKE_DEBUFF_MUGNET";
 
+    public const string SET_R_BONUS = "SET_R_BONUS";
+    public const string SET_B_BONUS = "SET_B_BONUS";
+    public const string SET_G_BONUS = "SET_G_BONUS";
+
+    public const string ADD_R_CHARGE = "ADD_R_CHARGE";
+    public const string ADD_G_CHARGE = "ADD_G_CHARGE";
+    public const string ADD_B_CHARGE = "ADD_B_CHARGE";
+
+    public const string READY_TO_MAGIC = "READY_TO_MAGIC";
+    public const string CLEAR_COLORS = "CLEAR_COLORS";
     
     
     public const string ENEMY_DEAD = "ENEMY_DEAD";

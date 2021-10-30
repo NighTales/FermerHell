@@ -14,28 +14,26 @@ public class PlayerCharacter : AliveController
 
     private AudioSource source;
     private bool opportunityToDead;
-
+    PlayerBonusStat instant = PlayerBonusStat.Instant;
     private void Awake()
     {
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
+        //Messenger<int>.AddListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
         Messenger.AddListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.AddListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusResist);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffResist);
+
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
         opportunityToDead = true;
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
     private void OnDestroy()
     {
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
+       // Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_INVULNERABLE, OnTakeBonusInvulnerable);
         Messenger.RemoveListener(GameEvent.SPRINT_ACTION, PlaySprintSound);
         Messenger.RemoveListener(GameEvent.START_FINAL_LOADING, SetUpToFinalLoading);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_BONUS_RESIST, OnTakeBonusResist);
-        Messenger<int>.RemoveListener(GameEvent.TAKE_DEBUFF_RESIST, OnTakeDebuffResist);
-        Messenger<int>.AddListener(GameEvent.TAKE_BONUS_DOT, OnTakeBonusResist);
-        Messenger<int>.AddListener(GameEvent.TAKE_DEBUFF_DOT, OnTakeDebuffResist);
+
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, OnTakeBonusDOT);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, OnTakeDebuffDOT);
         //    Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
 
@@ -53,22 +51,13 @@ public class PlayerCharacter : AliveController
         //Messenger<float>.Broadcast(GameEvent.CHANGE_HEALTH, maxHealth);
     }
     
-    private void OnTakeBonusResist(int value)
-    {
-        PlayerBonusStat.bonusPack[BonusType.Resist] = value;
-    }
-    private void OnTakeDebuffResist(int value)
-    {
-        PlayerBonusStat.bonusPack[BonusType.DOT] = value;
-    }
+  
     private void OnTakeBonusDOT(int value)
     {
-        PlayerBonusStat.bonusPack[BonusType.DOT] = value;
         StartCoroutine(DOTBuffTic(value));
     }
     private void OnTakeDebuffDOT(int value)
     {
-        PlayerBonusStat.bonusPack[BonusType.Resist] = value;
         StartCoroutine(DOTDeBuffTic(value));
     }
 
@@ -79,7 +68,7 @@ public class PlayerCharacter : AliveController
             RestoreHealth(value);
             yield return new WaitForSeconds(1);
             
-        } while (PlayerBonusStat.bonusPack[BonusType.DOT]!=0);
+        } while (instant.bonusPack[BonusType.DOT].value!=0);
     }
     public IEnumerator DOTDeBuffTic(int value)
     {
@@ -88,19 +77,19 @@ public class PlayerCharacter : AliveController
             GetDamage(value);
             yield return new WaitForSeconds(1);
             
-        } while (PlayerBonusStat.debuffPack[BonusType.DOT]!=0);
+        } while (instant.debuffPack[BonusType.DOT].value != 0);
     }
     
     
     public override void GetDamage(int damage)
     {
-        if(PlayerBonusStat.bonusPack[BonusType.Invulnerable]==1 && opportunityToDead)
+        if(/*instant.bonusPack[BonusType.Invulnerable]==1 && */opportunityToDead)
         {
             source.PlayOneShot(damageClips[Random.Range(0, damageClips.Count)]);
             
             //10 процентов дебаффа - 
 
-            float num = PlayerBonusStat.debuffPack[BonusType.Resist] - PlayerBonusStat.bonusPack[BonusType.Resist];
+            float num = instant.debuffPack[BonusType.Resist].value - instant.bonusPack[BonusType.Resist].value;
             num /= 100;
             num *= (float)damage;
             int num1 = num > 0 ? (int)Math.Ceiling(num) : (int)Math.Floor(num);
@@ -148,10 +137,10 @@ public class PlayerCharacter : AliveController
         Messenger<int>.Broadcast(GameEvent.DAMAGE_MARKER_ACTIVATE, result);
     }
 
-    private void OnTakeBonusInvulnerable(int value)
-    {
-        PlayerBonusStat.bonusPack[BonusType.Invulnerable] = value;
-    }
+    //private void OnTakeBonusInvulnerable(int value)
+    //{
+    //    instant.bonusPack[BonusType.Invulnerable] = value;
+    //}
 
     private void PlaySprintSound()
     {

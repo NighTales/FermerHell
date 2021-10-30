@@ -20,7 +20,7 @@ public class MagnetZone : MonoBehaviour
     {
         if (other.tag.Equals("Item"))
         {
-            other.GetComponent<GameItem>().SetTarget(transform);
+            other.GetComponent<GameItem>().SetTarget(transform.parent);
         }
     }
 
