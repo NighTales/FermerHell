@@ -8,6 +8,8 @@ public class PlayerBonusScript : MonoBehaviour
     [SerializeField]
     private PlayerBonusStat playerBonus = PlayerBonusStat.Instant;
 
+    [Range(0f, 60f)] public float BuffTime = 10f;
+    [Range(0f, 60f)] public float DebuffTime = 8f;
     //private List<Action<int>> actions;
     // Use this for initialization
     //void Awake()
@@ -55,33 +57,38 @@ public class PlayerBonusScript : MonoBehaviour
     //    Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_DOT, actions[8]);
     //    Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
     //}
-    bool rightClick = false;
     // Update is called once per frame
     void Update()
     {
-        rightClick = Input.GetKey(KeyCode.Mouse1);
     }
+    //[ContextMenu(nameof(ApplyEffectTime))]
+    //public void ApplyEffectTime()
+    //{
+    //    playerBonus.BuffTime = BuffTime;
+    //    playerBonus.DebuffTimt = DebuffTimt;
+
+    //}
 
     public void ActiveBuff(BonusType bonusType, int value)
     {
-        if (playerBonus.bonusPack[bonusType].time <= 0)
+        playerBonus.bonusPack[bonusType].time += BuffTime;
+        if (playerBonus.bonusPack[bonusType].value <= 0)
         {
             StartCoroutine(DeactiveBuff(bonusType));
         }
         playerBonus.bonusPack[bonusType].value = value;
-        playerBonus.bonusPack[bonusType].time += playerBonus.BuffTime;
         Messenger<int>.Broadcast("TAKE_BONUS_" + bonusType.ToString().ToUpper(), value);
         Debug.Log("ActiveBuff " + bonusType + "  Broadcast");
     }
 
     public void ActiveDebuff(BonusType bonusType, int value)
     {
-        if (playerBonus.debuffPack[bonusType].time <= 0)
+        playerBonus.debuffPack[bonusType].time += DebuffTime;
+        if (playerBonus.debuffPack[bonusType].value <= 0)    
         {
             StartCoroutine(DeactiveDebuff(bonusType));
         }
         playerBonus.debuffPack[bonusType].value = value;
-        playerBonus.debuffPack[bonusType].time += playerBonus.BuffTime;
         Messenger<int>.Broadcast("TAKE_DEBUFF_" + bonusType.ToString().ToUpper(), value);
         Debug.Log("ActiveDebuff " + bonusType + "  Broadcast");
     }
@@ -105,9 +112,9 @@ public class PlayerBonusScript : MonoBehaviour
             yield return new WaitForSeconds(1);
             playerBonus.debuffPack[bonusType].time--;
 
-        } while (playerBonus.bonusPack[bonusType].time > 0);
+        } while (playerBonus.debuffPack[bonusType].time > 0);
         playerBonus.debuffPack[bonusType].value = 0;
         Messenger<int>.Broadcast("TAKE_DEBUFF_" + bonusType.ToString().ToUpper(), 0);
-        Debug.Log("DeactiveDebuff "+ bonusType + " Broadcast");
+        Debug.Log("DeactiveDebuff " + bonusType + " Broadcast");
     }
 }

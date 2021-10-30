@@ -10,10 +10,19 @@ public class SkillItem : GameItem
     {
         if (target.TryGetComponent(out PlayerMagic  playerMagic))
         {
-            playerMagic.AddColor(color);
-            Debug.Log("SkillItem Action TryGetComponent");
+            
+                playerMagic.AddColor(color);
         }
-        Debug.Log("SkillItem Action Else");
-        //Messenger<int>.Broadcast("TAKE_BONUS_" + type.ToString().ToUpper(), value);
+    }
+
+    public override void SetTarget(Transform target)
+    {
+        if (target.TryGetComponent(out PlayerMagic playerMagic))
+        {
+            if (playerMagic.rGBCharge.ColorCount < 3)
+            {
+                this.target = target;
+            }
+        }
     }
 }

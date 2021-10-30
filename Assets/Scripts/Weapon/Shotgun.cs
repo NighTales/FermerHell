@@ -106,7 +106,8 @@ public class Shotgun : Weapon
         for (int i = 0; i < countOfBullet; i++)
         {
             GameObject currentBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
-            currentBullet.transform.forward = GetRandomVector(maxAngle + 10 * instant.bonusPack[BonusType.Area].value);
+            if (i > 0)
+                currentBullet.transform.forward = GetRandomVector(maxAngle + 0.1f * instant.bonusPack[BonusType.Area].value);
             int damageMultiplicator = damage + damage * instant.bonusPack[BonusType.Damage].value * 50 / 100;
             currentBullet.GetComponent<Bullet>().Init(bulletSpeed, pack.bulletLifeTime, damageMultiplicator, ignoreMask);
         }
