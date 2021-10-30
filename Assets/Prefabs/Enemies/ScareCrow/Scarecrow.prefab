@@ -383,7 +383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1413720039771584758
 Transform:
   m_ObjectHideFlags: 0
@@ -487,6 +487,7 @@ MonoBehaviour:
   attackDistance: 2
   visionDistance: 30
   anim: {fileID: 1413720040082667054}
+  DeadDelaySec: 2.1
   jumpDistance: 20
 --- !u!1 &1447243827765288587
 GameObject:

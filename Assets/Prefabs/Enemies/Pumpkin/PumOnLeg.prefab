@@ -938,6 +938,7 @@ MonoBehaviour:
   attackDistance: 10
   visionDistance: 30
   anim: {fileID: 2346921938123544482}
+  DeadDelaySec: 1.5
   bulletPrefab: {fileID: 6039601171618138222, guid: 3831a4ad5c2c08943a4bd37d45ca732a, type: 3}
   shootPoint: {fileID: 2081020690}
   ignoreMask:
