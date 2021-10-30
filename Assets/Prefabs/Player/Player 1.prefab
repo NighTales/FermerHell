@@ -2509,7 +2509,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 2186698900911750310, guid: be40207a93c901b4e82e0a3e165674d0, type: 3}
     Sprite1: {fileID: 21300000, guid: 020ab0fe7dbf1064a9b6698d0d5be936, type: 3}
-    upmyltiplier: 0
+    upmyltiplier: 2
   - rGBCharge:
       red: 0
       green: 1
@@ -2554,7 +2554,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 8072637978671573588, guid: c8a58a985939cca49b9a4bf3c24cde27, type: 3}
     Sprite1: {fileID: 21300000, guid: 2fc0041b8f21afd4981d7f6026b580ba, type: 3}
-    upmyltiplier: 0
+    upmyltiplier: 1.5
   - rGBCharge:
       red: 1
       green: 2
@@ -2569,7 +2569,7 @@ MonoBehaviour:
       green: 0
       blue: 1
     Self: 0
-    Radius: 5
+    Radius: 10
     SkillObject: {fileID: 9203959996409887882, guid: d22e0db1f55d0bc4a8b5a8bffcb35e82, type: 3}
     Sprite1: {fileID: 21300000, guid: 865d4a0842800664f95d2842f3393994, type: 3}
     upmyltiplier: 0
@@ -2581,7 +2581,7 @@ MonoBehaviour:
     Radius: 10
     SkillObject: {fileID: 4763240675493431770, guid: 7d337032552b82d4c9a2d238552cdba5, type: 3}
     Sprite1: {fileID: 21300000, guid: b03a2d340bca4464399003274346c736, type: 3}
-    upmyltiplier: 0
+    upmyltiplier: 2
   targetMark: {fileID: 204381674374265307, guid: 24678419f1835dc4f9235cf565d0ecf5, type: 3}
 --- !u!114 &485918938
 MonoBehaviour:

@@ -183,7 +183,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 7
+      - m_Value: 5.06
         m_Name: Radius
         m_Overridden: 1
     m_Vector2f:
@@ -328,15 +328,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8aea33cd0701e2740b147ba759b466be, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8aea33cd0701e2740b147ba759b466be, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8aea33cd0701e2740b147ba759b466be, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8aea33cd0701e2740b147ba759b466be, type: 3}
       propertyPath: m_LocalPosition.x
