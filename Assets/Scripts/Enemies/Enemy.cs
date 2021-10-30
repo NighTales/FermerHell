@@ -14,23 +14,24 @@ public enum EnemyState
 }
 
 
-[RequireComponent(typeof(Rigidbody))][RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public abstract class Enemy : AliveController
 {
-    [SerializeField, Range(1,100), Tooltip("Количество очков, получаемое за победу над врагом")] protected int scoreForWin = 1;
+    [SerializeField, Range(1, 100), Tooltip("Количество очков, получаемое за победу над врагом")] protected int scoreForWin = 1;
     [SerializeField, Range(1, 100)] protected int damage = 10;
     [SerializeField] protected List<GameObject> lootPrefabs;
     [SerializeField] protected GameObject postDeadDecal;
     [SerializeField] protected GameObject afterFightLoot;
     private Rigidbody rb;
-    protected float speed = 5f; 
+    protected float speed = 5f;
 
-    [SerializeField, Range(1,100), Tooltip("Стандартная Скорость")]protected float basespeed ; 
+    [SerializeField, Range(1, 100), Tooltip("Стандартная Скорость")] protected float basespeed;
 
     [SerializeField] protected UnityEvent afterDeadEvent;
 
-    [SerializeField]public Dictionary<BonusType, int> buffeeds;
-    private float dOTTime = 0f; 
+    [SerializeField] public Dictionary<BonusType, int> buffeeds;
+    private float dOTTime = 0f;
 
 
     protected virtual void Start()
@@ -45,35 +46,36 @@ public abstract class Enemy : AliveController
     }
     protected virtual void Update()
     {
-        if (dOTTime>0)
+        if (dOTTime > 0)
         {
             dOTTime -= Time.deltaTime;
         }
     }
     protected virtual void OnFightAction()
     {
-       // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
+        // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         Vector3 dir = new Vector3(Random.Range(-0.05f, 0.05f), 2, Random.Range(-0.05f, 0.05f));
         Instantiate(afterFightLoot, transform.position + dir, Quaternion.identity).GetComponent<Rigidbody>()
             .AddForce(dir, ForceMode.Impulse);
-        Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
-       // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
+        if (postDeadDecal != null)
+            Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
+        // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         Destroy(gameObject);
     }
 
     protected void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet"))
         {
-           // Messenger.Broadcast(GameEvent.HIT);
+            // Messenger.Broadcast(GameEvent.HIT);
             GetDamage(other.GetComponent<Bullet>().damage);
         }
-        else if(other.CompareTag("Fire"))
+        else if (other.CompareTag("Fire"))
         {
             ExplosionZone zone = other.GetComponent<ExplosionZone>();
-            if(zone != null)
+            if (zone != null)
             {
-                if(rb == null)
+                if (rb == null)
                 {
                     rb = GetComponent<Rigidbody>();
                 }
@@ -86,12 +88,12 @@ public abstract class Enemy : AliveController
                 GetDamage(zone.damage);
             }
         }
-        else if(other.CompareTag("FriendFire"))
+        else if (other.CompareTag("FriendFire"))
         {
             ExplosionZone zone = other.GetComponent<ExplosionZone>();
-            if(zone != null)
+            if (zone != null)
             {
-                if(rb == null)
+                if (rb == null)
                 {
                     rb = GetComponent<Rigidbody>();
                 }
@@ -138,7 +140,7 @@ public abstract class Enemy : AliveController
     public override void Death()
     {
         afterDeadEvent?.Invoke();
-       // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
+        // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         int cycleCount = Random.Range(0, 3);
 
         if (cycleCount > lootPrefabs.Count)
@@ -152,8 +154,9 @@ public abstract class Enemy : AliveController
             lootPrefabs.Remove(lootPrefabs[number]);
             cycleCount--;
         }
-        Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
-       // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
+        if (postDeadDecal != null)
+            Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
+        // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         Destroy(gameObject);
     }
     protected void ReturnRB()
@@ -166,7 +169,7 @@ public abstract class Enemy : AliveController
 
     #region Buffs
 
-    public void StartBuff(BonusType type, int value,float time)
+    public void StartBuff(BonusType type, int value, float time)
     {
         switch (type)
         {
@@ -174,7 +177,7 @@ public abstract class Enemy : AliveController
                 OnTakeDebuffSpeed(value);
                 break;
             case BonusType.DOT:
-                OnTakeDebuffDOT(value,time);
+                OnTakeDebuffDOT(value, time);
                 break;
             default:
                 break;
@@ -192,17 +195,17 @@ public abstract class Enemy : AliveController
         }
         else
         {
-            speed =basespeed - (basespeed * (float)value/100);
+            speed = basespeed - (basespeed * (float)value / 100);
         }
-        OnSpeedChangeAction(speed/actionvalue);
+        OnSpeedChangeAction(speed / actionvalue);
     }
 
     protected virtual void OnSpeedChangeAction(float value)
     {
-        
+
     }
 
-    protected void OnTakeDebuffDOT(int value,float time)// думай леха думай
+    protected void OnTakeDebuffDOT(int value, float time)// думай леха думай
     {
         if (buffeeds[BonusType.DOT] == 0)
         {
@@ -213,17 +216,24 @@ public abstract class Enemy : AliveController
             StartCoroutine(DOTDeBuffTic(value));
         }
     }
-   
+
     public IEnumerator DOTDeBuffTic(int value)
     {
         do
         {
             GetDamage(value);
             yield return new WaitForSeconds(1);
-            
-        } while (dOTTime>0 || buffeeds[BonusType.DOT] != 0);
+
+        } while (dOTTime > 0 || buffeeds[BonusType.DOT] != 0);
     }
 
 
     #endregion
+
+    public override void GetDamage(int damage)
+    {
+        Messenger.Broadcast(GameEvent.HIT);
+        if (Health > 0)
+            Health -= damage;
+    }
 }

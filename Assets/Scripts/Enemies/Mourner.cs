@@ -7,13 +7,13 @@ public class Mourner : HellEnemy
 {
     [SerializeField]  private List<Ghost> ghosts; 
     [SerializeField]  private List<Ghost> ghostsPack;
-    private int deadGhostsCount = 4;
+    [SerializeField]  private int deadGhostsCount = 4;
    [SerializeField] private Vector3 buffTarget;
    [SerializeField]private float iddleDistance = 0.5f;
    [SerializeField]  private bool finded = false;
-   private bool isReadyForAttack = true;
+    [SerializeField]  private bool isReadyForAttack = true;
    [SerializeField, Tooltip("перезарядка призыва"), Range(1, 10)]private float readyTime = 4;
-    public void Init(GameObject target)
+    public override void  Init(GameObject target)
     {
         
         base.Init(target);

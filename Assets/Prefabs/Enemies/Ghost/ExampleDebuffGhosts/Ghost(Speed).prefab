@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7435431873147974846}
   - component: {fileID: 7435431873147974847}
   - component: {fileID: 7435431873147974845}
+  - component: {fileID: 4046721275037544263}
   m_Layer: 0
   m_Name: Ghost(Speed)
   m_TagString: Enemy
@@ -69,7 +70,7 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
-  basespeed: 0
+  basespeed: 3
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -102,6 +103,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &4046721275037544263
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166905595778344769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.23
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &8166905597150133174
 Animator:
   serializedVersion: 3
