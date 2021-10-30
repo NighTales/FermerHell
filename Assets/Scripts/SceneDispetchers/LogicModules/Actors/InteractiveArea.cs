@@ -27,7 +27,7 @@ public class InteractiveArea : LogicActor
         if (once)
         {
             DeleteMeFromActors();
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 3);
 //            gameObject.SetActive(false);
         }
     }

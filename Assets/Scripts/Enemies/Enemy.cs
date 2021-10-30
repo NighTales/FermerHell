@@ -30,14 +30,14 @@ public abstract class Enemy : AliveController
     [SerializeField, Range(1, 100), Tooltip("Стандартная Скорость")] protected float basespeed;
 
     public UnityEvent afterDeadEvent;
-    public GrimoirDispethers GrimoirDispethers;
+    //public GrimoirDispethers GrimoirDispethers;
     [SerializeField] public Dictionary<BonusType, int> buffeeds;
     private float dOTTime = 0f;
 
 
     protected virtual void Start()
     {
-        lootPrefabs = GrimoirDispethers.LootList;
+        lootPrefabs = Grimoir.Instant.LootList;
         buffeeds = new Dictionary<BonusType, int>();
         buffeeds.Add(BonusType.Speed, 0);
         buffeeds.Add(BonusType.DOT, 0);
@@ -167,7 +167,7 @@ public abstract class Enemy : AliveController
             var lootInstant = Instantiate(lootPrefabs[number], transform.position + dir, Quaternion.identity);
             if (lootInstant.TryGetComponent(out Rigidbody rigidbody)) rigidbody.AddForce(dir, ForceMode.Impulse);
 
-            lootPrefabs.Remove(lootPrefabs[number]);
+            //lootPrefabs.Remove(lootPrefabs[number]);
             cycleCount--;
         }
     }

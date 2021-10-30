@@ -3,54 +3,53 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+
 public class GrimoirDispethers : MonoBehaviour
 {
-    public bool containsRedGrimoir = false;
-    public bool containsBlueGrimoir = false;
-    public bool containsGreenGrimoir = false;
-
-    public GameObject redGrimoir;
-    public GameObject blueGrimoir;
-    public GameObject greenGrimoir;
-
-    public List<GameObject> LootList = new List<GameObject>();
+    [SerializeField]
+    Grimoir Instant = Grimoir.Instant;
 
     public GameObject R_Charge;
     public GameObject G_Charge;
     public GameObject B_Charge;
-
+    private void Start()
+    {
+        Instant.LootList.Remove(R_Charge);
+        Instant.LootList.Remove(G_Charge);
+        Instant.LootList.Remove(B_Charge);
+    }
     public void ActivateRedGrimoir()
     {
-        containsRedGrimoir = true;
-        LootList.Add(R_Charge);
+        Instant.LootList.Add(R_Charge);
+        Debug.Log("ActivateRedGrimoir");
     }
     public void ActivateBlueGrimoir()
     {
-        containsBlueGrimoir = true;
-        LootList.Add(B_Charge);
+        Instant.LootList.Add(B_Charge);
+        Debug.Log("ActivateBlueGrimoir");
     }
     public void ActivateGreenGrimoir()
     {
-        containsGreenGrimoir = true;
-        LootList.Add(G_Charge);
+        Instant.LootList.Add(G_Charge);
+        Debug.Log("ActivateGreenGrimoir");
     }
-
-
-    private void FixedUpdate()
+}
+[Serializable]
+public class Grimoir
+{
+    public static Grimoir Instant
     {
-        if (redGrimoir == null)
+        get
         {
-            ActivateRedGrimoir();
-        }
-        if (blueGrimoir == null)
-        {
-            ActivateBlueGrimoir();
-        }
-        if (greenGrimoir == null)
-        {
-            ActivateGreenGrimoir();
+            if (instant == null)
+                instant = new Grimoir();
+            return instant;
         }
     }
+    private static Grimoir instant;
+    private Grimoir() { }
 
+    public List<GameObject> LootList = new List<GameObject>();
 
+   
 }

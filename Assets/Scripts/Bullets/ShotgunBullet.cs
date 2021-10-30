@@ -20,14 +20,17 @@ public class ShotgunBullet : Bullet //снаряд, который не удал
         {
             numberOfBreaks--;
             coll.radius /= 2;
-            hit.collider.GetComponent<AliveController>().GetDamage(damage);
+            if(hit.collider.TryGetComponent(out AliveController aliveController))
+            {
+                aliveController.GetDamage(damage);
+            }
             Messenger.Broadcast(GameEvent.HIT);
             if (numberOfBreaks <= 0)
                 Destroy(gameObject);
         }
         else if (hit.collider.CompareTag("Bullet"))
         {
-            if (hit.collider.TryGetComponent<TargetTrackerBullet>(out TargetTrackerBullet bullet))
+            if (hit.collider.TryGetComponent(out TargetTrackerBullet bullet))
             {
                 bullet.Explosion();
                 Messenger.Broadcast(GameEvent.HIT);
