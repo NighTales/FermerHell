@@ -135,7 +135,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291130227760987945}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -263,7 +263,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877836402284754492}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -344,7 +344,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2241078450562998691}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -496,7 +496,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4070183638158200267}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -577,7 +577,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4425543975757879892}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -721,7 +721,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5309449225376171332}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -817,7 +817,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5575520939644482378}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1023,7 +1023,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5964494417071156201}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1119,7 +1119,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6042602323763624501}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1215,7 +1215,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6349552752416381986}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1310,7 +1310,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7038347611798961808}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1422,7 +1422,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7258599066019506447}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1504,7 +1504,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7406862050281552541}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1631,7 +1631,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7760976522042597702}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1727,7 +1727,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7914040805522236834}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2204,6 +2204,7 @@ GameObject:
   - component: {fileID: 8396015941545340337}
   - component: {fileID: 7975714982648844221}
   - component: {fileID: 4747516307001813615}
+  - component: {fileID: 485918938}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -2335,7 +2336,19 @@ MonoBehaviour:
   sprintClip: {fileID: 8300000, guid: 139cdb326f1d2c746818cfc166aa9571, type: 3}
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FinalPanelActivator, Assembly-CSharp
+        m_MethodName: ShowFinalPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &8396015941545340336
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2487,6 +2500,7 @@ MonoBehaviour:
     Radius: 10
     SkillObject: {fileID: 7121036947954333256, guid: 93ae083756fee334187983a19a4d7414, type: 3}
     Sprite1: {fileID: 21300000, guid: 16be463864c227d448ea5d5fa093987e, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 0
       green: 2
@@ -2495,6 +2509,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 2186698900911750310, guid: be40207a93c901b4e82e0a3e165674d0, type: 3}
     Sprite1: {fileID: 21300000, guid: 020ab0fe7dbf1064a9b6698d0d5be936, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 0
       green: 1
@@ -2503,6 +2518,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 8334146320019559753, guid: 41d8d7f9ee332dc4cadbb52d0d97b2e8, type: 3}
     Sprite1: {fileID: 21300000, guid: d14c972519a1bfd4d89208dec53e06ab, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 0
       green: 3
@@ -2511,6 +2527,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 3181653166041214808, guid: 1d49c0930158a5d4181db5362b328e30, type: 3}
     Sprite1: {fileID: 21300000, guid: 7fb42f80d673f69478d27ce2a0789dd6, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 2
       green: 1
@@ -2519,6 +2536,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 490151761044381491, guid: aec3d3bdae7b7804db7253c9d701274b, type: 3}
     Sprite1: {fileID: 21300000, guid: 795552300334b6b4d93f86a9dc20a073, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 1
       green: 0
@@ -2527,6 +2545,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 8312985200269544475, guid: 6950064705bba4f46b5e630c307a7a56, type: 3}
     Sprite1: {fileID: 21300000, guid: 423c2d66b1ad30744862111287f9a992, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 1
       green: 1
@@ -2535,6 +2554,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 8072637978671573588, guid: c8a58a985939cca49b9a4bf3c24cde27, type: 3}
     Sprite1: {fileID: 21300000, guid: 2fc0041b8f21afd4981d7f6026b580ba, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 1
       green: 2
@@ -2543,6 +2563,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 7555757273410971419, guid: 8e04d9d9201dc8748845e437cb5cbd70, type: 3}
     Sprite1: {fileID: 21300000, guid: e18ca9fdf6fa8d04a9436b1f9f41004a, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 2
       green: 0
@@ -2551,6 +2572,7 @@ MonoBehaviour:
     Radius: 5
     SkillObject: {fileID: 9203959996409887882, guid: d22e0db1f55d0bc4a8b5a8bffcb35e82, type: 3}
     Sprite1: {fileID: 21300000, guid: 865d4a0842800664f95d2842f3393994, type: 3}
+    upmyltiplier: 0
   - rGBCharge:
       red: 3
       green: 0
@@ -2559,7 +2581,20 @@ MonoBehaviour:
     Radius: 10
     SkillObject: {fileID: 4763240675493431770, guid: 7d337032552b82d4c9a2d238552cdba5, type: 3}
     Sprite1: {fileID: 21300000, guid: b03a2d340bca4464399003274346c736, type: 3}
+    upmyltiplier: 0
   targetMark: {fileID: 204381674374265307, guid: 24678419f1835dc4f9235cf565d0ecf5, type: 3}
+--- !u!114 &485918938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396015941545340329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ada087c7da8ca4db5e8a19d3f4d6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8396015941823357421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,9 +2766,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8396015942399266166}
-  - component: {fileID: 8396015942399266161}
   - component: {fileID: 8396015942399266160}
-  - component: {fileID: 8172124499511640335}
+  - component: {fileID: 1957190164}
+  - component: {fileID: 1957190161}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2748,7 +2783,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8396015942399266163}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.069838546, z: -0, w: 0.99755836}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2756,50 +2791,7 @@ Transform:
   - {fileID: 8526908003941548494}
   m_Father: {fileID: 8396015941545340333}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &8396015942399266161
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8396015942399266163}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.057244573, g: 0.064332895, b: 0.0754717, a: 1}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.1
-  far clip plane: 300
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 55
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
+  m_LocalEulerAnglesHint: {x: 0, y: 8.009, z: 0}
 --- !u!81 &8396015942399266160
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2808,7 +2800,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8396015942399266163}
   m_Enabled: 1
---- !u!114 &8172124499511640335
+--- !u!114 &1957190164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2840,6 +2832,49 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!20 &1957190161
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8396015942399266163}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 55
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &8712685079243253371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,7 +2924,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8712685079243253371}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2985,7 +3020,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8780040542214617631}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
