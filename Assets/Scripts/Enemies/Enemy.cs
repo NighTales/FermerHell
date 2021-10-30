@@ -38,7 +38,7 @@ public abstract class Enemy : AliveController
         buffeeds = new Dictionary<BonusType, int>();
         buffeeds.Add(BonusType.Speed, 0);
         buffeeds.Add(BonusType.DOT, 0);
-        basespeed = speed;
+        speed = basespeed;
         Health = maxHealth;
         rb = GetComponent<Rigidbody>();
         ReturnRB();

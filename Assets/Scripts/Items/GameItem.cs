@@ -14,7 +14,7 @@ public abstract class GameItem : MonoBehaviour
 
      public Transform target;
 
-    private const float deletedTime = 120; //все собираемые объекты будут удаляться через равное время
+    [SerializeField, Min(0)] private float deletedTime = 120; //все собираемые объекты будут удаляться через равное время
     PlayerBonusStat instant = PlayerBonusStat.Instant;
     private void Start()
     {

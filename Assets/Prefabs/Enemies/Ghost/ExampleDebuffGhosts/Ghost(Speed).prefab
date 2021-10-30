@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7435431873147974845}
   m_Layer: 0
   m_Name: Ghost(Speed)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
-  speed: 5
+  basespeed: 0
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
