@@ -346,13 +346,13 @@ public class UIScript : MonoBehaviour
     {
         if (value > 0)
         {
-            AddStatEffect(bonusType);
-            Debug.Log("AddStatEffect " + bonusType + "  AddStatEffect");
+            AddStatDebuff(bonusType);
+            Debug.Log("OnSetDebuff " + bonusType + "  AddStatDebuff");
         }
         else
         {
-            RemoveStatEffect(bonusType);
-            Debug.Log("AddStatEffect " + bonusType + "  RemoveStatEffect");
+            RemoveStatDebuff(bonusType);
+            Debug.Log("OnSetDebuff " + bonusType + "  RemoveStatDebuff");
         }
     }
     private void AddStatEffect(BonusType bonusType)
@@ -364,5 +364,16 @@ public class UIScript : MonoBehaviour
     private void RemoveStatEffect(BonusType bonusType)
     {
         bonusPack[bonusType].Item2.gameObject.SetActive(false);
+    }
+
+    private void AddStatDebuff(BonusType bonusType)
+    {
+        debuffPack[bonusType].Item2.sprite = debuffPack[bonusType].Item1;
+        debuffPack[bonusType].Item2.gameObject.SetActive(true);
+    }
+
+    private void RemoveStatDebuff(BonusType bonusType)
+    {
+        debuffPack[bonusType].Item2.gameObject.SetActive(false);
     }
 }
