@@ -28,7 +28,7 @@ public abstract class Enemy : AliveController
 
     [SerializeField, Range(1, 100), Tooltip("Стандартная Скорость")] protected float basespeed;
 
-    [SerializeField] protected UnityEvent afterDeadEvent;
+    public UnityEvent afterDeadEvent;
 
     [SerializeField] public Dictionary<BonusType, int> buffeeds;
     private float dOTTime = 0f;

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemyGroup : LogicActor
 {
+    [SerializeField] private bool once;
+
     public override void ActivateModule()
     {
         StartCoroutine(CheckGroup());
@@ -15,7 +17,8 @@ public class EnemyGroup : LogicActor
         if(transform.childCount == 0)
         {
             ActivateAllNextModules();
-            Destroy(gameObject, 1);
+            if(once)
+                Destroy(gameObject, 1);
         }
 
     }
