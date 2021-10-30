@@ -109,6 +109,7 @@ MonoBehaviour:
   deleted: 1
   magnetDistance: 3
   target: {fileID: 0}
+  deletedTime: 120
   hp: 60
 --- !u!1 &9098472548116274937
 GameObject:
@@ -169,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51170788b33ba304aa4b68ffef5ba924, type: 2}
+  - {fileID: 2100000, guid: 58ddb95462d265e4aa030f6345a1c45f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
