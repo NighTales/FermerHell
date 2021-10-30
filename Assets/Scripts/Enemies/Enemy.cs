@@ -137,10 +137,22 @@ public abstract class Enemy : AliveController
         // }
     }
 
+
     public override void Death()
     {
         afterDeadEvent?.Invoke();
         // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
+        LootSpawn();
+
+        if (postDeadDecal != null)
+            Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
+
+        // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
+        Destroy(gameObject);
+    }
+
+    protected void LootSpawn()
+    {
         int cycleCount = Random.Range(0, 3);
 
         if (cycleCount > lootPrefabs.Count)
@@ -150,15 +162,14 @@ public abstract class Enemy : AliveController
         {
             int number = Random.Range(0, lootPrefabs.Count);
             Vector3 dir = new Vector3(Random.Range(-0.05f, 0.05f), 2, Random.Range(-0.05f, 0.05f));
-            Instantiate(lootPrefabs[number], transform.position + dir, Quaternion.identity).GetComponent<Rigidbody>().AddForce(dir, ForceMode.Impulse);
+            var lootInstant = Instantiate(lootPrefabs[number], transform.position + dir, Quaternion.identity);
+            if (lootInstant.TryGetComponent(out Rigidbody rigidbody)) rigidbody.AddForce(dir, ForceMode.Impulse);
+
             lootPrefabs.Remove(lootPrefabs[number]);
             cycleCount--;
         }
-        if (postDeadDecal != null)
-            Instantiate(postDeadDecal, transform.position, Quaternion.identity).GetComponent<Decal>().Init(2);
-        // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
-        Destroy(gameObject);
     }
+
     protected void ReturnRB()
     {
         rb.velocity = Vector3.zero;
@@ -230,10 +241,5 @@ public abstract class Enemy : AliveController
 
     #endregion
 
-    public override void GetDamage(int damage)
-    {
-        Messenger.Broadcast(GameEvent.HIT);
-        if (Health > 0)
-            Health -= damage;
-    }
+
 }

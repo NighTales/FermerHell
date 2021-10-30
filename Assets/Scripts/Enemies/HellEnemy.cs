@@ -16,7 +16,7 @@ public class HellEnemy : Enemy
 
     private void Awake()
     {
-        if (agent==null)
+        if (agent == null)
         {
             agent = GetComponent<NavMeshAgent>();
         }
@@ -35,7 +35,7 @@ public class HellEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        if (agent==null)
+        if (agent == null)
         {
             agent = GetComponent<NavMeshAgent>();
         }
@@ -44,7 +44,7 @@ public class HellEnemy : Enemy
             Init(target);
         else
         {
-            target =  GameObject.FindGameObjectWithTag("Player");
+            target = GameObject.FindGameObjectWithTag("Player");
             if (target != null)
                 Init(target);
         }
@@ -55,7 +55,7 @@ public class HellEnemy : Enemy
     }
     protected virtual IEnumerator Born()
     {
-        anim.SetBool("WithoutLegs",false);
+        anim.SetBool("WithoutLegs", false);
         yield return new WaitForSeconds(1);
         state = EnemyState.Iddle; // idlle
     }
@@ -73,7 +73,7 @@ public class HellEnemy : Enemy
         base.Update();
         if (!stunned)
         {
-         
+
             switch (state)
             {
                 case EnemyState.Iddle:
@@ -87,7 +87,7 @@ public class HellEnemy : Enemy
                     break;
                 default:
                     break;
-            }   
+            }
         }
     }
     #region StateMethods
@@ -108,31 +108,31 @@ public class HellEnemy : Enemy
                 state = EnemyState.MoveToTarget;
             }
         }
-        
+
     }
-    
+
     protected virtual void Move()
     {
         agent.isStopped = false;
-        if(target != null)
+        if (target != null)
         {
             //agent.isStopped = false;
-            if ((target.transform.position - transform.position).magnitude >visionDistance)
+            if ((target.transform.position - transform.position).magnitude > visionDistance)
             {
                 state = EnemyState.Iddle;
             }
-            else if ((target.transform.position - transform.position).magnitude <attackDistance)
+            else if ((target.transform.position - transform.position).magnitude < attackDistance)
             {
                 state = EnemyState.Attack;
             }
             else
             {
-               anim.SetBool("Walk", true);
-               
-               agent.destination = target.transform.position;
+                anim.SetBool("Walk", true);
+
+                agent.destination = target.transform.position;
             }
         }
-        else if(!agent.isStopped)
+        else if (!agent.isStopped)
         {
             agent.isStopped = true;
         }
@@ -140,7 +140,7 @@ public class HellEnemy : Enemy
 
     protected override void OnSpeedChangeAction(float value)
     {
-        
+
         agent.speed = speed;
         anim.speed = value;
 
@@ -155,7 +155,7 @@ public class HellEnemy : Enemy
             state = EnemyState.MoveToTarget;
         }
     }
-    
+
 
 
     #endregion
@@ -164,7 +164,28 @@ public class HellEnemy : Enemy
         yield return new WaitForSeconds(1);
     }
 
-    
-    
-    
+
+    public override void GetDamage(int damage)
+    {
+        Messenger.Broadcast(GameEvent.HIT);
+        if (Health > 0)
+        {
+            Health -= damage;
+            anim.SetInteger("Damage", damage);
+            anim.SetTrigger("GetDamage");
+        }
+    }
+    [Range(1f,10f)] public float DeadDelaySec = 1f;
+    public override void Death()
+    {
+        anim.SetTrigger("Dead");
+
+        StartCoroutine(DelayedDeth(DeadDelaySec));
+    }
+    protected IEnumerator DelayedDeth(float delaySec)
+    {
+        yield return new WaitForSeconds(delaySec);
+        base.Death();
+    }
+
 }

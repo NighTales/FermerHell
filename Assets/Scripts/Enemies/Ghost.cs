@@ -35,6 +35,8 @@ public class Ghost:HellEnemy
 
     public override void Death()
     {
+        anim.SetTrigger("Attack");
+
         mother.GhostDeadReactor();
         base.Death();
     }

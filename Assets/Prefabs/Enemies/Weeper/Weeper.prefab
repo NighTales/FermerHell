@@ -165,6 +165,7 @@ MonoBehaviour:
   attackDistance: 5
   visionDistance: 20
   anim: {fileID: 5042879014450664360}
+  DeadDelaySec: 5
   ghosts: []
   ghostsPack:
   - {fileID: 2022726350042047587, guid: f869f75655670b249bbd5d58c29d4197, type: 3}
