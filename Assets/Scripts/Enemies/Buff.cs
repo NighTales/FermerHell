@@ -8,6 +8,7 @@ public class Buff : MonoBehaviour
     public float time = 5f;
     public BonusType typeBuff;
     public int buffvalue = 2;
+    private int Damage;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,10 @@ public class Buff : MonoBehaviour
             if (enemy.buffeeds[typeBuff] == 1)
             {
                 enemy.StartBuff(typeBuff, buffvalue, time);
+                if (Damage != 0)
+                {
+                    enemy.GetDamage(Damage);
+                }
             }
         }
     }

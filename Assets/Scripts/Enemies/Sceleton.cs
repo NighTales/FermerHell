@@ -106,11 +106,14 @@ public class Sceleton : HellEnemy
         // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode >= 1)
         {
-            postDeadDecal.tag = "Untagged";
+            postDeadDecal.tag = "AllFire";
             GameObject deadDecal = Instantiate(postDeadDecal, transform.position, Quaternion.identity);
             deadDecal.GetComponent<Decal>().Init(1);
             deadDecal.GetComponent<ExplosionZone>().ChangeRange(elapsedTimeAfterSuicideMode * attackDistance,
                 damage * elapsedTimeAfterSuicideMode);
+            var mainModule = deadDecal.GetComponent<ParticleSystem>().main;
+            mainModule.startSize = new ParticleSystem.MinMaxCurve(elapsedTimeAfterSuicideMode * attackDistance,
+                elapsedTimeAfterSuicideMode * attackDistance);
         }
 
         Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, 30);

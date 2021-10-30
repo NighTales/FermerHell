@@ -120,13 +120,13 @@ public class UIScript : MonoBehaviour
         Messenger<int>.AddListener(GameEvent.Set_BONUS_SPEED, actions[1]);
         Messenger<int>.AddListener(GameEvent.Set_BONUS_DOT, actions[2]);
         Messenger<int>.AddListener(GameEvent.Set_BONUS_RESIST, actions[3]);
-        Messenger<int>.AddListener(GameEvent.Set_BONUS_MUGNET, actions[4]);
+        Messenger<int>.AddListener(GameEvent.Set_BONUS_MAGNET, actions[4]);
 
         Messenger<int>.AddListener(GameEvent.Set_DEBUFF_JUMP, actions[5]);
         Messenger<int>.AddListener(GameEvent.Set_DEBUFF_SPEED, actions[6]);
         Messenger<int>.AddListener(GameEvent.Set_DEBUFF_DOT, actions[7]);
         Messenger<int>.AddListener(GameEvent.Set_DEBUFF_RESIST, actions[8]);
-        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
+        Messenger<int>.AddListener(GameEvent.Set_DEBUFF_MAGNET, actions[9]);
         //   Messenger.AddListener(GameEvent.EXIT_LEVEL, OnDestroy);
     }
     private void OnDestroy()
@@ -148,13 +148,13 @@ public class UIScript : MonoBehaviour
         Messenger<int>.RemoveListener(GameEvent.Set_BONUS_SPEED, actions[1]);
         Messenger<int>.RemoveListener(GameEvent.Set_BONUS_DOT, actions[2]);
         Messenger<int>.RemoveListener(GameEvent.Set_BONUS_RESIST, actions[3]);
-        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_MUGNET, actions[4]);
+        Messenger<int>.RemoveListener(GameEvent.Set_BONUS_MAGNET, actions[4]);
 
         Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_JUMP, actions[5]);
         Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_SPEED, actions[6]);
         Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_DOT, actions[7]);
         Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_RESIST, actions[8]);
-        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
+        Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_MAGNET, actions[9]);
     }
 
     // Update is called once per frame

@@ -12,14 +12,18 @@ public class PlayerMagic : MonoBehaviour
     [Range(100f, 500f)] public float maxDistance = 300;
     public LayerMask ignoreRaycast;
     public List<Skill> Skills = new List<Skill>(10);
+    [SerializeField]private GameObject targetMark;
+    
     private Skill skill;
     private bool rightClickOn = false;
     private bool rightClickUp = false;
     private bool refresh = false;
     private bool apply = false;
-    private GameObject targetMark;
     PlayerBonusStat playerStatInstant = PlayerBonusStat.Instant;
     private bool inMenu = false;
+    private Vector3 dir;
+    private bool isStarted = false;
+
     void Awake()
     {
         Messenger<bool>.AddListener(GameEvent.PAUSE, OnPause);
@@ -36,14 +40,17 @@ public class PlayerMagic : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        dir = transform.forward;
+        targetMark.SetActive(false);
         CreateTargetMark();
     }
 
     private void CreateTargetMark()
     {
-        targetMark = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        //targetMark = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        targetMark = Instantiate(targetMark);
         targetMark.SetActive(false);
-        targetMark.AddComponent<NavMeshObstacle>();
+        //targetMark.AddComponent<NavMeshObstacle>();
         //targetMark.GetComponent<BoxCollider>().enabled = false;
     }
 
@@ -67,7 +74,7 @@ public class PlayerMagic : MonoBehaviour
     private void InputKeys()
     {
         rightClickOn = Input.GetKey(KeyCode.Mouse1);
-        rightClickOn = Input.GetKeyUp(KeyCode.Mouse1);
+        rightClickUp = Input.GetKey(KeyCode.Mouse0);
         refresh = Input.GetKeyDown(KeyCode.Q);
         apply = Input.GetKeyDown(KeyCode.E);
     }
@@ -110,14 +117,22 @@ public class PlayerMagic : MonoBehaviour
     }
     public void UseMagic()
     {
-        if (rGBCharge.ColorCount >= 3 && rightClickOn)
+        
+        
+        if (rGBCharge.ColorCount >= 3 && (rightClickOn|| targetMark.activeSelf ))
         {
             Vector3 target = Vector3.zero;
+            //isStarted = true;
 
             if (!skill.Self)
             {
                 if (!targetMark.activeSelf)
+                {
+                    targetMark.transform.localScale =new Vector3( skill.Radius*2,skill.Radius*2,0.25f);
+                    //targetMark.gameObject.GetComponent<CapsuleCollider>
                     targetMark.SetActive(true);
+                    Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, true);
+                }
 
                 if (Physics.Raycast(
                     camObject.transform.position,
@@ -126,17 +141,17 @@ public class PlayerMagic : MonoBehaviour
                     maxDistance,
                     ~ignoreRaycast))
                 {
-                    targetMark.transform.position = hitInfo.point;
+                    targetMark.transform.position = hitInfo.point+Vector3.up*0.25f;
 
                     if (rightClickUp)
                     {
-                        target = hitInfo.point;
+                        target = hitInfo.point ;
                     }
                 }
             }
             else
             {
-                target = transform.position;
+                target = transform.position + Vector3.up*skill.upmyltiplier;
             }
 
 
@@ -144,27 +159,43 @@ public class PlayerMagic : MonoBehaviour
             {
                 if (skill.Radius > 0)
                 {
-                    foreach (var ef in skill.effects)
+                    
+                    if (skill.Self)
                     {
+                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation,this.transform).GetComponent<SkillLogic>().Init(skill.Radius,this.transform);
+                        
 
                     }
-                }
+                    else
+                    {
+                        //skill.SkillObject.transform.localScale =new Vector3( skill.Radius,skill.Radius,skill.Radius);
+                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation).GetComponent<SkillLogic>().Init(skill.Radius,this.transform);
+                        
+                    }
+                    }
                 else
                 {
-                    if (gameObject.TryGetComponent(out PlayerBonusScript playerBonus))
-                        foreach (var ef in skill.effects)
-                        {
-
-                            playerBonus.ActiveBuff(ef.bonusType, ef.power);
-                        }
+                    // if (gameObject.TryGetComponent(out PlayerBonusScript playerBonus))
+                    //     foreach (var ef in skill.effects)
+                    //     {
+                    //
+                    //         playerBonus.ActiveBuff(ef.bonusType, ef.power);
+                    //     }
                 }
 
                 rGBCharge.ClearColors();
+                
                 targetMark.SetActive(false);
+                StartCoroutine(Shoot());
             }
         }
     }
 
+    private IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(1);
+                Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, false);
+    }
     public void AddColor(Color color)
     {
         if (rGBCharge.ColorCount < 3)
@@ -195,14 +226,17 @@ public class Skill
 {
     public RGBCharge rGBCharge = new RGBCharge(0, 0, 0);
     public bool Self = false;
-    public GameObject ParticleEffect;
+   // public GameObject ParticleEffect;
     [Range(0f, 10f)] public float Radius = 5f;
-    [Range(1f, 60f)] public float TimeSec = 20f;
-    [Range(0, 500)] public int Damage = 20;
-    public List<Effect> effects = new List<Effect>();
+    //[Range(1f, 60f)] public float TimeSec = 20f;
+    //[Range(0, 500)] public int Damage = 20;
+    public GameObject SkillObject;
+    //public List<Effect> effects = new List<Effect>();
     public Sprite Sprite1;
+    public float upmyltiplier;
+
     [Serializable]
-    public class Effect
+    public class Effect 
     {
         public BonusType bonusType = BonusType.DOT;
         [Range(1, 50)] public int power = 5;
