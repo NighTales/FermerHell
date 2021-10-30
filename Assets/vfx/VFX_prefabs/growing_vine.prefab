@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerCollider: {fileID: 2373830980729739722}
   delayTime: 1
-  durationTime: 12
+  durationTime: 10.5
   isBuff: 0
   isNeedToRestart: 0
   Buff: 0
@@ -160,8 +160,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3181653166202507925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07999998, y: -0.009999998, z: -0.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: -0.03}
+  m_LocalScale: {x: 3, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 3181653166041214811}
   m_RootOrder: 2
@@ -182,7 +182,13 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 5
+        m_Name: Count
+        m_Overridden: 1
+      - m_Value: 4
+        m_Name: spot_size
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -322,12 +328,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -2.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
       propertyPath: m_LocalPosition.z
