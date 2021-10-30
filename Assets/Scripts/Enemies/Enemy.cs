@@ -18,24 +18,26 @@ public enum EnemyState
 [RequireComponent(typeof(Collider))]
 public abstract class Enemy : AliveController
 {
+    
     [SerializeField, Range(1, 100), Tooltip("Количество очков, получаемое за победу над врагом")] protected int scoreForWin = 1;
     [SerializeField, Range(1, 100)] protected int damage = 10;
-    [SerializeField] protected List<GameObject> lootPrefabs;
+    protected List<GameObject> lootPrefabs;
     [SerializeField] protected GameObject postDeadDecal;
     [SerializeField] protected GameObject afterFightLoot;
     private Rigidbody rb;
     protected float speed = 5f;
-
+    
     [SerializeField, Range(1, 100), Tooltip("Стандартная Скорость")] protected float basespeed;
 
     public UnityEvent afterDeadEvent;
-
+    //public GrimoirDispethers GrimoirDispethers;
     [SerializeField] public Dictionary<BonusType, int> buffeeds;
     private float dOTTime = 0f;
 
 
     protected virtual void Start()
     {
+        lootPrefabs = Grimoir.Instant.LootList;
         buffeeds = new Dictionary<BonusType, int>();
         buffeeds.Add(BonusType.Speed, 0);
         buffeeds.Add(BonusType.DOT, 0);
@@ -165,7 +167,7 @@ public abstract class Enemy : AliveController
             var lootInstant = Instantiate(lootPrefabs[number], transform.position + dir, Quaternion.identity);
             if (lootInstant.TryGetComponent(out Rigidbody rigidbody)) rigidbody.AddForce(dir, ForceMode.Impulse);
 
-            lootPrefabs.Remove(lootPrefabs[number]);
+            //lootPrefabs.Remove(lootPrefabs[number]);
             cycleCount--;
         }
     }

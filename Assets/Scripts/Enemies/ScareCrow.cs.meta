@@ -3,7 +3,12 @@ guid: b90b1bbda77f27a4e840dbde5cb754da
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - postDeadDecal: {instanceID: 0}
+  - afterFightLoot: {instanceID: 0}
+  - GrimoirDispethers: {instanceID: 0}
+  - target: {instanceID: 0}
+  - anim: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -84,24 +84,7 @@ public class Sceleton : HellEnemy
     {
         afterDeadEvent?.Invoke();
         // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
-        int cycleCount = Random.Range(0, 3);
-
-        if (cycleCount > lootPrefabs.Count)
-            cycleCount = lootPrefabs.Count;
-        if (target != null)
-        {
-            partController.SecondPartImpulse(transform.position);
-        }
-
-        while (cycleCount > 0)
-        {
-            int number = Random.Range(0, lootPrefabs.Count);
-            Vector3 dir = new Vector3(Random.Range(-0.05f, 0.05f), 2, Random.Range(-0.05f, 0.05f));
-            Instantiate(lootPrefabs[number], transform.position + dir, Quaternion.identity).GetComponent<Rigidbody>()
-                .AddForce(dir, ForceMode.Impulse);
-            lootPrefabs.Remove(lootPrefabs[number]);
-            cycleCount--;
-        }
+        LootSpawn();
 
         // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode >= 1)

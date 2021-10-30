@@ -150,16 +150,13 @@ MonoBehaviour:
   _health: 0
   scoreForWin: 1
   damage: 10
-  lootPrefabs:
-  - {fileID: 4666533275870583201, guid: 862731670a526944c9148ba23f567a33, type: 3}
-  - {fileID: 4666533275870583201, guid: 851fce35a38c5d446af90ca9ef5fc38e, type: 3}
-  - {fileID: 4666533275870583201, guid: 3e676916ae9bcd546bc6c820bc8c3936, type: 3}
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
   basespeed: 1
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
+  GrimoirDispethers: {fileID: 7681071500678770834, guid: 706578cfebf785e4eb96090ca2580342, type: 3}
   state: 0
   target: {fileID: 0}
   attackDistance: 5
