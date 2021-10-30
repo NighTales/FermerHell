@@ -9,8 +9,8 @@ public class PlayerBonusStat
     public readonly Dictionary<BonusType, Bonus> bonusPack = new Dictionary<BonusType, Bonus>();
     public readonly Dictionary<BonusType, Bonus> debuffPack = new Dictionary<BonusType, Bonus>();
     public int scoreMultiplicator = 1;
-    public float BuffTime = 10f;
-    public float DebuffTimt = 8f;
+    //public float BuffTime = 10f;
+    //public float DebuffTimt = 8f;
     public Sprite ActiveSlillSprite;
     public static PlayerBonusStat Instant
     {

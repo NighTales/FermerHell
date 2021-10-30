@@ -22,7 +22,7 @@ public class HellEnemy : Enemy
         }
     }
 
-    public void Init(GameObject target)
+    public virtual void Init(GameObject target)
     {
         this.target = target;
 

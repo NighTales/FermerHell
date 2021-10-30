@@ -28,9 +28,15 @@ public class Ghost:HellEnemy
     {
         yield return new WaitForSeconds(0);
        // target.GetComponent<Buff>().Timer();
-       mother.GhostDeadReactor();
+       //mother.GhostDeadReactor();
        Action();
        Death();
+    }
+
+    public override void Death()
+    {
+        mother.GhostDeadReactor();
+        base.Death();
     }
     public void Action()
     {

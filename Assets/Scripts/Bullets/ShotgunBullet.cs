@@ -33,11 +33,11 @@ public class ShotgunBullet : Bullet //снаряд, который не удал
                 Messenger.Broadcast(GameEvent.HIT);
             }
         }
-        else if (hit.collider.CompareTag("InteractiveBox"))
-        {
-            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
-            Messenger.Broadcast(GameEvent.HIT);
-        }
+        //else if (hit.collider.CompareTag("InteractiveBox"))
+        //{
+        //    hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
+        //    Messenger.Broadcast(GameEvent.HIT);
+        //}
         else
         {
             GameObject obj = Instantiate(decal);

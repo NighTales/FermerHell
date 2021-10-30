@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 749622913}
   - component: {fileID: 749622912}
   - component: {fileID: 749622914}
+  - component: {fileID: 5664980536933320542}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,12 +70,17 @@ MonoBehaviour:
   lootPrefabs: []
   postDeadDecal: {fileID: 9154290992608687346, guid: aefb0889637ee224b96f8d96c164a257, type: 3}
   afterFightLoot: {fileID: 0}
+  basespeed: 0
+  afterDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   state: 0
   target: {fileID: 0}
   attackDistance: 4
   visionDistance: 25
   anim: {fileID: 1619423097616341385}
-  speed: 5
+  type: 0
+  value: 2
 --- !u!195 &749622914
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -97,6 +103,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &5664980536933320542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619423098861307262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34, y: 0.71, z: 0.38}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &1619423097616341385
 Animator:
   serializedVersion: 3
@@ -136,6 +155,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1619423098861307263}
     m_Modifications:
+    - target: {fileID: -8748500816587418335, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -180,6 +203,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8283360417625750647, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -7649705689561756607, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -2850006117626238006, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7070889
@@ -212,9 +243,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ae0e79e89083f9d44ac1ae685b56ca69, type: 2}
+    - target: {fileID: 830911116285109332, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_Name
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136378299260099347, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4092619439050126711, guid: d402abf4e38911645a5468a0360f97f5, type: 3}
       propertyPath: m_LocalPosition.x

@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour //уничтожается при перво
     public virtual void MoveBullet()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
-        if(Physics.Linecast(pos, transform.position, out RaycastHit hit , ignoreMask))
+        if(Physics.Linecast(pos, transform.position, out RaycastHit hit , ~ignoreMask))
         {
             Hit(hit);
         }
@@ -51,11 +51,15 @@ public class Bullet : MonoBehaviour //уничтожается при перво
 
     private void ReactFool(RaycastHit hit)
     {
-        GameObject obj = Instantiate(decal);
-        obj.transform.position = hit.point;
-        obj.transform.forward = hit.normal;
-        obj.GetComponent<Decal>().Init(1);
-        obj.transform.parent = hit.collider.transform;
+        if(decal != null)
+        {
+            GameObject obj = Instantiate(decal);
+            obj.transform.position = hit.point;
+            obj.transform.forward = hit.normal;
+            obj.GetComponent<Decal>().Init(1);
+            obj.transform.parent = hit.collider.transform;
+        }
+      
 
         if (hit.collider.CompareTag("Enemy"))
         {
@@ -75,11 +79,11 @@ public class Bullet : MonoBehaviour //уничтожается при перво
                 Messenger.Broadcast(GameEvent.HIT);
             }
         }
-        else if (hit.collider.CompareTag("InteractiveBox"))
-        {
-            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
-                Messenger.Broadcast(GameEvent.HIT);
-        }
+        //else if (hit.collider.CompareTag("InteractiveBox"))
+        //{
+        //    hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
+        //        Messenger.Broadcast(GameEvent.HIT);
+        //}
 
         Destroy(gameObject);
     }
@@ -99,18 +103,21 @@ public class Bullet : MonoBehaviour //уничтожается при перво
                 Messenger.Broadcast(GameEvent.HIT);
             }
         }
-        else if (hit.collider.CompareTag("InteractiveBox"))
+        //else if (hit.collider.CompareTag("InteractiveBox"))
+        //{
+        //    hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
+        //    Messenger.Broadcast(GameEvent.HIT);
+        //}
+
+
+        if (decal != null)
         {
-            hit.collider.GetComponent<TargetForDestroyObject>().DeadAction();
-            Messenger.Broadcast(GameEvent.HIT);
+            GameObject obj = Instantiate(decal);
+            obj.transform.position = hit.point;
+            obj.transform.forward = hit.normal;
+            obj.GetComponent<Decal>().Init(1);
+            obj.transform.parent = hit.collider.transform;
         }
-
-        GameObject obj = Instantiate(decal);
-        obj.transform.position = hit.point;
-        obj.transform.forward = hit.normal;
-        obj.GetComponent<Decal>().Init(1);
-        obj.transform.parent = hit.collider.transform;
-
         Destroy(gameObject);
     }
 }
