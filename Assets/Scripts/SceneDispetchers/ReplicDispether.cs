@@ -64,6 +64,40 @@ public class ReplicDispether : MonoBehaviour
             }
             StartCoroutine(CheckReplicas(0));
         }
+
+        if (Input.GetKeyDown(KeyCode.P) && bufer != null)
+        {
+            SkipAllReplicas();
+        }
+    }
+
+
+    private void SkipAllReplicas()
+    {
+        StopAllCoroutines();
+        opportunityToSkip = false;
+        source.Stop();
+        mouseLock.ReturnView();
+        inputMove.SetDialogueState(false);
+        mouseLock.SetDialogueState(false);
+        skipImage.enabled = false;
+        opportunityToSkip = false;
+        replicText.text = string.Empty;
+        replicPanel.SetActive(false);
+        blackGrimoirAnim.SetBool("Talk", false);
+        while (bufer != null)
+        {
+            bufer?.afterReplicaAction?.Invoke();
+            if(replicas.Count > 0)
+            {
+                bufer = replicas[0];
+                replicas.RemoveAt(0);
+            }
+            else
+            {
+                bufer = null;
+            }
+        }
     }
 
     public void ClearList()
