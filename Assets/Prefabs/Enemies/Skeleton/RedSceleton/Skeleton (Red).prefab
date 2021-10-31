@@ -339,7 +339,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 87009a8582771b84abdefabe69541f53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3542,7 +3542,6 @@ MonoBehaviour:
   suicideHealth: 100
   suicidespeed: 5
   suicideTimer: 7
-  elapsedTimeAfterSuicideMode: 2
 --- !u!114 &8564668739038073942
 MonoBehaviour:
   m_ObjectHideFlags: 0

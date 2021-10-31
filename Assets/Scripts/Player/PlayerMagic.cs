@@ -22,7 +22,6 @@ public class PlayerMagic : MonoBehaviour
     PlayerBonusStat playerStatInstant = PlayerBonusStat.Instant;
     private bool inMenu = false;
     private Vector3 dir;
-    private bool isStarted = false;
 
     void Awake()
     {
@@ -113,6 +112,9 @@ public class PlayerMagic : MonoBehaviour
         if (rGBCharge.ColorCount > 0 && refresh)
         {
             rGBCharge.ClearColors();
+
+            targetMark.SetActive(false);
+            StartCoroutine(Shoot());
         }
     }
     public void UseMagic()
