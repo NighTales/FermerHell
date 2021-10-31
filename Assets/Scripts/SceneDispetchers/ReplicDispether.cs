@@ -37,6 +37,21 @@ public class ReplicDispether : MonoBehaviour
         opportunityToSkip = false;
     }
 
+    public void StopallReplicas()
+    {
+        StopAllCoroutines();
+        bufer = null;
+        mouseLock.ReturnView();
+        inputMove.SetDialogueState(false);
+        mouseLock.SetDialogueState(false);
+        skipImage.enabled = false;
+        opportunityToSkip = false;
+        replicText.CrossFadeAlpha(0, 0.5f, true);
+        replicText.text = string.Empty;
+        replicPanel.SetActive(false);
+        blackGrimoirAnim.SetBool("Talk", false);
+    }
+
     private void Update()
     {
         if(opportunityToSkip && Input.GetKeyDown(KeyCode.Space))
