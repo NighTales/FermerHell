@@ -67,7 +67,7 @@ public class UIScript : MonoBehaviour
         DisableAllSprintEffects();
         ClearAllStatEffect();
         ClearColorPower();
-        if (pausePanel.activeSelf)
+        if (menuPanel.activeSelf)
         {
             MenuPanelToggle_ButtonClick();
         }
@@ -223,7 +223,6 @@ public class UIScript : MonoBehaviour
         skillImage.enabled = true;
         skillImage.sprite = PlayerStatInstant.ActiveSlillSprite;
         useSkillHint.SetActive(true);
-        Debug.Log("UI ReadyMagic");
     }
 
     public void RestartScene_ButtonClick()

@@ -19,7 +19,7 @@ public class Sceleton : HellEnemy
     [SerializeField, Tooltip("Таймер для взрыва"), Range(1, 10)]
     protected float suicideTimer = 5;
 
-    [SerializeField] protected float elapsedTimeAfterSuicideMode = 0f;
+    protected float elapsedTimeAfterSuicideMode = 0f;
 
 
     public override void GetDamage(int damage)
@@ -80,7 +80,10 @@ public class Sceleton : HellEnemy
         afterDeadEvent?.Invoke();
         // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         LootSpawn();
-
+        if (target != null)
+        {
+            partController.SecondPartImpulse(transform.position);
+        }
         // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode >= 1)
         {

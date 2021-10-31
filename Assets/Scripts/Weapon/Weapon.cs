@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour, IDialogueActor
 {
     public AmmoPack pack;
     public GameObject bullet;
@@ -25,6 +25,7 @@ public abstract class Weapon : MonoBehaviour
     private bool opportunityToFight;
     private bool inMenu;
     private bool inMagicShoot;
+    private bool inDialogue;
 
     void Awake()
     {
@@ -50,10 +51,9 @@ public abstract class Weapon : MonoBehaviour
         lookPoint = point;
     }
 
-
     private void Update()
     {
-        if(!inMenu && ! inMagicShoot)
+        if(!inMenu && ! inMagicShoot && !inDialogue)
         {
             if (lookPoint != null)
             {
@@ -101,6 +101,11 @@ public abstract class Weapon : MonoBehaviour
     {
         inMagicShoot = shoot;
 
+    }
+
+    public void SetDialogueState(bool inDialogueState)
+    {
+        inDialogue = inDialogueState;
     }
 }
 

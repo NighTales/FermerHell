@@ -2470,6 +2470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f9c4a231f0ec448a954835935a59b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuffTime: 10
+  DebuffTime: 8
 --- !u!114 &4747516307001813615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2498,7 +2500,7 @@ MonoBehaviour:
       blue: 3
     Self: 0
     Radius: 10
-    SkillObject: {fileID: 7121036947954333256, guid: 93ae083756fee334187983a19a4d7414, type: 3}
+    SkillObject: {fileID: 2404781639464112023, guid: 72e3990bee8488443975d949f52aad50, type: 3}
     Sprite1: {fileID: 21300000, guid: 16be463864c227d448ea5d5fa093987e, type: 3}
     upmyltiplier: 0
   - rGBCharge:
@@ -2543,7 +2545,7 @@ MonoBehaviour:
       blue: 2
     Self: 0
     Radius: 5
-    SkillObject: {fileID: 8312985200269544475, guid: 6950064705bba4f46b5e630c307a7a56, type: 3}
+    SkillObject: {fileID: 5930515632186318338, guid: 5a97770e4edb3444283d2928f37ee311, type: 3}
     Sprite1: {fileID: 21300000, guid: 423c2d66b1ad30744862111287f9a992, type: 3}
     upmyltiplier: 0
   - rGBCharge:
