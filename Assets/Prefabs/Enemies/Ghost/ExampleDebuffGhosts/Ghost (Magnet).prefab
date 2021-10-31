@@ -73,15 +73,14 @@ MonoBehaviour:
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  GrimoirDispethers: {fileID: 7681071500678770834, guid: 706578cfebf785e4eb96090ca2580342, type: 3}
   state: 0
   target: {fileID: 0}
   attackDistance: 4
   visionDistance: 25
   anim: {fileID: 1314269575558938277}
-  DeadDelaySec: 1
+  DeadDelaySec: 0
   type: 4
-  value: 2
+  value: 80
 --- !u!195 &307477933601681838
 NavMeshAgent:
   m_ObjectHideFlags: 0

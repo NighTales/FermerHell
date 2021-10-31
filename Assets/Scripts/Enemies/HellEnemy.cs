@@ -175,7 +175,7 @@ public class HellEnemy : Enemy
             anim.SetTrigger("GetDamage");
         }
     }
-    [Range(1f,10f)] public float DeadDelaySec = 1f;
+    [Range(0f,10f)] public float DeadDelaySec = 1f;
     public override void Death()
     {
         anim.SetTrigger("Dead");
