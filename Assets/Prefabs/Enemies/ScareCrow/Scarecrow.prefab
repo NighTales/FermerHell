@@ -383,7 +383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1413720039771584758
 Transform:
   m_ObjectHideFlags: 0
@@ -473,7 +473,6 @@ MonoBehaviour:
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  GrimoirDispethers: {fileID: 7681071500678770834, guid: 706578cfebf785e4eb96090ca2580342, type: 3}
   state: 0
   target: {fileID: 0}
   attackDistance: 2

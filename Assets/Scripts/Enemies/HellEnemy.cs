@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class HellEnemy : Enemy
     protected NavMeshAgent agent;
     protected PhysicsPartController partController;
     protected bool stunned = true;
+    protected NavMeshPath path;
     #region Initialization
 
     private void Awake()
@@ -25,7 +27,7 @@ public class HellEnemy : Enemy
     public virtual void Init(GameObject target)
     {
         this.target = target;
-
+        path = new NavMeshPath();
         agent.destination = target.transform.position;
         agent.isStopped = true;
     }
@@ -111,6 +113,7 @@ public class HellEnemy : Enemy
 
     }
 
+
     protected virtual void Move()
     {
         agent.isStopped = false;
@@ -128,8 +131,9 @@ public class HellEnemy : Enemy
             else
             {
                 anim.SetBool("Walk", true);
-
-                agent.destination = target.transform.position;
+                var position = target.transform.position;
+                agent.CalculatePath(position, path);
+                agent.path = path;
             }
         }
         else if (!agent.isStopped)

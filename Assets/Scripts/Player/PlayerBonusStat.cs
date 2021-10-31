@@ -24,6 +24,7 @@ public class PlayerBonusStat
             return instant;
         }
     }
+
     private static PlayerBonusStat instant;
     private PlayerBonusStat() {  }
 
@@ -38,14 +39,16 @@ public class PlayerBonusStat
             this.time = time;
         }
     }
-    private void Init()
+    public void ReCreate()
     {
+        bonusPack.Clear();
         bonusPack.Add(BonusType.Jump, new Bonus(0, 0));
         bonusPack.Add(BonusType.Speed, new Bonus(0, 0));
         bonusPack.Add(BonusType.DOT, new Bonus(0, 0));
         bonusPack.Add(BonusType.Resist, new Bonus(0, 0));
         bonusPack.Add(BonusType.Magnet, new Bonus(0, 0));
 
+        debuffPack.Clear();
         debuffPack.Add(BonusType.Jump, new Bonus(0, 0));
         debuffPack.Add(BonusType.Speed, new Bonus(0, 0));
         debuffPack.Add(BonusType.DOT, new Bonus(0, 0));
@@ -56,6 +59,10 @@ public class PlayerBonusStat
         bonusPack.Add(BonusType.Damage, new Bonus(0, 0));
         bonusPack.Add(BonusType.Area, new Bonus(0, 0));
         bonusPack.Add(BonusType.FireRate, new Bonus(0, 0));
+    }
+    private void Init()
+    {
+        ReCreate();
 
         Messenger<int>.AddListener(GameEvent.SET_R_BONUS, SetRBonus);
         Messenger<int>.AddListener(GameEvent.SET_G_BONUS, SetGBonus);

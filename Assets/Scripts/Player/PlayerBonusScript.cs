@@ -42,21 +42,24 @@ public class PlayerBonusScript : MonoBehaviour
     //    Messenger<int>.AddListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
     //}
 
-    //private void OnDestroy()
-    //{
-    //    Messenger<int>.RemoveListener(GameEvent.Set_BONUS_JUMP, actions[0]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_BONUS_SPEED, actions[1]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_BONUS_RESIST, actions[2]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_BONUS_DOT, actions[3]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_BONUS_MUGNET, actions[4]);
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+
+        playerBonus.ReCreate();
+        //Messenger<int>.RemoveListener(GameEvent.Set_BONUS_JUMP, actions[0]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_BONUS_SPEED, actions[1]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_BONUS_RESIST, actions[2]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_BONUS_DOT, actions[3]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_BONUS_MUGNET, actions[4]);
 
 
-    //    Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_JUMP, actions[5]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_SPEED, actions[6]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_RESIST, actions[7]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_DOT, actions[8]);
-    //    Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
-    //}
+        //Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_JUMP, actions[5]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_SPEED, actions[6]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_RESIST, actions[7]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_DOT, actions[8]);
+        //Messenger<int>.RemoveListener(GameEvent.Set_DEBUFF_MUGNET, actions[9]);
+    }
     // Update is called once per frame
     void Update()
     {
