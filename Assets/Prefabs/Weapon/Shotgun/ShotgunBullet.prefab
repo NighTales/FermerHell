@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5544057724171498240}
   - component: {fileID: 5544057724157343300}
   - component: {fileID: 5544057724157366244}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TrailsBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4814,7 +4814,7 @@ GameObject:
   - component: {fileID: 5544057724171498244}
   - component: {fileID: 5544057724157343320}
   - component: {fileID: 5544057724157366264}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9609,7 +9609,7 @@ GameObject:
   - component: {fileID: 5544057724171498246}
   - component: {fileID: 5544057724157343322}
   - component: {fileID: 5544057724157366266}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trail Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14299,7 +14299,7 @@ GameObject:
   - component: {fileID: 5544057724171498258}
   - component: {fileID: 5544057724157343314}
   - component: {fileID: 5544057724157366258}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19029,7 +19029,7 @@ GameObject:
   - component: {fileID: 7023517349153984059}
   - component: {fileID: 2909705785425066416}
   - component: {fileID: 8695263165366645503}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19111,7 +19111,7 @@ GameObject:
   - component: {fileID: 2242828481380428302}
   - component: {fileID: 5989293077565989782}
   - component: {fileID: 2780168291307166767}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShotgunBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}

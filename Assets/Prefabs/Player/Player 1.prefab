@@ -1783,7 +1783,7 @@ MonoBehaviour:
   shootPoint: {fileID: 8396015940401287704}
   ignoreMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 62
   source: {fileID: 8396015941141189202}
   shoot: {fileID: 8300000, guid: f644087a28da014458c35e870b192f14, type: 3}
   reload: {fileID: 8300000, guid: 657c4f7d3f19c89469e52e3e00ac05a2, type: 3}

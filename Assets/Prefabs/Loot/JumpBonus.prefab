@@ -65,6 +65,7 @@ MonoBehaviour:
   deleted: 1
   magnetDistance: 3
   target: {fileID: 0}
+  deletedTime: 120
   type: 1
   value: 40
 --- !u!1001 &7561063683091093622
@@ -129,6 +130,10 @@ PrefabInstance:
     - target: {fileID: 1417765301750604419, guid: 4b0a1c70a39a1d34dafc759782931e47, type: 3}
       propertyPath: m_Name
       value: boost_jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417765301750604419, guid: 4b0a1c70a39a1d34dafc759782931e47, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b0a1c70a39a1d34dafc759782931e47, type: 3}
