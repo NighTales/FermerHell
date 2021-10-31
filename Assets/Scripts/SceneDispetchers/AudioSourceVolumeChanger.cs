@@ -62,10 +62,10 @@ public class AudioSourceVolumeChanger : MonoBehaviour
                 source.volume = PlayerPrefs.GetFloat("Sounds", 0.25f);
                 break;
             case AudioSourceChangerType.Music:
-                source.volume = PlayerPrefs.GetFloat("Music", 0.3f);
+                source.volume = PlayerPrefs.GetFloat("Music", 0.25f);
                 break;
             case AudioSourceChangerType.Voice:
-                source.volume = PlayerPrefs.GetFloat("Voices", 1);
+                source.volume = PlayerPrefs.GetFloat("Voices", 0.25f);
                 break;
             default:
                 break;

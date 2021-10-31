@@ -22,7 +22,6 @@ public class PlayerMagic : MonoBehaviour
     PlayerBonusStat playerStatInstant = PlayerBonusStat.Instant;
     private bool inMenu = false;
     private Vector3 dir;
-    private bool isStarted = false;
 
     void Awake()
     {
@@ -87,13 +86,6 @@ public class PlayerMagic : MonoBehaviour
             {
                 playerStatInstant.ActiveSlillSprite = skill.Sprite1;
                 Messenger.Broadcast(GameEvent.READY_TO_MAGIC);
-                Debug.Log("ReadyMagic Broadcast");
-                Debug.Log("R: " + rGBCharge.red + " G: " + rGBCharge.green + " B: " + rGBCharge.blue);
-            }
-            else
-            {
-                Debug.Log("ReadyMagic skill 404 NorFound:");
-                Debug.Log("R: " + rGBCharge .red+ " G: "+ rGBCharge.green + " B: "+ rGBCharge.blue);
             }
         }
     }
@@ -113,6 +105,9 @@ public class PlayerMagic : MonoBehaviour
         if (rGBCharge.ColorCount > 0 && refresh)
         {
             rGBCharge.ClearColors();
+
+            targetMark.SetActive(false);
+            StartCoroutine(Shoot());
         }
     }
     public void UseMagic()

@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3181653166041214811}
   - component: {fileID: 7213816396498021152}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: growing_vine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3181653166202507926}
   - component: {fileID: 3181653166202507927}
   - component: {fileID: 3181653166202507924}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: growing_ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,6 +259,10 @@ PrefabInstance:
     - target: {fileID: 2583596142544934517, guid: 225c09f40664c0c46ac4ea06440610cd, type: 3}
       propertyPath: m_Name
       value: Trigger Slow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583596142544934517, guid: 225c09f40664c0c46ac4ea06440610cd, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3116858386566678105, guid: 225c09f40664c0c46ac4ea06440610cd, type: 3}
       propertyPath: m_Radius
@@ -394,6 +398,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
       propertyPath: m_Name
       value: Vine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8cc969b73a3d0a4096c4386f627ffa2, type: 3}
