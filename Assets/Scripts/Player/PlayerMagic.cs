@@ -13,7 +13,8 @@ public class PlayerMagic : MonoBehaviour
     public LayerMask ignoreRaycast;
     public List<Skill> Skills = new List<Skill>(10);
     [SerializeField]private GameObject targetMark;
-    
+    [SerializeField] private AudioSource source;
+
     private Skill skill;
     private bool rightClickOn = false;
     private bool rightClickUp = false;
@@ -170,7 +171,9 @@ public class PlayerMagic : MonoBehaviour
                         Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation).GetComponent<SkillLogic>().Init(skill.Radius,this.transform);
                         
                     }
-                    }
+
+                    source.PlayOneShot(skill.sound);
+                }
                 else
                 {
                     // if (gameObject.TryGetComponent(out PlayerBonusScript playerBonus))
@@ -232,6 +235,8 @@ public class Skill
     //public List<Effect> effects = new List<Effect>();
     public Sprite Sprite1;
     public float upmyltiplier;
+
+    public AudioClip sound;
 
     [Serializable]
     public class Effect 
