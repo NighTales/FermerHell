@@ -12,8 +12,9 @@ public class PlayerMagic : MonoBehaviour
     [Range(100f, 500f)] public float maxDistance = 300;
     public LayerMask ignoreRaycast;
     public List<Skill> Skills = new List<Skill>(10);
-    [SerializeField]private GameObject targetMark;
-    
+    [SerializeField] private GameObject targetMark;
+    [SerializeField] private AudioSource source;
+
     private Skill skill;
     private bool rightClickOn = false;
     private bool rightClickUp = false;
@@ -22,6 +23,7 @@ public class PlayerMagic : MonoBehaviour
     PlayerBonusStat playerStatInstant = PlayerBonusStat.Instant;
     private bool inMenu = false;
     private Vector3 dir;
+    private bool isStarted = false;
 
     void Awake()
     {
@@ -82,10 +84,17 @@ public class PlayerMagic : MonoBehaviour
         if (rGBCharge.ColorCount >= 3)
         {
             skill = Skills.Where(s => s.rGBCharge.Equals(rGBCharge)).First();
-            if(skill != null)
+            if (skill != null)
             {
                 playerStatInstant.ActiveSlillSprite = skill.Sprite1;
                 Messenger.Broadcast(GameEvent.READY_TO_MAGIC);
+                Debug.Log("ReadyMagic Broadcast");
+                Debug.Log("R: " + rGBCharge.red + " G: " + rGBCharge.green + " B: " + rGBCharge.blue);
+            }
+            else
+            {
+                Debug.Log("ReadyMagic skill 404 NorFound:");
+                Debug.Log("R: " + rGBCharge.red + " G: " + rGBCharge.green + " B: " + rGBCharge.blue);
             }
         }
     }
@@ -105,14 +114,11 @@ public class PlayerMagic : MonoBehaviour
         if (rGBCharge.ColorCount > 0 && refresh)
         {
             rGBCharge.ClearColors();
-
-            targetMark.SetActive(false);
-            StartCoroutine(Shoot());
         }
     }
     public void UseMagic()
     {
-        if (rGBCharge.ColorCount >= 3 && (rightClickOn|| targetMark.activeSelf ))
+        if (rGBCharge.ColorCount >= 3 && (rightClickOn || targetMark.activeSelf))
         {
             Vector3 target = Vector3.zero;
             //isStarted = true;
@@ -121,7 +127,7 @@ public class PlayerMagic : MonoBehaviour
             {
                 if (!targetMark.activeSelf)
                 {
-                    targetMark.transform.localScale =new Vector3( skill.Radius*2,skill.Radius*2,0.25f);
+                    targetMark.transform.localScale = new Vector3(skill.Radius * 2, skill.Radius * 2, 0.25f);
                     //targetMark.gameObject.GetComponent<CapsuleCollider>
                     targetMark.SetActive(true);
                     Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, true);
@@ -134,17 +140,17 @@ public class PlayerMagic : MonoBehaviour
                     maxDistance,
                     ~ignoreRaycast))
                 {
-                    targetMark.transform.position = hitInfo.point+Vector3.up*0.25f;
+                    targetMark.transform.position = hitInfo.point + Vector3.up * 0.25f;
 
                     if (rightClickUp)
                     {
-                        target = hitInfo.point ;
+                        target = hitInfo.point;
                     }
                 }
             }
             else
             {
-                target = transform.position + Vector3.up*skill.upmyltiplier;
+                target = transform.position + Vector3.up * skill.upmyltiplier;
             }
 
 
@@ -152,20 +158,22 @@ public class PlayerMagic : MonoBehaviour
             {
                 if (skill.Radius > 0)
                 {
-                    
+
                     if (skill.Self)
                     {
-                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation,this.transform).GetComponent<SkillLogic>().Init(skill.Radius,this.transform);
-                        
+                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation, this.transform).GetComponent<SkillLogic>().Init(skill.Radius, this.transform);
+
 
                     }
                     else
                     {
                         //skill.SkillObject.transform.localScale =new Vector3( skill.Radius,skill.Radius,skill.Radius);
-                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation).GetComponent<SkillLogic>().Init(skill.Radius,this.transform);
-                        
+                        Instantiate(skill.SkillObject, target, skill.SkillObject.transform.rotation).GetComponent<SkillLogic>().Init(skill.Radius, this.transform);
+
                     }
-                    }
+
+                    source.PlayOneShot(skill.sound);
+                }
                 else
                 {
                     // if (gameObject.TryGetComponent(out PlayerBonusScript playerBonus))
@@ -177,7 +185,7 @@ public class PlayerMagic : MonoBehaviour
                 }
 
                 rGBCharge.ClearColors();
-                
+
                 targetMark.SetActive(false);
                 StartCoroutine(Shoot());
             }
@@ -187,7 +195,7 @@ public class PlayerMagic : MonoBehaviour
     private IEnumerator Shoot()
     {
         yield return new WaitForSeconds(1);
-                Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, false);
+        Messenger<bool>.Broadcast(GameEvent.MAGIC_SHOOT, false);
     }
     public void AddColor(Color color)
     {
@@ -219,7 +227,7 @@ public class Skill
 {
     public RGBCharge rGBCharge = new RGBCharge(0, 0, 0);
     public bool Self = false;
-   // public GameObject ParticleEffect;
+    // public GameObject ParticleEffect;
     [Range(0f, 10f)] public float Radius = 5f;
     //[Range(1f, 60f)] public float TimeSec = 20f;
     //[Range(0, 500)] public int Damage = 20;
@@ -228,8 +236,10 @@ public class Skill
     public Sprite Sprite1;
     public float upmyltiplier;
 
+    public AudioClip sound;
+
     [Serializable]
-    public class Effect 
+    public class Effect
     {
         public BonusType bonusType = BonusType.DOT;
         [Range(1, 50)] public int power = 5;

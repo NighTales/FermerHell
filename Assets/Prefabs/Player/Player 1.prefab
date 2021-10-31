@@ -1737,7 +1737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8396015940296513088
 Transform:
   m_ObjectHideFlags: 0
@@ -2380,6 +2380,7 @@ MonoBehaviour:
     SkillObject: {fileID: 2404781639464112023, guid: 72e3990bee8488443975d949f52aad50, type: 3}
     Sprite1: {fileID: 21300000, guid: 16be463864c227d448ea5d5fa093987e, type: 3}
     upmyltiplier: 0
+    sound: {fileID: 8300000, guid: 4671893ea88ded446829f4612bc37172, type: 3}
   - rGBCharge:
       red: 0
       green: 2
@@ -2389,6 +2390,7 @@ MonoBehaviour:
     SkillObject: {fileID: 2186698900911750310, guid: be40207a93c901b4e82e0a3e165674d0, type: 3}
     Sprite1: {fileID: 21300000, guid: 020ab0fe7dbf1064a9b6698d0d5be936, type: 3}
     upmyltiplier: 2
+    sound: {fileID: 8300000, guid: 9d5d997c8248d7741903a186578e6423, type: 3}
   - rGBCharge:
       red: 0
       green: 1
@@ -2398,6 +2400,7 @@ MonoBehaviour:
     SkillObject: {fileID: 8334146320019559753, guid: 41d8d7f9ee332dc4cadbb52d0d97b2e8, type: 3}
     Sprite1: {fileID: 21300000, guid: d14c972519a1bfd4d89208dec53e06ab, type: 3}
     upmyltiplier: 0
+    sound: {fileID: 8300000, guid: 713cbb28ca28f8b4496824466e2f7cc5, type: 3}
   - rGBCharge:
       red: 0
       green: 3
@@ -2407,6 +2410,7 @@ MonoBehaviour:
     SkillObject: {fileID: 3181653166041214808, guid: 1d49c0930158a5d4181db5362b328e30, type: 3}
     Sprite1: {fileID: 21300000, guid: 7fb42f80d673f69478d27ce2a0789dd6, type: 3}
     upmyltiplier: 0
+    sound: {fileID: 8300000, guid: e0c70fc77d714d6429cdb9d3bb00cb27, type: 3}
   - rGBCharge:
       red: 2
       green: 1
@@ -2416,6 +2420,7 @@ MonoBehaviour:
     SkillObject: {fileID: 490151761044381491, guid: aec3d3bdae7b7804db7253c9d701274b, type: 3}
     Sprite1: {fileID: 21300000, guid: 795552300334b6b4d93f86a9dc20a073, type: 3}
     upmyltiplier: 0
+    sound: {fileID: 8300000, guid: 5c2347c68cd846245a5e15cc9e00c7a9, type: 3}
   - rGBCharge:
       red: 1
       green: 0
@@ -2425,6 +2430,7 @@ MonoBehaviour:
     SkillObject: {fileID: 5930515632186318338, guid: 5a97770e4edb3444283d2928f37ee311, type: 3}
     Sprite1: {fileID: 21300000, guid: 423c2d66b1ad30744862111287f9a992, type: 3}
     upmyltiplier: 0
+    sound: {fileID: 8300000, guid: 1f89f08797b58c34ca102b166d4cb8d3, type: 3}
   - rGBCharge:
       red: 1
       green: 1
@@ -2434,6 +2440,7 @@ MonoBehaviour:
     SkillObject: {fileID: 8072637978671573588, guid: c8a58a985939cca49b9a4bf3c24cde27, type: 3}
     Sprite1: {fileID: 21300000, guid: 2fc0041b8f21afd4981d7f6026b580ba, type: 3}
     upmyltiplier: 1.5
+    sound: {fileID: 8300000, guid: 81c49d00f69fa7a488e6af9fb01317a9, type: 3}
   - rGBCharge:
       red: 1
       green: 2
@@ -2443,6 +2450,7 @@ MonoBehaviour:
     SkillObject: {fileID: 7555757273410971419, guid: 8e04d9d9201dc8748845e437cb5cbd70, type: 3}
     Sprite1: {fileID: 21300000, guid: e18ca9fdf6fa8d04a9436b1f9f41004a, type: 3}
     upmyltiplier: 0
+    sound: {fileID: 8300000, guid: f67cc4679b04d644b8fbdbe6940334b7, type: 3}
   - rGBCharge:
       red: 2
       green: 0
@@ -2452,6 +2460,7 @@ MonoBehaviour:
     SkillObject: {fileID: 9203959996409887882, guid: d22e0db1f55d0bc4a8b5a8bffcb35e82, type: 3}
     Sprite1: {fileID: 21300000, guid: 865d4a0842800664f95d2842f3393994, type: 3}
     upmyltiplier: 0
+    sound: {fileID: 8300000, guid: ce0375bc7240c4049833d03c349337b8, type: 3}
   - rGBCharge:
       red: 3
       green: 0
@@ -2461,7 +2470,9 @@ MonoBehaviour:
     SkillObject: {fileID: 4763240675493431770, guid: 7d337032552b82d4c9a2d238552cdba5, type: 3}
     Sprite1: {fileID: 21300000, guid: b03a2d340bca4464399003274346c736, type: 3}
     upmyltiplier: 2
+    sound: {fileID: 8300000, guid: e62ba23d982dcfb42ba32174c73e7ef4, type: 3}
   targetMark: {fileID: 204381674374265307, guid: 24678419f1835dc4f9235cf565d0ecf5, type: 3}
+  source: {fileID: 8396015941545340336}
 --- !u!114 &485918938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,7 +2745,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -2971,7 +2982,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 10
   field of view: 60
   orthographic: 0
