@@ -80,7 +80,10 @@ public class Sceleton : HellEnemy
         afterDeadEvent?.Invoke();
         // Messenger<int>.Broadcast(GameEvent.ENEMY_HIT, scoreForWin);
         LootSpawn();
-
+        if (target != null)
+        {
+            partController.SecondPartImpulse(transform.position);
+        }
         // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode >= 1)
         {
