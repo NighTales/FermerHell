@@ -2348,7 +2348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuffTime: 10
-  DebuffTime: 8
+  DebuffTime: 30
 --- !u!114 &4747516307001813615
 MonoBehaviour:
   m_ObjectHideFlags: 0
