@@ -19,7 +19,7 @@ public class Sceleton : HellEnemy
     [SerializeField, Tooltip("Таймер для взрыва"), Range(1, 10)]
     protected float suicideTimer = 5;
 
-   [SerializeField] protected float elapsedTimeAfterSuicideMode = 0f;
+    protected float elapsedTimeAfterSuicideMode = 0f;
 
 
     public override void GetDamage(int damage) 

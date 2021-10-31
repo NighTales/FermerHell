@@ -3542,7 +3542,7 @@ MonoBehaviour:
   suicideHealth: 100
   suicidespeed: 5
   suicideTimer: 6
-  elapsedTimeAfterSuicideMode: 2
+  elapsedTimeAfterSuicideMode: 0
 --- !u!114 &8564668739038073942
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,7 +26,6 @@ public class Mourner : HellEnemy
         if (deadGhostsCount == 4 && !stunned && isReadyForAttack)
         {
             isReadyForAttack = false;
-            deadGhostsCount = 0;
             Attack();
         }
         base.Update();
@@ -133,6 +132,7 @@ public class Mourner : HellEnemy
         Instantiate(ghosts[2], transform.position + Vector3.right*2, transform.rotation).Init(target,this);
         Instantiate(ghosts[3], transform.position + Vector3.back*2, transform.rotation).Init(target,this);
         ghosts.Clear();
+        deadGhostsCount = 0;
         yield return new WaitForSeconds(readyTime);
         isReadyForAttack = true;
     }
