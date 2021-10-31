@@ -156,7 +156,6 @@ MonoBehaviour:
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  GrimoirDispethers: {fileID: 7681071500678770834, guid: 706578cfebf785e4eb96090ca2580342, type: 3}
   state: 0
   target: {fileID: 0}
   attackDistance: 5
@@ -175,7 +174,8 @@ MonoBehaviour:
   iddleDistance: 0.5
   finded: 0
   isReadyForAttack: 1
-  readyTime: 4
+  readyTime: 20
+  inprocessing: 0
 --- !u!114 &6586090510289767804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5042879014450664361}
   - component: {fileID: 5042879014450664360}
-  - component: {fileID: 317937382470326130}
+  - component: {fileID: 1258613878}
   m_Layer: 0
   m_Name: PersAnimOrigin
   m_TagString: Enemy
@@ -278,7 +278,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &317937382470326130
+--- !u!114 &1258613878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,10 +287,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5042879014450664362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6891f8fef77734eb7fffb182926176, type: 3}
+  m_Script: {fileID: 11500000, guid: aac2b3536ea9c6f46ab1ae73136fa4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hellEnemy: {fileID: 2145505337527260912}
+  _hellEnemyMourner: {fileID: 2145505337527260912}
 --- !u!1001 &5042879014022707868
 PrefabInstance:
   m_ObjectHideFlags: 0

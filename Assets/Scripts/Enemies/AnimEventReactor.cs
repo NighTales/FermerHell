@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class AnimEventReactor : MonoBehaviour
 {
-    [SerializeField]private HellEnemy _hellEnemy;
+    [SerializeField] protected HellEnemy _hellEnemy;
 
     public void StartStun()
     {

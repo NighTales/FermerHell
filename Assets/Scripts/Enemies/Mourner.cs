@@ -12,7 +12,8 @@ public class Mourner : HellEnemy
    [SerializeField]private float iddleDistance = 0.5f;
    [SerializeField]  private bool finded = false;
     [SerializeField]  private bool isReadyForAttack = true;
-   [SerializeField, Tooltip("перезарядка призыва"), Range(1, 10)]private float readyTime = 4;
+   [SerializeField, Tooltip("перезарядка призыва"), Range(1, 100)]private float readyTime = 4;
+   [SerializeField]  private bool inprocessing = false;
     public override void  Init(GameObject target)
     {
         
@@ -52,6 +53,10 @@ public class Mourner : HellEnemy
         }
     }
 
+    public void Process(bool processing)
+    {
+        this.inprocessing = processing;
+    }
 
     public void FindTarget()
     {
@@ -75,7 +80,20 @@ public class Mourner : HellEnemy
             }
         }
     }
-
+    public override void GetDamage(int damage)
+    {
+        Messenger.Broadcast(GameEvent.HIT);
+        if (Health > 0)
+        {
+            Health -= damage;
+            if (!inprocessing)
+            {
+             
+                anim.SetInteger("Damage", damage);
+                anim.SetTrigger("GetDamage");   
+            }
+        }
+    }
     protected override void Move()
     {
         agent.isStopped = false;
