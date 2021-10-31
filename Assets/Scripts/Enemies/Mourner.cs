@@ -113,10 +113,7 @@ public class Mourner : HellEnemy
                 {
                     FindTarget();
                     anim.SetBool("Walk", true);
-                   
-                    var position = target.transform.position;
-                    agent.CalculatePath(position, path);
-                    agent.path = path;
+                    agent.destination = buffTarget;
                 }
             }
         }
