@@ -5896,7 +5896,7 @@ MonoBehaviour:
   damage: 10
   postDeadDecal: {fileID: 6394758626496931138, guid: 7e86df9d2e1dfff43aad7cdccde4d45e, type: 3}
   afterFightLoot: {fileID: 0}
-  basespeed: 0
+  basespeed: 1
   afterDeadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5909,7 +5909,6 @@ MonoBehaviour:
   suicideHealth: 50
   suicidespeed: 5
   suicideTimer: 4
-  elapsedTimeAfterSuicideMode: 0
 --- !u!114 &4458947559125477310
 MonoBehaviour:
   m_ObjectHideFlags: 0

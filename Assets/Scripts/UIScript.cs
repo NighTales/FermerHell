@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIScript : MonoBehaviour
 {
     [SerializeField] private GameObject hitMarker;
+    [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject taskPanel;
     [SerializeField] private List<GameObject> sprintCells;
@@ -66,7 +67,7 @@ public class UIScript : MonoBehaviour
         DisableAllSprintEffects();
         ClearAllStatEffect();
         ClearColorPower();
-        if (pausePanel.activeSelf)
+        if (menuPanel.activeSelf)
         {
             MenuPanelToggle_ButtonClick();
         }
@@ -222,7 +223,6 @@ public class UIScript : MonoBehaviour
         skillImage.enabled = true;
         skillImage.sprite = PlayerStatInstant.ActiveSlillSprite;
         useSkillHint.SetActive(true);
-        Debug.Log("UI ReadyMagic");
     }
 
     public void RestartScene_ButtonClick()
@@ -279,7 +279,8 @@ public class UIScript : MonoBehaviour
     }
     public void MenuPanelToggle_ButtonClick()
     {
-        bool inMenu = !pausePanel.activeSelf;
+        bool inMenu = !menuPanel.activeSelf;
+        menuPanel.SetActive(inMenu);
         pausePanel.SetActive(inMenu);
         Cursor.visible = inMenu;
         Cursor.lockState = inMenu ? CursorLockMode.None : CursorLockMode.Locked;

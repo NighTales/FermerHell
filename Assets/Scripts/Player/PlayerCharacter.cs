@@ -168,6 +168,11 @@ public class PlayerCharacter : AliveController
             {
                 OnTakeDamageFromDirection(other.transform.position);
                 GetDamage(zone.damage);
+                if(gameObject.TryGetComponent(out CharacterController characterController))
+                {
+                    Vector3 dir = (other.transform.position - transform.position).normalized + Vector3.up;
+                    characterController.Move(dir.normalized * zone.force);
+                }
             }
         }
         else if (other.CompareTag("DamageZone"))
