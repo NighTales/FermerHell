@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Модуль, который может активировать другие модули
+/// РњРѕРґСѓР»СЊ, РєРѕС‚РѕСЂС‹Р№ РјРѕР¶РµС‚ Р°РєС‚РёРІРёСЂРѕРІР°С‚СЊ РґСЂСѓРіРёРµ РјРѕРґСѓР»Рё
 /// </summary>
 public abstract class LogicActor : LogicModule
 {
-    [Header("Эктор")]
-    [Tooltip("Объекты, у которых будет вызываться метод USE()")]
+    [Header("Р­РєС‚РѕСЂ")]
+    [Tooltip("РћР±СЉРµРєС‚С‹, Сѓ РєРѕС‚РѕСЂС‹С… Р±СѓРґРµС‚ РІС‹Р·С‹РІР°С‚СЊСЃСЏ РјРµС‚РѕРґ USE()")]
     public List<LogicModule> nextModules;
 
     private void Awake()
@@ -24,7 +24,7 @@ public abstract class LogicActor : LogicModule
     }
 
     /// <summary>
-    /// Передать сигнал всем следующим модулям
+    /// РџРµСЂРµРґР°С‚СЊ СЃРёРіРЅР°Р» РІСЃРµРј СЃР»РµРґСѓСЋС‰РёРј РјРѕРґСѓР»СЏРј
     /// </summary>
     protected void ActivateAllNextModules()
     {
@@ -36,13 +36,13 @@ public abstract class LogicActor : LogicModule
             }
             else
             {
-                Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :" + gameObject.name);
+                Debug.LogError("Р­Р»РµРјРµРЅС‚ " + i + " СЂР°РІРµРЅ null. Р’РµСЂРѕСЏС‚РЅРѕ, Р±С‹Р»Р° СѓС‚РµСЂСЏРЅР° СЃСЃС‹Р»РєР°. РСЃС‚РѕС‡РЅРёРє :" + gameObject.name);
             }
         }
     }
 
     /// <summary>
-    /// Вернуть все модули в исходное состояние
+    /// Р’РµСЂРЅСѓС‚СЊ РІСЃРµ РјРѕРґСѓР»Рё РІ РёСЃС…РѕРґРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ
     /// </summary>
     protected void AllNextModulesToDefaultState()
     {
@@ -54,7 +54,7 @@ public abstract class LogicActor : LogicModule
             }
             else
             {
-                Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :" + gameObject.name);
+                Debug.LogError("Р­Р»РµРјРµРЅС‚ " + i + " СЂР°РІРµРЅ null. Р’РµСЂРѕСЏС‚РЅРѕ, Р±С‹Р»Р° СѓС‚РµСЂСЏРЅР° СЃСЃС‹Р»РєР°. РСЃС‚РѕС‡РЅРёРє :" + gameObject.name);
             }
         }
     }

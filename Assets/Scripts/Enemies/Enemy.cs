@@ -205,12 +205,13 @@ public abstract class Enemy : AliveController
         if (buffeeds[BonusType.Speed] == 0)
         {
             speed = basespeed;
+            OnSpeedChangeAction(1);
         }
         else
         {
             speed = basespeed - (basespeed * (float)value / 100);
+            OnSpeedChangeAction(speed / actionvalue);
         }
-        OnSpeedChangeAction(speed / actionvalue);
     }
 
     protected virtual void OnSpeedChangeAction(float value)

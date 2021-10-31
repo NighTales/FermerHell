@@ -22,14 +22,21 @@ public class InteractiveArea : LogicActor
     [ContextMenu("Активировать модуль")]
     public override void ActivateModule()
     {
-        ActivateAllNextModules();
-        used = !used;
         if (once)
         {
-            DeleteMeFromActors();
-            Destroy(gameObject, 3);
+            if (!used)
+            {
+                ActivateAllNextModules();
+                DeleteMeFromActors();
+                Destroy(gameObject, 3);
+            }
 //            gameObject.SetActive(false);
         }
+        else
+        {
+            ActivateAllNextModules();
+        }
+        used = true;
     }
 
     public override void ReturnToDefaultState()
