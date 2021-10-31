@@ -21,17 +21,14 @@ public class GrimoirDispethers : MonoBehaviour
     public void ActivateRedGrimoir()
     {
         Instant.LootList.Add(R_Charge);
-        Debug.Log("ActivateRedGrimoir");
     }
     public void ActivateBlueGrimoir()
     {
         Instant.LootList.Add(B_Charge);
-        Debug.Log("ActivateBlueGrimoir");
     }
     public void ActivateGreenGrimoir()
     {
         Instant.LootList.Add(G_Charge);
-        Debug.Log("ActivateGreenGrimoir");
     }
 }
 [Serializable]

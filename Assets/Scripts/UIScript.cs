@@ -58,6 +58,11 @@ public class UIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        musicVolumeSlider.value = PlayerPrefs.GetFloat("Music",0.25f);
+        soundsVolumeSlider.value = PlayerPrefs.GetFloat("Sounds", 0.25f);
+        voiceVolumeSlider.value = PlayerPrefs.GetFloat("Voices", 0.25f);
+
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         //MenuPanelToggle_ButtonClick();
@@ -334,12 +339,10 @@ public class UIScript : MonoBehaviour
         if (value > 0)
         {
             AddStatEffect(bonusType);
-            Debug.Log("OnSetBonus " + bonusType + " AddStatEffect");
         }
         else
         {
             RemoveStatEffect(bonusType);
-            Debug.Log("OnSetBonus " + bonusType + " RemoveStatEffect");
         }
     }
 
@@ -348,12 +351,10 @@ public class UIScript : MonoBehaviour
         if (value > 0)
         {
             AddStatDebuff(bonusType);
-            Debug.Log("OnSetDebuff " + bonusType + "  AddStatDebuff");
         }
         else
         {
             RemoveStatDebuff(bonusType);
-            Debug.Log("OnSetDebuff " + bonusType + "  RemoveStatDebuff");
         }
     }
     private void AddStatEffect(BonusType bonusType)

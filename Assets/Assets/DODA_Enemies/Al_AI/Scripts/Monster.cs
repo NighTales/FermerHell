@@ -80,7 +80,6 @@ namespace Al_AI.Scripts
                         if (Alarm)
                         {
                             FindPlayers();
-                            Debug.Log(target.name);
                             Alarm = false;
                         }
                         else if (distanceTP <= RadiusView && distanceTP > attackDistance)

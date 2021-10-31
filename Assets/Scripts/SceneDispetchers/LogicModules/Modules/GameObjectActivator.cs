@@ -52,10 +52,6 @@ public class GameObjectActivator : LogicModule
                 targets[i].targetGO.SetActive(targets[i].targetState);
                 targets[i].targetState = !targets[i].targetState;
             }
-            else
-            {
-                Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :" + gameObject.name);
-            }
         }
     }
     private void OnDrawGizmos()
@@ -78,10 +74,6 @@ public class GameObjectActivator : LogicModule
                         Gizmos.color = Color.red;
                     }
                     Gizmos.DrawLine(transform.position, targets[i].targetGO.transform.position);
-                }
-                else
-                {
-                    Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :" + gameObject.name);
                 }
             }
         }

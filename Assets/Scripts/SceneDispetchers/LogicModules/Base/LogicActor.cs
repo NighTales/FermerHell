@@ -34,10 +34,6 @@ public abstract class LogicActor : LogicModule
             {
                 nextModules[i].ActivateModule();
             }
-            else
-            {
-                Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :" + gameObject.name);
-            }
         }
     }
 
@@ -51,10 +47,6 @@ public abstract class LogicActor : LogicModule
             if (nextModules[i] != null)
             {
                 nextModules[i].ReturnToDefaultState();
-            }
-            else
-            {
-                Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :" + gameObject.name);
             }
         }
     }

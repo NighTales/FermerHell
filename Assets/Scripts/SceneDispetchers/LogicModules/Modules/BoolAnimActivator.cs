@@ -49,11 +49,6 @@ public class BoolAnimActivator : LogicModule
             {
                 animObjects[i].SetBool(paramterName, value);
             }
-            else
-            {
-                Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :"
-                    + gameObject.name);
-            }
         }
     }
 
@@ -68,11 +63,6 @@ public class BoolAnimActivator : LogicModule
                 if (animObjects[i] != null)
                 {
                     Gizmos.DrawLine(transform.position, animObjects[i].transform.position);
-                }
-                else
-                {
-                    Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :"
-                        + gameObject.name);
                 }
             }
         }

@@ -36,7 +36,6 @@ public class MouseLock : MonoBehaviour, IDialogueActor
     void Start() {
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null) body.freezeRotation = true;
-        if (viewObject == null) Debug.LogError("Не передана камера!");
         if(debug)
         {
             lookPoint = GameObject.CreatePrimitive(PrimitiveType.Sphere).transform;
