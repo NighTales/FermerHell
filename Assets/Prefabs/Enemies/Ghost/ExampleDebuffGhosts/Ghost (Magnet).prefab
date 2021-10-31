@@ -80,7 +80,7 @@ MonoBehaviour:
   anim: {fileID: 1314269575558938277}
   DeadDelaySec: 0
   type: 4
-  value: 2
+  value: 80
 --- !u!195 &307477933601681838
 NavMeshAgent:
   m_ObjectHideFlags: 0
