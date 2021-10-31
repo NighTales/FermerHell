@@ -16,6 +16,7 @@ public class ReplicDispether : MonoBehaviour
     [SerializeField] private InputMove inputMove;
     [SerializeField] private MouseLock mouseLock;
     [SerializeField] private ReplicaRole blackGrimoirRole;
+    [SerializeField] private Weapon weapon;
     [SerializeField] private Animator blackGrimoirAnim;
 
     private List<ReplicItem> replicas;
@@ -44,6 +45,7 @@ public class ReplicDispether : MonoBehaviour
         mouseLock.ReturnView();
         inputMove.SetDialogueState(false);
         mouseLock.SetDialogueState(false);
+        weapon.SetDialogueState(false);
         skipImage.enabled = false;
         opportunityToSkip = false;
         replicText.CrossFadeAlpha(0, 0.5f, true);
@@ -80,6 +82,7 @@ public class ReplicDispether : MonoBehaviour
         mouseLock.ReturnView();
         inputMove.SetDialogueState(false);
         mouseLock.SetDialogueState(false);
+        weapon.SetDialogueState(false);
         skipImage.enabled = false;
         opportunityToSkip = false;
         replicText.text = string.Empty;
@@ -128,6 +131,7 @@ public class ReplicDispether : MonoBehaviour
             mouseLock.ReturnView();
             inputMove.SetDialogueState(false);
             mouseLock.SetDialogueState(false);
+            weapon.SetDialogueState(false);
             skipImage.enabled = false;
             opportunityToSkip = false;
             replicText.CrossFadeAlpha(0, 0.5f, true);
@@ -147,6 +151,7 @@ public class ReplicDispether : MonoBehaviour
             {
                 inputMove.SetDialogueState(true);
                 mouseLock.SetDialogueState(true);
+                weapon.SetDialogueState(true);
                 mouseLock.SmoothLookToTarget(replicas[0].playerTarget);
                 skipImage.enabled = true;
                 opportunityToSkip = true;
