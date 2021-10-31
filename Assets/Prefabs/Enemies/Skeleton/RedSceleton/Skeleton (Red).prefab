@@ -3541,7 +3541,7 @@ MonoBehaviour:
   DeadDelaySec: 1
   suicideHealth: 100
   suicidespeed: 5
-  suicideTimer: 7
+  suicideTimer: 6
   elapsedTimeAfterSuicideMode: 2
 --- !u!114 &8564668739038073942
 MonoBehaviour:

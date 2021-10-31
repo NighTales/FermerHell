@@ -19,18 +19,18 @@ public class Sceleton : HellEnemy
     [SerializeField, Tooltip("Таймер для взрыва"), Range(1, 10)]
     protected float suicideTimer = 5;
 
-    [SerializeField] protected float elapsedTimeAfterSuicideMode = 0f;
+   [SerializeField] protected float elapsedTimeAfterSuicideMode = 0f;
 
 
-    public override void GetDamage(int damage)
+    public override void GetDamage(int damage) 
     {
         Messenger.Broadcast(GameEvent.HIT);
-        if (Health > 0)
+        if(Health > 0)
         {
             Health -= damage;
-
-
-
+            
+            
+            
             if (Health > suicideHealth)
             {
                 anim.SetInteger("Damage", damage);
@@ -41,7 +41,7 @@ public class Sceleton : HellEnemy
                 if (!suicideKey && !anim.GetBool("WithoutLegs")) //полузатратно
                 {
                     anim.SetBool("WithoutLegs", true);
-
+                 
 
                     if (target != null)
                     {
@@ -59,7 +59,7 @@ public class Sceleton : HellEnemy
         {
             elapsedTimeAfterSuicideMode += Time.deltaTime;
         }
-
+        
     }
     #region StateMethods
 
@@ -86,7 +86,8 @@ public class Sceleton : HellEnemy
         {
             GameObject deadDecal = Instantiate(postDeadDecal, transform.position, Quaternion.identity);
             deadDecal.GetComponent<Decal>().Init(1);
-            deadDecal.GetComponent<ExplosionZone>().ChangeRange(2 * attackDistance, damage + 2 * elapsedTimeAfterSuicideMode);
+            deadDecal.GetComponent<ExplosionZone>().ChangeRange(2 * attackDistance,
+                damage * elapsedTimeAfterSuicideMode);
             var mainModule = deadDecal.GetComponent<ParticleSystem>().main;
             mainModule.startSize = new ParticleSystem.MinMaxCurve(elapsedTimeAfterSuicideMode * attackDistance,
                 elapsedTimeAfterSuicideMode * attackDistance);
@@ -101,12 +102,12 @@ public class Sceleton : HellEnemy
     public override IEnumerator SpecialMove()
     {
         suicideKey = true;
-
+        
         basespeed = suicidespeed;
         speed = suicidespeed;
         OnTakeDebuffSpeed(slowvalue);
         yield return new WaitForSeconds(suicideTimer);
-        Death();
+        Death(); 
     }
 
     #endregion

@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class UIScript : MonoBehaviour
 {
     [SerializeField] private GameObject hitMarker;
-    [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject taskPanel;
     [SerializeField] private List<GameObject> sprintCells;
@@ -280,8 +279,7 @@ public class UIScript : MonoBehaviour
     }
     public void MenuPanelToggle_ButtonClick()
     {
-        bool inMenu = !menuPanel.activeSelf;
-        menuPanel.SetActive(inMenu);
+        bool inMenu = !pausePanel.activeSelf;
         pausePanel.SetActive(inMenu);
         Cursor.visible = inMenu;
         Cursor.lockState = inMenu ? CursorLockMode.None : CursorLockMode.Locked;

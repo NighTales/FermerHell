@@ -1156,8 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitMarker: {fileID: 4745869949816519091}
-  menuPanel: {fileID: 6520234059326140813}
-  pausePanel: {fileID: 3307093157251308608}
+  pausePanel: {fileID: 6520234059326140813}
   taskPanel: {fileID: 30532386869026310}
   sprintCells:
   - {fileID: 2990228883631777881}
