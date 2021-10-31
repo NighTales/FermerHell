@@ -4878,7 +4878,7 @@ GameObject:
   - component: {fileID: 1031309158112271599}
   m_Layer: 0
   m_Name: ex[plosion
-  m_TagString: AllFire
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

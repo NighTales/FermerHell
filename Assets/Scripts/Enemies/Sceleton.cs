@@ -22,7 +22,7 @@ public class Sceleton : HellEnemy
    [SerializeField] protected float elapsedTimeAfterSuicideMode = 0f;
 
 
-    public override void GetDamage(int damage) //че за хуйня блять? 
+    public override void GetDamage(int damage) 
     {
         Messenger.Broadcast(GameEvent.HIT);
         if(Health > 0)
@@ -38,11 +38,6 @@ public class Sceleton : HellEnemy
             }
             else
             {
-                
-                //false false
-                //true false
-                //false true
-                //true true
                 if (!suicideKey && !anim.GetBool("WithoutLegs")) //полузатратно
                 {
                     anim.SetBool("WithoutLegs", true);
@@ -73,7 +68,7 @@ public class Sceleton : HellEnemy
         base.Attack();
         if (suicideKey)
         {
-            elapsedTimeAfterSuicideMode = 5;
+            elapsedTimeAfterSuicideMode = suicideTimer;
             Death();
         }
     }
@@ -89,7 +84,6 @@ public class Sceleton : HellEnemy
         // Messenger.Broadcast(GameEvent.ENEMY_DEAD);
         if (suicideKey && elapsedTimeAfterSuicideMode >= 1)
         {
-            postDeadDecal.tag = "AllFire";
             GameObject deadDecal = Instantiate(postDeadDecal, transform.position, Quaternion.identity);
             deadDecal.GetComponent<Decal>().Init(1);
             deadDecal.GetComponent<ExplosionZone>().ChangeRange(elapsedTimeAfterSuicideMode * attackDistance,
@@ -113,7 +107,7 @@ public class Sceleton : HellEnemy
         speed = suicidespeed;
         OnTakeDebuffSpeed(slowvalue);
         yield return new WaitForSeconds(suicideTimer);
-        Death(); //Health-=100;
+        Death(); 
     }
 
     #endregion
